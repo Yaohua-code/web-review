@@ -1,0 +1,3232 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-30T06:39:21.782Z",
+  "count": 358,
+  "counts": {
+    "single": 119,
+    "blank": 119,
+    "judge": 120
+  },
+  "questions": [
+    {
+      "id": 1,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目的核心启动类注解是（）",
+      "options": [
+        "@SpringBootApplication",
+        "@EnableWebMvc",
+        "@ComponentScan",
+        "@Configuration"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 2,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot默认的内嵌Web服务器是（）",
+      "options": [
+        "Jetty",
+        "Tomcat",
+        "Undertow",
+        "Nginx"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 3,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot核心特性“自动配置”的核心注解是（）",
+      "options": [
+        "@AutoConfig",
+        "@Configuration",
+        "@EnableAutoConfiguration",
+        "@ConditionalOnClass"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 4,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目默认的配置文件后缀不包括（）",
+      "options": [
+        "properties",
+        "yml",
+        "yaml",
+        "xml"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 5,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot修改项目默认端口号，优先使用的配置文件是（）",
+      "options": [
+        "bootstrap.yml",
+        "application.properties",
+        "server.xml",
+        "web.xml"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 6,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "下列注解中，用于将类声明为配置类的是（）",
+      "options": [
+        "@Configuration",
+        "@Controller",
+        "@Service",
+        "@Repository"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 7,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中@Bean注解的作用是（）",
+      "options": [
+        "扫描包路径",
+        "开启自动配置",
+        "手动注册Bean到容器",
+        "开启事务管理"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 8,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目默认启动端口是（）",
+      "options": [
+        "80",
+        "8080",
+        "8888",
+        "9090"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 9,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "下列不属于@SpringBootApplication整合的注解是（）",
+      "options": [
+        "@Configuration",
+        "@EnableAutoConfiguration",
+        "@ComponentScan",
+        "@Transactional"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 10,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中用于接收前端路径参数的注解是（）",
+      "options": [
+        "@PathVariable",
+        "@RequestParam",
+        "@RequestBody",
+        "@Param"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 11,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中接收前端JSON格式请求体数据的注解是（）",
+      "options": [
+        "@PathVariable",
+        "@RequestParam",
+        "@RequestBody",
+        "@ResponseBody"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 12,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot全局统一返回JSON格式数据的注解是（）",
+      "options": [
+        "@Controller",
+        "@RestController",
+        "@Service",
+        "@ResponseBody"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 13,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目日志默认输出级别是（）",
+      "options": [
+        "DEBUG",
+        "TRACE",
+        "INFO",
+        "ERROR"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 14,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot实现属性配置文件值注入的注解是（）",
+      "options": [
+        "@Value",
+        "@Inject",
+        "@Resource",
+        "@Autowired"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 15,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中实现依赖注入，默认优先根据类型注入的注解是（）",
+      "options": [
+        "@Resource",
+        "@Autowired",
+        "@Value",
+        "@Bean"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 16,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "下列关于SpringBoot自动配置说法错误的是（）",
+      "options": [
+        "基于Maven依赖实现自动适配配置",
+        "无需手动编写XML配置文件",
+        "支持用户自定义配置覆盖默认配置",
+        "自动配置后无法修改参数"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 17,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot整合MyBatis必备的启动依赖是（）",
+      "options": [
+        "spring-boot-starter-web",
+        "spring-boot-starter-test",
+        "spring-boot-starter-mybatis",
+        "spring-boot-starter-logging"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 18,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中开启事务管理的注解是（）",
+      "options": [
+        "@Transactional",
+        "@EnableTransaction",
+        "@Transaction",
+        "@EnableDbTransaction"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 19,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目全局异常处理的核心注解是（）",
+      "options": [
+        "@Controller",
+        "@RestControllerAdvice",
+        "@GlobalException",
+        "@ExceptionCatch"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 20,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中配置静态资源放行，默认静态资源目录不包括（）",
+      "options": [
+        "/static",
+        "/public",
+        "/resources",
+        "/upload"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 21,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot启动器starter的核心作用是（）",
+      "options": [
+        "整合依赖和自动配置，简化开发",
+        "仅提供项目测试依赖",
+        "专门用于日志输出",
+        "优化项目启动速度"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 22,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中用于映射GET请求的注解是（）",
+      "options": [
+        "@PostMapping",
+        "@GetMapping",
+        "@PutMapping",
+        "@DeleteMapping"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 23,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot修改日志输出文件路径的配置属性是（）",
+      "options": [
+        "server.path",
+        "logging.level",
+        "logging.file.path",
+        "log.path"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 24,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目打包后默认的文件格式是（）",
+      "options": [
+        "jar",
+        "war",
+        "zip",
+        "tar"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 25,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "下列注解中，用于业务层组件注册的是（）",
+      "options": [
+        "@Controller",
+        "@Service",
+        "@Repository",
+        "@Configuration"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 26,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中条件注解@ConditionalOnClass的作用是（）",
+      "options": [
+        "条件判断配置文件是否存在",
+        "条件判断端口是否可用",
+        "条件判断项目是否启动成功",
+        "类路径存在指定类时生效配置"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 27,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot整合Redis的核心启动依赖是（）",
+      "options": [
+        "spring-boot-starter-data-redis",
+        "spring-boot-starter-cache",
+        "spring-boot-starter-mongodb",
+        "spring-boot-starter-es"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 28,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中@Cacheable注解的主要作用是（）",
+      "options": [
+        "清空缓存数据",
+        "更新缓存数据",
+        "查询并缓存数据",
+        "开启缓存配置"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 29,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目关闭自动配置的注解属性是（）",
+      "options": [
+        "remove",
+        "exclude",
+        "delete",
+        "cancel"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 30,
+      "type": "single",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot测试类的核心注解是（）",
+      "options": [
+        "@SpringBootTest",
+        "@Test",
+        "@JunitTest",
+        "@UnitTest"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 31,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis 是什么类型的框架（）",
+      "options": [
+        "业务层框架",
+        "持久层框架",
+        "控制层框架",
+        "缓存框架"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 32,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid 是由哪家公司开源的数据库连接池（）",
+      "options": [
+        "阿里巴巴",
+        "腾讯",
+        "百度",
+        "字节跳动"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 33,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis 核心配置文件的默认后缀是（）",
+      "options": [
+        "yml",
+        "properties",
+        "xml",
+        "java"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 34,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "下列不属于Druid连接池核心优势的是（）",
+      "options": [
+        "支持SQL性能监控",
+        "防SQL注入攻击",
+        "连接池高效稳定",
+        "自动生成数据库表"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 35,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis 中用于执行SQL语句，操作数据库的核心对象是（）",
+      "options": [
+        "SqlSessionFactory",
+        "SqlSession",
+        "Mapper",
+        "Configuration"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 36,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "SpringBoot整合Druid必须引入的核心依赖是（）",
+      "options": [
+        "druid-spring-boot-starter",
+        "mybatis-spring-boot-starter",
+        "spring-boot-starter-jdbc",
+        "mysql-connector-java"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 37,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中SqlSessionFactory的主要作用是（）",
+      "options": [
+        "直接执行数据库SQL",
+        "定义数据库映射规则",
+        "生产SqlSession操作对象",
+        "管理数据库事务"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 38,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid配置中，initial-size参数的含义是（）",
+      "options": [
+        "最大连接数",
+        "初始化连接数",
+        "最小空闲连接数",
+        "连接超时时间"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 39,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis映射文件中，用于编写查询语句的标签是（）",
+      "options": [
+        "<select>",
+        "<query>",
+        "<find>",
+        "<search>"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 40,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池max-active参数的作用是（）",
+      "options": [
+        "最大空闲连接数",
+        "最大等待时间",
+        "最大活跃连接数",
+        "最大缓存连接数"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 41,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis默认的事务提交方式是（）",
+      "options": [
+        "自动提交",
+        "手动提交",
+        "定时提交",
+        "异常自动提交"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 42,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "下列不属于主流数据库连接池的是（）",
+      "options": [
+        "Druid",
+        "HikariCP",
+        "C3P0",
+        "MyBatis"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 43,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于实现动态SQL判断非空的标签是（）",
+      "options": [
+        "<if>",
+        "<else>",
+        "<switch>",
+        "<for>"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 44,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid监控页面默认的访问路径是（）",
+      "options": [
+        "/monitor",
+        "/druid",
+        "/sql",
+        "/pool"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 45,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于批量遍历参数的动态SQL标签是（）",
+      "options": [
+        "<loop>",
+        "<each>",
+        "<foreach>",
+        "<cycle>"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 46,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "数据库连接池的核心目的是（）",
+      "options": [
+        "复用连接，提升访问效率",
+        "简化SQL编写",
+        "加密数据库数据",
+        "自动备份数据库"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 47,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis一级缓存的作用范围是（）",
+      "options": [
+        "全局级别",
+        "SqlSession级别",
+        "Mapper级别",
+        "项目级别"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 48,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid中min-idle参数的含义是（）",
+      "options": [
+        "最大空闲连接数",
+        "初始化连接数",
+        "最小空闲连接数",
+        "连接存活时间"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 49,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis二级缓存默认的开启状态是（）",
+      "options": [
+        "全局开启",
+        "部分开启",
+        "仅测试环境开启",
+        "默认关闭"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 50,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "下列哪项是Druid独有的特性（）",
+      "options": [
+        "SQL防注入监控",
+        "连接复用",
+        "超时回收连接",
+        "初始化连接"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 51,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中@Select注解的作用是（）",
+      "options": [
+        "开启事务",
+        "定义查询SQL语句",
+        "开启缓存",
+        "映射实体类"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 52,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池test-on-borrow参数的作用是（）",
+      "options": [
+        "测试连接池初始化",
+        "测试连接销毁",
+        "获取连接时校验有效性",
+        "测试SQL执行效率"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 53,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中resultType属性的作用是（）",
+      "options": [
+        "指定查询结果封装类型",
+        "指定SQL返回字段",
+        "指定数据库表名",
+        "指定映射文件路径"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 54,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "目前SpringBoot默认集成的数据库连接池是（）",
+      "options": [
+        "Druid",
+        "C3P0",
+        "Tomcat-JDBC",
+        "HikariCP"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 55,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于解决数据库字段与实体类属性名不一致的配置是（）",
+      "options": [
+        "<mapper>",
+        "<resultMap>",
+        "<property>",
+        "<column>"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 56,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid配置中max-wait参数的含义是（）",
+      "options": [
+        "连接最大存活时间",
+        "连接最大空闲时间",
+        "获取连接最大等待时间",
+        "SQL执行超时时间"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 57,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中#{ }和${ }的主要区别是（）",
+      "options": [
+        "#{ }防SQL注入，${ }存在注入风险",
+        "无任何区别",
+        "${ }防SQL注入，#{ }有风险",
+        "#{ }支持动态SQL，${ }不支持"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 58,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "SpringBoot整合MyBatis必须配置的核心注解是（）",
+      "options": [
+        "@ComponentScan",
+        "@MapperScan",
+        "@EnableWebMvc",
+        "@Transactional"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 59,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池的SQL监控功能无法查看的信息是（）",
+      "options": [
+        "SQL执行耗时",
+        "SQL执行次数",
+        "并发连接数量",
+        "数据库明文密码"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 60,
+      "type": "single",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中<where>标签的主要作用是（）",
+      "options": [
+        "自动处理where条件，去除多余and/or",
+        "强制拼接where关键字",
+        "限定查询条件数量",
+        "优化SQL查询效率"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 61,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON的数据类型不包括以下哪种（）",
+      "options": [
+        "布尔值",
+        "数组",
+        "对象",
+        "日期"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 62,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity框架的核心作用是（）",
+      "options": [
+        "认证与授权，保障项目安全",
+        "数据持久化操作",
+        "接口参数校验",
+        "实现事务管理"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 63,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT的完整英文全称是（）",
+      "options": [
+        "Java Web Token",
+        "JSON Web Token",
+        "JavaScript Web Token",
+        "JSON Web Transport"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 64,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "标准JSON格式中，键名的书写规范是（）",
+      "options": [
+        "单引号包裹",
+        "无需引号包裹",
+        "双引号包裹",
+        "可随意书写"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 65,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT令牌的组成结构包含几个部分（）",
+      "options": [
+        "2部分",
+        "3部分",
+        "4部分",
+        "5部分"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 66,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中用户登录认证的核心接口是（）",
+      "options": [
+        "LoginService",
+        "SecurityService",
+        "AuthService",
+        "UserDetailsService"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 67,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "下列关于JSON格式说法错误的是（）",
+      "options": [
+        "JSON支持单行注释",
+        "JSON键名必须双引号包裹",
+        "JSON可嵌套对象和数组",
+        "JSON数值无需引号包裹"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 68,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT中存储用户自定义信息的部分是（）",
+      "options": [
+        "头部Header",
+        "签名Signature",
+        "载荷Payload",
+        "尾部End"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 69,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity默认的登录接口地址是（）",
+      "options": [
+        "/sign",
+        "/login",
+        "/auth",
+        "/user/login"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 70,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT签名的主要作用是（）",
+      "options": [
+        "加密用户隐私数据",
+        "缩短令牌长度",
+        "延长令牌过期时间",
+        "防止令牌内容被篡改"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 71,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中开启Web安全注解的核心注解是（）",
+      "options": [
+        "@EnableWebSecurity",
+        "@EnableSecurity",
+        "@WebSecurity",
+        "@SecurityCore"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 72,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "下列工具类常用于Java实现JSON与对象互转的是（）",
+      "options": [
+        "StringUtil",
+        "FileUtil",
+        "Jackson",
+        "DateUtil"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 73,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT令牌默认的传输编码格式是（）",
+      "options": [
+        "MD5",
+        "Base64",
+        "AES",
+        "RSA"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 74,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中用于放行匿名访问接口的方法是（）",
+      "options": [
+        "permitAll()",
+        "denyAll()",
+        "authenticated()",
+        "anonymous()"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 75,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "以下不属于JWT标准声明的是（）",
+      "options": [
+        "exp（过期时间）",
+        "iss（签发者）",
+        "sub（主题）",
+        "userName（用户名）"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 76,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON数组的正确书写格式是（）",
+      "options": [
+        "{1,2,3}",
+        "[1,2,3]",
+        "(1,2,3)",
+        "<1,2,3>"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 77,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中denyAll()方法的作用是（）",
+      "options": [
+        "仅拒绝匿名用户",
+        "仅拒绝登录用户",
+        "拒绝所有用户访问",
+        "放行所有用户"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 78,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT令牌过期时间对应的标准字段是（）",
+      "options": [
+        "exp",
+        "time",
+        "end",
+        "limit"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 79,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "下列关于SpringSecurity认证流程说法正确的是（）",
+      "options": [
+        "先授权后认证",
+        "先认证后授权",
+        "认证授权同时执行",
+        "无需认证直接授权"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 80,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON格式中null值的正确写法是（）",
+      "options": [
+        "\"null\"",
+        "NULL",
+        "null",
+        "Null"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 81,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT无法实现的功能是（）",
+      "options": [
+        "身份认证校验",
+        "传递用户信息",
+        "防令牌篡改",
+        "加密存储敏感隐私数据"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 82,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中获取当前登录用户信息的工具类是（）",
+      "options": [
+        "SecurityContextHolder",
+        "UserContext",
+        "SecurityUtil",
+        "LoginHolder"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 83,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringBoot中默认JSON解析依赖来自（）",
+      "options": [
+        "手动引入FastJSON",
+        "web启动器内置Jackson",
+        "mybatis启动器",
+        "security启动器"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 84,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "下列属于SpringSecurity角色权限校验注解的是（）",
+      "options": [
+        "@RequestMapping",
+        "@ResponseBody",
+        "@PreAuthorize",
+        "@Transactional"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 85,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT头部主要存储的信息是（）",
+      "options": [
+        "令牌类型和加密算法",
+        "用户自定义信息",
+        "令牌过期时间",
+        "签发用户信息"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 86,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity默认的密码加密方式是（）",
+      "options": [
+        "MD5",
+        "BCrypt",
+        "SHA256",
+        "明文存储"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 87,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "前后端分离项目中JWT令牌通常存储在请求头的哪个字段（）",
+      "options": [
+        "Token",
+        "Auth",
+        "Authorization",
+        "Jwt"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 88,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "下列场景不适合使用JSON的是（）",
+      "options": [
+        "前后端接口数据传输",
+        "简单配置文件存储",
+        "轻量级数据缓存",
+        "复杂富文本文档排版"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 89,
+      "type": "single",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中authenticated()方法的作用是（）",
+      "options": [
+        "允许匿名访问",
+        "必须登录认证后访问",
+        "拒绝所有访问",
+        "仅管理员可访问"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 90,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3项目推荐的核心编程方式是（）",
+      "options": [
+        "选项式API",
+        "组合式API",
+        "原生JS编程",
+        "jQuery编程"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 91,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中用于创建基本类型响应式数据的API是（）",
+      "options": [
+        "ref",
+        "reactive",
+        "toRef",
+        "computed"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 92,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中setup函数的执行时机是（）",
+      "options": [
+        "组件挂载后",
+        "数据更新后",
+        "组件创建之前",
+        "组件销毁前"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 93,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中用于创建引用类型响应式数据的API是（）",
+      "options": [
+        "ref",
+        "reactive",
+        "watch",
+        "unref"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 94,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3相比Vue2，底层响应式原理发生的核心变化是（）",
+      "options": [
+        "采用DOM监听",
+        "采用事件监听",
+        "基于Object.defineProperty",
+        "基于ES6 Proxy"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 95,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3语法糖setup script的优势不包括（）",
+      "options": [
+        "提升项目运行性能",
+        "无需手动return变量和方法",
+        "自动注册引入的组件",
+        "简化组合式API代码"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 96,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中计算属性的API是（）",
+      "options": [
+        "watch",
+        "watchEffect",
+        "computed",
+        "calculate"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 97,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中ref创建的数据，访问内部值需要通过哪个属性（）",
+      "options": [
+        ".data",
+        ".value",
+        ".key",
+        ".val"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 98,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "下列不属于Vue3新增内置组件的是（）",
+      "options": [
+        "Teleport",
+        "Fragment",
+        "Suspense",
+        "Button"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 99,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中用于监听数据变化的基础监听API是（）",
+      "options": [
+        "watch",
+        "computed",
+        "bind",
+        "listen"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 100,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中Fragment组件的核心作用是（）",
+      "options": [
+        "实现组件异步加载",
+        "支持多根节点模板",
+        "实现DOM节点瞬移",
+        "监听组件加载状态"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 101,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中取消的Vue2生命周期钩子是（）",
+      "options": [
+        "mounted",
+        "beforeCreate",
+        "destroyed",
+        "updated"
+      ],
+      "answer": 2
+    },
+    {
+      "id": 102,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中watchEffect的核心特点是（）",
+      "options": [
+        "需要手动指定监听数据源",
+        "自动追踪依赖，立即执行",
+        "仅监听异步数据",
+        "无法取消监听"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 103,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中toRefs工具函数的作用是（）",
+      "options": [
+        "将响应式对象转为普通对象",
+        "批量解构响应式对象并保留响应式特性",
+        "创建基础类型响应式数据",
+        "清空响应式数据"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 104,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue Router 4.x中实现编程式导航的API是（）",
+      "options": [
+        "router.go()",
+        "router.push()",
+        "router.href()",
+        "router.jump()"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 105,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue路由中实现路由重定向的配置属性是（）",
+      "options": [
+        "redirect",
+        "alias",
+        "path",
+        "component"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 106,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue路由中alias参数的作用是（）",
+      "options": [
+        "路由重定向",
+        "设置路由别名，多路径匹配同一组件",
+        "路由权限拦截",
+        "路由懒加载配置"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 107,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中路由懒加载的主要目的是（）",
+      "options": [
+        "简化代码编写",
+        "减少首屏加载资源，优化页面加载速度",
+        "提升代码可读性",
+        "方便路由管理"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 108,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue Router中全局前置守卫的方法是（）",
+      "options": [
+        "beforeEach",
+        "afterEach",
+        "beforeEnter",
+        "beforeResolve"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 109,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue路由中beforeEnter守卫的作用范围是（）",
+      "options": [
+        "所有路由",
+        "单个路由独享",
+        "路由组件内部",
+        "嵌套路由专属"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 110,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios的核心作用是（）",
+      "options": [
+        "页面路由跳转",
+        "实现前后端异步网络请求",
+        "数据响应式绑定",
+        "组件状态管理"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 111,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios请求中，用于传递JSON请求体数据的配置是（）",
+      "options": [
+        "params",
+        "data",
+        "headers",
+        "config"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 112,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios中params参数的传递方式是（）",
+      "options": [
+        "请求体传递",
+        "URL查询参数拼接",
+        "请求头携带",
+        "Cookie携带"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 113,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中实现组件间父子传值的核心方式是（）",
+      "options": [
+        "props / emit",
+        "localStorage",
+        "pinia",
+        "provide / inject"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 114,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3全局状态管理工具Pinia相较于Vuex的优势不包括（）",
+      "options": [
+        "去除繁琐的mutations",
+        "TypeScript友好",
+        "代码更简洁轻量化",
+        "必须依赖嵌套模块"
+      ],
+      "answer": 3
+    },
+    {
+      "id": 115,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中provide/inject的适用场景是（）",
+      "options": [
+        "父子组件简单传值",
+        "跨多层级组件传值",
+        "全局状态统一管理",
+        "兄弟组件传值"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 116,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios拦截器中，请求拦截器的执行时机是（）",
+      "options": [
+        "接口请求发送之前",
+        "接口响应返回之后",
+        "页面加载完成后",
+        "组件挂载后"
+      ],
+      "answer": 0
+    },
+    {
+      "id": 117,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中v-model双向绑定在自定义组件中需要借助的API是（）",
+      "options": [
+        "ref、reactive",
+        "defineProps、defineEmits",
+        "computed、watch",
+        "provide、inject"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 118,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "解决Vue路由跳转重复报错的配置是（）",
+      "options": [
+        "路由模式修改为history",
+        "捕获路由导航异常",
+        "开启路由懒加载",
+        "配置路由别名"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 119,
+      "type": "single",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue Router中history模式的优势是（）",
+      "options": [
+        "兼容性更好",
+        "地址栏无#号，路由更美观",
+        "无需后端配置",
+        "加载速度更快"
+      ],
+      "answer": 1
+    },
+    {
+      "id": 120,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目的核心启动注解是__________。",
+      "answer": "SpringBootApplication"
+    },
+    {
+      "id": 121,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot默认的全局配置文件后缀有yml和__________。",
+      "answer": "properties"
+    },
+    {
+      "id": 122,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目默认启动的内嵌服务器是__________。",
+      "answer": "Tomcat"
+    },
+    {
+      "id": 123,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot核心特性中，无需手动配置即可初始化组件的机制是__________。",
+      "answer": "自动配置"
+    },
+    {
+      "id": 124,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目默认的访问端口是__________。",
+      "answer": "8080"
+    },
+    {
+      "id": 125,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中用于简化依赖导入、统一版本管理的组件是__________。",
+      "answer": "Starter"
+    },
+    {
+      "id": 126,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中用于将自定义配置与实体类绑定的注解是__________。",
+      "answer": "ConfigurationProperties"
+    },
+    {
+      "id": 127,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中标记配置类的核心注解是__________。",
+      "answer": "Configuration"
+    },
+    {
+      "id": 128,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中用于开启事务管理的注解是__________。",
+      "answer": "EnableTransactionManagement"
+    },
+    {
+      "id": 129,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot实现项目热部署的核心依赖是__________。",
+      "answer": "devtools"
+    },
+    {
+      "id": 130,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中用于注册第三方组件到容器的注解是__________。",
+      "answer": "Bean"
+    },
+    {
+      "id": 131,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目配置文件中，优先级更高的是__________格式。",
+      "answer": "properties"
+    },
+    {
+      "id": 132,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中用于扫描组件的注解自带扫描范围是__________。",
+      "answer": "当前包及子包"
+    },
+    {
+      "id": 133,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中统一处理全局异常的注解是__________。",
+      "answer": "RestControllerAdvice"
+    },
+    {
+      "id": 134,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中开启WebMvc自定义配置的注解是__________。",
+      "answer": "EnableWebMvc"
+    },
+    {
+      "id": 135,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot项目区分环境配置的文件后缀是__________。",
+      "answer": "profile"
+    },
+    {
+      "id": 136,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中实现接口拦截的核心组件是__________。",
+      "answer": "拦截器"
+    },
+    {
+      "id": 137,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot容器中Bean的默认作用域是__________。",
+      "answer": "单例"
+    },
+    {
+      "id": 138,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot中延迟初始化Bean的注解是__________。",
+      "answer": "Lazy"
+    },
+    {
+      "id": 139,
+      "type": "blank",
+      "chapter": "SpringBoot",
+      "question": "SpringBoot内置的日志框架是__________。",
+      "answer": "logback"
+    },
+    {
+      "id": 140,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis是一款优秀的__________层持久化框架。",
+      "answer": "数据持久"
+    },
+    {
+      "id": 141,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid是__________公司开源的高性能数据库连接池。",
+      "answer": "阿里巴巴"
+    },
+    {
+      "id": 142,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis核心配置文件的默认后缀是__________。",
+      "answer": "xml"
+    },
+    {
+      "id": 143,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池用于配置数据库驱动类的参数是__________。",
+      "answer": "driver-class-name"
+    },
+    {
+      "id": 144,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于编写SQL语句的映射文件后缀为__________。",
+      "answer": "xml"
+    },
+    {
+      "id": 145,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池默认开启的功能是__________监控。",
+      "answer": "SQL"
+    },
+    {
+      "id": 146,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于查询数据的核心注解是__________。",
+      "answer": "Select"
+    },
+    {
+      "id": 147,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池配置数据库连接地址的参数是__________。",
+      "answer": "url"
+    },
+    {
+      "id": 148,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis默认的一级缓存作用域是__________级别。",
+      "answer": "SqlSession"
+    },
+    {
+      "id": 149,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池防止__________注入攻击的核心特性是SQL防火墙。",
+      "answer": "SQL"
+    },
+    {
+      "id": 150,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于新增数据的注解是__________。",
+      "answer": "Insert"
+    },
+    {
+      "id": 151,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池配置最大连接数的参数是__________。",
+      "answer": "max-active"
+    },
+    {
+      "id": 152,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis开启二级缓存需要在映射文件中添加__________标签。",
+      "answer": "cache"
+    },
+    {
+      "id": 153,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid中用于统计慢SQL的配置参数是__________。",
+      "answer": "slow-sql-millis"
+    },
+    {
+      "id": 154,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中修改数据的核心注解是__________。",
+      "answer": "Update"
+    },
+    {
+      "id": 155,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中删除数据的核心注解是__________。",
+      "answer": "Delete"
+    },
+    {
+      "id": 156,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池初始化连接数的配置参数是__________。",
+      "answer": "initial-size"
+    },
+    {
+      "id": 157,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于接收参数的占位符#{__________}可防止SQL注入。",
+      "answer": "参数名"
+    },
+    {
+      "id": 158,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池默认的空闲连接超时时间单位是__________。",
+      "answer": "毫秒"
+    },
+    {
+      "id": 159,
+      "type": "blank",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中用于动态判断非空的核心标签是__________。",
+      "answer": "if"
+    },
+    {
+      "id": 160,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "FastJSON是__________公司开源的高性能JSON解析框架。",
+      "answer": "阿里巴巴"
+    },
+    {
+      "id": 161,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity框架的核心作用是实现系统的认证和__________。",
+      "answer": "授权"
+    },
+    {
+      "id": 162,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT的中文全称是__________Web令牌。",
+      "answer": "JSON"
+    },
+    {
+      "id": 163,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "FastJSON中将Java对象转为JSON字符串的方法是__________。",
+      "answer": "toJSONString"
+    },
+    {
+      "id": 164,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中开启安全认证功能的核心注解是__________。",
+      "answer": "EnableWebSecurity"
+    },
+    {
+      "id": 165,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT令牌由头部、载荷和__________三部分组成。",
+      "answer": "签名"
+    },
+    {
+      "id": 166,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "FastJSON中将JSON字符串转为Java对象的方法是__________。",
+      "answer": "parseObject"
+    },
+    {
+      "id": 167,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity默认的登录拦截路径是__________。",
+      "answer": "/login"
+    },
+    {
+      "id": 168,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT中存储用户自定义数据的核心部分是__________。",
+      "answer": "载荷"
+    },
+    {
+      "id": 169,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "FastJSON中忽略对象指定字段序列化的注解是__________。",
+      "answer": "JSONField"
+    },
+    {
+      "id": 170,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中用于放行匿名访问接口的方法是__________。",
+      "answer": "permitAll"
+    },
+    {
+      "id": 171,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT令牌失效的核心配置参数是__________。",
+      "answer": "过期时间"
+    },
+    {
+      "id": 172,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "FastJSON解析JSON数组为Java集合的方法是__________。",
+      "answer": "parseArray"
+    },
+    {
+      "id": 173,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity实现密码加密的默认工具类是__________。",
+      "answer": "BCryptPasswordEncoder"
+    },
+    {
+      "id": 174,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT通过__________校验令牌是否被篡改。",
+      "answer": "密钥"
+    },
+    {
+      "id": 175,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "FastJSON支持将日期对象自动格式化的配置依赖于__________注解。",
+      "answer": "JSONField"
+    },
+    {
+      "id": 176,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity中校验用户权限的常用注解是__________。",
+      "answer": "PreAuthorize"
+    },
+    {
+      "id": 177,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "前后端分离项目中JWT令牌通常存储在请求头__________中。",
+      "answer": "Authorization"
+    },
+    {
+      "id": 178,
+      "type": "blank",
+      "chapter": "JSON 与 JWT",
+      "question": "SpringSecurity关闭默认CSRF防护的配置方法是__________。",
+      "answer": "disable"
+    },
+    {
+      "id": 179,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3组合式API的核心入口函数是__________。",
+      "answer": "setup"
+    },
+    {
+      "id": 180,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中实现基础字符串数据绑定的语法是__________表达式。",
+      "answer": "插值"
+    },
+    {
+      "id": 181,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中创建基础简单响应式数据的API是__________。",
+      "answer": "ref"
+    },
+    {
+      "id": 182,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中实现元素属性单向数据绑定的指令是__________。",
+      "answer": "v-bind"
+    },
+    {
+      "id": 183,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中实现表单元素双向数据绑定的指令是__________。",
+      "answer": "v-model"
+    },
+    {
+      "id": 184,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中创建对象、数组复杂响应式数据的API是__________。",
+      "answer": "reactive"
+    },
+    {
+      "id": 185,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中v-bind指令的简写形式是__________。",
+      "answer": ":"
+    },
+    {
+      "id": 186,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3插值表达式中，用于原样渲染文本、不解析HTML的语法是__________。",
+      "answer": "{{}}"
+    },
+    {
+      "id": 187,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中用于解析HTML字符串渲染页面的指令是__________。",
+      "answer": "v-html"
+    },
+    {
+      "id": 188,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3单向数据绑定的核心特点是数据变视图变、视图变数据__________。",
+      "answer": "不变"
+    },
+    {
+      "id": 189,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中监听响应式数据变化的组合式API是__________。",
+      "answer": "watch"
+    },
+    {
+      "id": 190,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中根据依赖数据动态计算结果的API是__________。",
+      "answer": "computed"
+    },
+    {
+      "id": 191,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中v-model修饰符__________可自动去除输入内容首尾空格。",
+      "answer": "trim"
+    },
+    {
+      "id": 192,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中v-model修饰符__________可将输入内容自动转为数字类型。",
+      "answer": "number"
+    },
+    {
+      "id": 193,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中ref创建的数据，访问内部值需要通过__________属性。",
+      "answer": "value"
+    },
+    {
+      "id": 194,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中禁止标签内容解析、纯文本展示的指令是__________。",
+      "answer": "v-pre"
+    },
+    {
+      "id": 195,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3双向数据绑定的核心原理是__________机制。",
+      "answer": "Proxy"
+    },
+    {
+      "id": 196,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中__________指令用于阻止页面未编译内容闪烁问题。",
+      "answer": "v-cloak"
+    },
+    {
+      "id": 197,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3计算属性默认是__________读写模式。",
+      "answer": "只读"
+    },
+    {
+      "id": 198,
+      "type": "blank",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中reactive创建的响应式数据__________通过.value取值。",
+      "answer": "无需"
+    },
+    {
+      "id": 199,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中实现全局组件注册的核心方法是__________。",
+      "answer": "component"
+    },
+    {
+      "id": 200,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3父子组件通信中，父组件向子组件传值依靠__________实现。",
+      "answer": "Props"
+    },
+    {
+      "id": 201,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3 setup语法糖中，定义接收父组件参数的API是__________。",
+      "answer": "defineProps"
+    },
+    {
+      "id": 202,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中父组件给子组件传参，绑定数据需要使用__________指令。",
+      "answer": "v-bind"
+    },
+    {
+      "id": 203,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3子组件向父组件传递数据依靠__________自定义事件实现。",
+      "answer": "自定义事件"
+    },
+    {
+      "id": 204,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3 setup语法糖中，定义子组件自定义事件的API是__________。",
+      "answer": "defineEmits"
+    },
+    {
+      "id": 205,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3普通setup函数中，触发自定义事件的方法是__________。",
+      "answer": "emit"
+    },
+    {
+      "id": 206,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3语法糖模式下，引入组件后__________手动注册即可直接使用。",
+      "answer": "无需"
+    },
+    {
+      "id": 207,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3组件通信中，Props数据流遵循__________的单向原则。",
+      "answer": "单向数据流"
+    },
+    {
+      "id": 208,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中实现组件局部注册需要在__________配置组件列表。",
+      "answer": "components"
+    },
+    {
+      "id": 209,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3组件中，用于接收无标签嵌套内容的功能是__________插槽。",
+      "answer": "默认"
+    },
+    {
+      "id": 210,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中可以精准匹配指定位置内容的插槽是__________插槽。",
+      "answer": "具名"
+    },
+    {
+      "id": 211,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3定义props参数时，设置__________属性可限制参数为必填项。",
+      "answer": "required"
+    },
+    {
+      "id": 212,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3 props配置中，自定义参数默认值需要使用__________属性。",
+      "answer": "default"
+    },
+    {
+      "id": 213,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中动态渲染不同组件的内置标签是__________。",
+      "answer": "component"
+    },
+    {
+      "id": 214,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3动态组件中，指定渲染组件名称的属性是__________。",
+      "answer": "is"
+    },
+    {
+      "id": 215,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3子组件修改props数据会触发__________警告。",
+      "answer": "控制台"
+    },
+    {
+      "id": 216,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3父组件监听子组件自定义事件需要使用__________指令。",
+      "answer": "v-on"
+    },
+    {
+      "id": 217,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中缓存动态组件状态、避免重复渲染的内置组件是__________。",
+      "answer": "keep-alive"
+    },
+    {
+      "id": 218,
+      "type": "blank",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3 props配置中，__________属性可校验传递参数的数据类型。",
+      "answer": "type"
+    },
+    {
+      "id": 219,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3中专门用于路由管理的官方插件是__________。",
+      "answer": "vue-router"
+    },
+    {
+      "id": 220,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios是基于__________和Promise的前端网络请求库。",
+      "answer": "XMLHttpRequest"
+    },
+    {
+      "id": 221,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由中，实现页面跳转的组合式API是__________。",
+      "answer": "useRouter"
+    },
+    {
+      "id": 222,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios中发起GET请求的核心方法是__________。",
+      "answer": "get"
+    },
+    {
+      "id": 223,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由中，获取当前路由参数与信息的API是__________。",
+      "answer": "useRoute"
+    },
+    {
+      "id": 224,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios中发起提交数据POST请求的方法是__________。",
+      "answer": "post"
+    },
+    {
+      "id": 225,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由用于承载页面组件渲染的内置标签是__________。",
+      "answer": "router-view"
+    },
+    {
+      "id": 226,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由声明式跳转的内置标签是__________。",
+      "answer": "router-link"
+    },
+    {
+      "id": 227,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios中统一配置请求根地址的参数是__________。",
+      "answer": "baseURL"
+    },
+    {
+      "id": 228,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由去除地址栏#号的路由模式是__________模式。",
+      "answer": "history"
+    },
+    {
+      "id": 229,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios中在请求发送前统一处理配置的拦截器是__________拦截器。",
+      "answer": "请求"
+    },
+    {
+      "id": 230,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由默认带#号的路由模式是__________模式。",
+      "answer": "hash"
+    },
+    {
+      "id": 231,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios中在请求响应后统一处理数据的拦截器是__________拦截器。",
+      "answer": "响应"
+    },
+    {
+      "id": 232,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由中，路由跳转替换历史记录的方法是__________。",
+      "answer": "replace"
+    },
+    {
+      "id": 233,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios中配置请求超时时间的核心参数是__________。",
+      "answer": "timeout"
+    },
+    {
+      "id": 234,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由中，实现路由重定向的配置属性是__________。",
+      "answer": "redirect"
+    },
+    {
+      "id": 235,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3路由懒加载通过__________语法实现组件按需导入。",
+      "answer": "import"
+    },
+    {
+      "id": 236,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios默认不支持跨域，前端解决开发环境跨域的方式是配置__________。",
+      "answer": "代理"
+    },
+    {
+      "id": 237,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Vue3全局前置路由守卫的方法名是__________。",
+      "answer": "beforeEach"
+    },
+    {
+      "id": 238,
+      "type": "blank",
+      "chapter": "Vue3 路由与 Axios",
+      "question": "Axios响应数据中，服务端返回核心数据默认存储在__________属性中。",
+      "answer": "data"
+    },
+    {
+      "id": 239,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离架构中，前端负责页面展示，后端专注数据处理与业务逻辑。",
+      "answer": true
+    },
+    {
+      "id": 240,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot框架可以简化Spring应用的搭建与开发流程。",
+      "answer": true
+    },
+    {
+      "id": 241,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离架构下，前后端数据交互主要依靠Cookie完成。",
+      "answer": false
+    },
+    {
+      "id": 242,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot项目无需手动配置Tomcat服务器，内置容器可直接运行。",
+      "answer": true
+    },
+    {
+      "id": 243,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离架构可以实现前后端团队独立开发、并行迭代。",
+      "answer": true
+    },
+    {
+      "id": 244,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "@SpringBootApplication注解是SpringBoot项目的启动核心注解。",
+      "answer": true
+    },
+    {
+      "id": 245,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离架构会降低项目的扩展性和维护性。",
+      "answer": false
+    },
+    {
+      "id": 246,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot项目默认的配置文件后缀为.properties和.yml。",
+      "answer": true
+    },
+    {
+      "id": 247,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离项目中，后端需要负责页面渲染与样式调整。",
+      "answer": false
+    },
+    {
+      "id": 248,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot的starter启动器可以快速整合各类第三方依赖。",
+      "answer": true
+    },
+    {
+      "id": 249,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离架构需要提前定义接口文档，规范数据交互格式。",
+      "answer": true
+    },
+    {
+      "id": 250,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot自动配置可以根据项目依赖环境自动装配Bean对象。",
+      "answer": true
+    },
+    {
+      "id": 251,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离项目天然不存在跨域请求问题。",
+      "answer": false
+    },
+    {
+      "id": 252,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot默认启动端口是8080。",
+      "answer": true
+    },
+    {
+      "id": 253,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离架构只适用于大型项目，小型项目无法使用。",
+      "answer": false
+    },
+    {
+      "id": 254,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot项目中yml配置文件的优先级高于properties配置文件。",
+      "answer": false
+    },
+    {
+      "id": 255,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离项目中，后端接口统一返回JSON格式数据。",
+      "answer": true
+    },
+    {
+      "id": 256,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot热部署可以实现项目修改代码后无需重启项目即可生效。",
+      "answer": true
+    },
+    {
+      "id": 257,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "前后端分离架构会增加前后端代码的耦合度。",
+      "answer": false
+    },
+    {
+      "id": 258,
+      "type": "judge",
+      "chapter": "SpringBoot 与前后端分离",
+      "question": "SpringBoot摒弃了Spring的核心思想，完全独立于Spring框架运行。",
+      "answer": false
+    },
+    {
+      "id": 259,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis是一款优秀的Java数据持久层开源框架。",
+      "answer": true
+    },
+    {
+      "id": 260,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid是阿里巴巴开源的高性能数据库连接池组件。",
+      "answer": true
+    },
+    {
+      "id": 261,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中#{}占位符存在SQL注入风险。",
+      "answer": false
+    },
+    {
+      "id": 262,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池可以通过配置参数自定义数据库最大活跃连接数。",
+      "answer": true
+    },
+    {
+      "id": 263,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis核心配置文件的常用后缀为xml格式。",
+      "answer": true
+    },
+    {
+      "id": 264,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池不支持SQL执行监控功能。",
+      "answer": false
+    },
+    {
+      "id": 265,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis默认开启一级缓存功能。",
+      "answer": true
+    },
+    {
+      "id": 266,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "配置Druid连接池时，必须配置数据库url、驱动、账号和密码。",
+      "answer": true
+    },
+    {
+      "id": 267,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis可以通过注解方式编写SQL语句，无需创建Mapper映射文件。",
+      "answer": true
+    },
+    {
+      "id": 268,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池无法拦截恶意SQL语句，不能防止SQL注入攻击。",
+      "answer": false
+    },
+    {
+      "id": 269,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis二级缓存默认关闭，需要手动配置开启。",
+      "answer": true
+    },
+    {
+      "id": 270,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid的slow-sql-millis参数用于配置慢SQL判定阈值。",
+      "answer": true
+    },
+    {
+      "id": 271,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis一级缓存的作用域为全局Mapper级别。",
+      "answer": false
+    },
+    {
+      "id": 272,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid的initial-size参数用于设置连接池初始化连接数量。",
+      "answer": true
+    },
+    {
+      "id": 273,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis动态SQL中的if标签可实现参数非空判断与动态SQL拼接。",
+      "answer": true
+    },
+    {
+      "id": 274,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池超时配置参数的默认单位为秒。",
+      "answer": false
+    },
+    {
+      "id": 275,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis中${}占位符直接拼接参数，无法防止SQL注入。",
+      "answer": true
+    },
+    {
+      "id": 276,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池支持空闲连接回收，避免连接资源浪费。",
+      "answer": true
+    },
+    {
+      "id": 277,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "MyBatis无需映射关系，可直接自动适配所有数据库字段与实体类属性。",
+      "answer": false
+    },
+    {
+      "id": 278,
+      "type": "judge",
+      "chapter": "MyBatis 与 Druid",
+      "question": "Druid连接池相比传统JDBC直连，可有效提升数据库访问性能。",
+      "answer": true
+    },
+    {
+      "id": 279,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON是一种轻量级的文本数据交换格式。",
+      "answer": true
+    },
+    {
+      "id": 280,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT的全称是JSON Web Token，是用于身份认证的令牌。",
+      "answer": true
+    },
+    {
+      "id": 281,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON对象的键名可以不加双引号。",
+      "answer": false
+    },
+    {
+      "id": 282,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT由头部、载荷、签名三部分组成，三部分通过小数点分隔。",
+      "answer": true
+    },
+    {
+      "id": 283,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON支持字符串、数字、布尔、数组、对象、null六种数据类型。",
+      "answer": true
+    },
+    {
+      "id": 284,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT是有状态的认证令牌，服务端需要存储令牌信息。",
+      "answer": false
+    },
+    {
+      "id": 285,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "FastJSON可以实现Java对象与JSON字符串的相互转换。",
+      "answer": true
+    },
+    {
+      "id": 286,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT载荷中可以存储用户密码等敏感隐私数据。",
+      "answer": false
+    },
+    {
+      "id": 287,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON数组可以存放多个不同类型的JSON数据元素。",
+      "answer": true
+    },
+    {
+      "id": 288,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT签名的主要作用是防止令牌数据被篡改。",
+      "answer": true
+    },
+    {
+      "id": 289,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON数据末尾允许随意添加逗号，不影响解析。",
+      "answer": false
+    },
+    {
+      "id": 290,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT令牌过期后，服务端会自动拒绝该令牌的认证请求。",
+      "answer": true
+    },
+    {
+      "id": 291,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON不支持注释语法，标准JSON文件无法编写注释。",
+      "answer": true
+    },
+    {
+      "id": 292,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "修改JWT令牌的载荷数据后，令牌依然可以正常校验通过。",
+      "answer": false
+    },
+    {
+      "id": 293,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON序列化可以将对象数据转换为字符串格式用于网络传输。",
+      "answer": true
+    },
+    {
+      "id": 294,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT头部主要存储令牌加密算法、令牌类型等元信息。",
+      "answer": true
+    },
+    {
+      "id": 295,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JSON反序列化是将JSON字符串转为实体对象的过程。",
+      "answer": true
+    },
+    {
+      "id": 296,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT默认具备令牌主动注销、主动失效的能力。",
+      "answer": false
+    },
+    {
+      "id": 297,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "合法的JSON数据顶级结构只能是对象或数组。",
+      "answer": true
+    },
+    {
+      "id": 298,
+      "type": "judge",
+      "chapter": "JSON 与 JWT",
+      "question": "JWT适合存储大量用户业务数据，可无限扩充载荷内容。",
+      "answer": false
+    },
+    {
+      "id": 299,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3是一款渐进式的前端JavaScript框架。",
+      "answer": true
+    },
+    {
+      "id": 300,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3相较于Vue2，整体运行性能更优、打包体积更小。",
+      "answer": true
+    },
+    {
+      "id": 301,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3完全不兼容Vue2的语法写法，无法迁移旧项目代码。",
+      "answer": false
+    },
+    {
+      "id": 302,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3推荐使用组合式API进行项目开发。",
+      "answer": true
+    },
+    {
+      "id": 303,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3只能使用Vite工具创建项目，不支持Vue-CLI搭建。",
+      "answer": false
+    },
+    {
+      "id": 304,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "组合式API中的setup函数是Vue3组件的逻辑入口。",
+      "answer": true
+    },
+    {
+      "id": 305,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3摒弃了虚拟DOM机制，采用原生DOM渲染页面。",
+      "answer": false
+    },
+    {
+      "id": 306,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3支持组件逻辑复用，可通过组合式函数封装公共逻辑。",
+      "answer": true
+    },
+    {
+      "id": 307,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3的响应式原理基于Object.defineProperty实现。",
+      "answer": false
+    },
+    {
+      "id": 308,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "<script setup>语法糖可以简化Vue3组合式API的开发代码。",
+      "answer": true
+    },
+    {
+      "id": 309,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3的Proxy响应式可以监听数组下标修改、新增删除属性。",
+      "answer": true
+    },
+    {
+      "id": 310,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3中选项式API和组合式API不能混合使用。",
+      "answer": false
+    },
+    {
+      "id": 311,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vite构建工具在Vue3项目中支持极速冷启动、按需编译。",
+      "answer": true
+    },
+    {
+      "id": 312,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3移除了所有Vue2的生命周期钩子函数。",
+      "answer": false
+    },
+    {
+      "id": 313,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3支持碎片化组件，组件根节点可以存在多个。",
+      "answer": true
+    },
+    {
+      "id": 314,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3的Tree-Shaking机制可以打包冗余代码，增大项目体积。",
+      "answer": false
+    },
+    {
+      "id": 315,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3专门优化了大列表渲染场景，提升海量数据渲染性能。",
+      "answer": true
+    },
+    {
+      "id": 316,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3组合式API不支持TypeScript语法适配。",
+      "answer": false
+    },
+    {
+      "id": 317,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3将全局API改为实例API，减少全局变量污染。",
+      "answer": true
+    },
+    {
+      "id": 318,
+      "type": "judge",
+      "chapter": "Vue3 基础",
+      "question": "Vue3的核心设计目标包含轻量化、高性能、易复用、易维护。",
+      "answer": true
+    },
+    {
+      "id": 319,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "使用Vite搭建Vue3项目的启动命令是npm create vite@latest。",
+      "answer": true
+    },
+    {
+      "id": 320,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中{{}}插值表达式可以直接解析JavaScript代码片段。",
+      "answer": true
+    },
+    {
+      "id": 321,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3项目搭建完成后，必须手动配置webpack核心配置文件。",
+      "answer": false
+    },
+    {
+      "id": 322,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中v-bind指令用于实现标签属性的单向数据绑定。",
+      "answer": true
+    },
+    {
+      "id": 323,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3开发环境中，npm run dev命令用于启动本地开发服务器。",
+      "answer": true
+    },
+    {
+      "id": 324,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中v-model指令可实现表单元素的双向数据绑定。",
+      "answer": true
+    },
+    {
+      "id": 325,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3项目的入口文件是index.html，而非main.js。",
+      "answer": true
+    },
+    {
+      "id": 326,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3插值表达式可以书写if判断、for循环等完整JS语句。",
+      "answer": false
+    },
+    {
+      "id": 327,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中v-on指令用于绑定页面事件，可简写为@符号。",
+      "answer": true
+    },
+    {
+      "id": 328,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "搭建Vue3项目时，无需安装node.js环境即可正常运行。",
+      "answer": false
+    },
+    {
+      "id": 329,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中v-bind动态绑定属性时，可直接书写变量无需插值符号。",
+      "answer": true
+    },
+    {
+      "id": 330,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3的setup语法糖中，定义的变量无需return即可在模板使用。",
+      "answer": true
+    },
+    {
+      "id": 331,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3双向数据绑定的原理是劫持DOM事件和数据响应式更新。",
+      "answer": true
+    },
+    {
+      "id": 332,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3项目中，package.json文件用于存放项目依赖与启动脚本配置。",
+      "answer": true
+    },
+    {
+      "id": 333,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中v-model可以直接绑定普通div、span非表单标签实现双向绑定。",
+      "answer": false
+    },
+    {
+      "id": 334,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中v-text指令可以替代插值表达式，实现文本数据渲染。",
+      "answer": true
+    },
+    {
+      "id": 335,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "开发环境下Vue3项目修改配置文件后，无需重启项目即可生效。",
+      "answer": false
+    },
+    {
+      "id": 336,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中单向数据绑定是视图影响数据，双向绑定是数据影响视图。",
+      "answer": false
+    },
+    {
+      "id": 337,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3中v-html指令可以解析富文本HTML字符串，渲染真实DOM结构。",
+      "answer": true
+    },
+    {
+      "id": 338,
+      "type": "judge",
+      "chapter": "Vue3 项目搭建与指令",
+      "question": "Vue3搭建项目时，npm install命令用于下载安装项目所有依赖包。",
+      "answer": true
+    },
+    {
+      "id": 339,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中组件分为全局组件和局部组件两种注册方式。",
+      "answer": true
+    },
+    {
+      "id": 340,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Axios可以在浏览器端和Node.js环境中发送网络请求。",
+      "answer": true
+    },
+    {
+      "id": 341,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中父组件向子组件传值，主要通过props属性实现。",
+      "answer": true
+    },
+    {
+      "id": 342,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中全局组件通过app.component()方法完成注册。",
+      "answer": true
+    },
+    {
+      "id": 343,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Axios发送GET请求时，无法携带请求参数。",
+      "answer": false
+    },
+    {
+      "id": 344,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3子组件向父组件传递数据，可通过自定义事件触发实现。",
+      "answer": true
+    },
+    {
+      "id": 345,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "script setup语法下，局部组件导入后无需注册可直接使用。",
+      "answer": true
+    },
+    {
+      "id": 346,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Axios请求成功后，服务端返回数据默认存放于data属性中。",
+      "answer": true
+    },
+    {
+      "id": 347,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Props传递的数据默认支持子组件直接修改并同步父组件。",
+      "answer": false
+    },
+    {
+      "id": 348,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Axios需要手动封装后，才能在Vue3项目中使用。",
+      "answer": false
+    },
+    {
+      "id": 349,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3组合式API中，通过defineProps接收父组件传递的参数。",
+      "answer": true
+    },
+    {
+      "id": 350,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Axios请求拦截器可在请求发送前统一处理请求参数和请求头。",
+      "answer": true
+    },
+    {
+      "id": 351,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3局部注册的组件，可在项目所有页面中直接使用。",
+      "answer": false
+    },
+    {
+      "id": 352,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中通过defineEmits定义自定义事件，实现子组件向父组件传值。",
+      "answer": true
+    },
+    {
+      "id": 353,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Axios响应拦截器可统一处理接口异常、数据解构和过期Token。",
+      "answer": true
+    },
+    {
+      "id": 354,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3父子组件通信中，props支持设置数据类型校验和默认值。",
+      "answer": true
+    },
+    {
+      "id": 355,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "全局注册的Vue3组件，优先级高于局部注册组件。",
+      "answer": false
+    },
+    {
+      "id": 356,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Axios的POST请求通过data属性传递请求体参数。",
+      "answer": true
+    },
+    {
+      "id": 357,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "Vue3中父组件可以通过自定义事件直接向子组件传递数据。",
+      "answer": false
+    },
+    {
+      "id": 358,
+      "type": "judge",
+      "chapter": "Vue3 组件与通信",
+      "question": "可以通过配置Axios baseURL统一管理接口请求根路径。",
+      "answer": true
+    }
+  ]
+}

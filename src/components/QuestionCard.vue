@@ -1,0 +1,310 @@
+<script setup lang="ts">
+import { computed, ref, watch } from 'vue'
+import type { AnswerInput, Question } from '../types'
+import { checkAnswer, correctIndexLabel, correctText, typeLabel } from '../lib/questions'
+
+const props = defineProps<{ question: Question }>()
+const emit = defineEmits<{
+  (e: 'submit', payload: { questionId: number; input: AnswerInput; correct: boolean }): void
+}>()
+
+/** 单选：当前选中下标；判断：true/false；填空：输入文本 */
+const selected = ref<number | null>(null)
+const judgeValue = ref<boolean | null>(null)
+const blankInput = ref('')
+// 是否已核对（填空需要点击按钮核对）
+const revealed = ref(false)
+// 填空已提交的一次结果
+const blankResult = ref<boolean | null>(null)
+
+// 切换题目后重置本地作答状态
+watch(
+  () => props.question.id,
+  () => {
+    selected.value = null
+    judgeValue.value = null
+    blankInput.value = ''
+    revealed.value = false
+    blankResult.value = null
+  },
+  { immediate: true },
+)
+
+const isSingle = computed(() => props.question.type === 'single')
+const isJudge = computed(() => props.question.type === 'judge')
+const isBlank = computed(() => props.question.type === 'blank')
+
+// 类型安全的属性访问，供模板使用
+const singleOptions = computed(() =>
+  props.question.type === 'single' ? props.question.options : [],
+)
+const correctOptionIndex = computed(() =>
+  props.question.type === 'single' ? props.question.answer : -1,
+)
+const judgeCorrect = computed(() => (props.question.type === 'judge' ? props.question.answer : false))
+
+// 单选/判断即时判分后的正确性
+const immediateCorrect = computed(() => {
+  const q = props.question
+  if (q.type === 'single' && selected.value !== null) {
+    return checkAnswer(q, selected.value)
+  }
+  if (q.type === 'judge' && judgeValue.value !== null) {
+    return checkAnswer(q, judgeValue.value)
+  }
+  return null
+})
+
+const hasAnswered = computed(() => (isBlank.value ? revealed.value : immediateCorrect.value !== null))
+const isCorrect = computed(() => (isBlank.value ? blankResult.value : immediateCorrect.value))
+const correctAnswer = computed(() => correctText(props.question))
+const indexLabel = computed(() => correctIndexLabel(props.question))
+
+function pickSingle(index: number): void {
+  if (selected.value !== null) return
+  selected.value = index
+  emit('submit', {
+    questionId: props.question.id,
+    input: index,
+    correct: checkAnswer(props.question, index),
+  })
+}
+
+function pickJudge(value: boolean): void {
+  if (judgeValue.value !== null) return
+  judgeValue.value = value
+  emit('submit', {
+    questionId: props.question.id,
+    input: value,
+    correct: checkAnswer(props.question, value),
+  })
+}
+
+function submitBlank(): void {
+  if (revealed.value) return
+  const correct = checkAnswer(props.question, blankInput.value)
+  blankResult.value = correct
+  revealed.value = true
+  emit('submit', { questionId: props.question.id, input: blankInput.value, correct })
+}
+</script>
+
+<template>
+  <div class="card">
+    <div class="card__head">
+      <span class="badge" :data-type="question.type">{{ typeLabel(question.type) }}</span>
+      <span class="chapter">{{ question.chapter }}</span>
+    </div>
+
+    <p class="question">{{ question.question }}</p>
+
+    <!-- 单选 -->
+    <div v-if="isSingle" class="options">
+      <button
+        v-for="(opt, i) in singleOptions"
+        :key="i"
+        class="option"
+        :class="{
+          selected: selected === i,
+          correct: selected !== null && i === correctOptionIndex,
+          wrong: selected === i && i !== correctOptionIndex,
+        }"
+        :disabled="selected !== null"
+        @click="pickSingle(i)"
+      >
+        <span class="option__label">{{ String.fromCharCode(65 + i) }}</span>
+        <span>{{ opt }}</span>
+      </button>
+    </div>
+
+    <!-- 判断 -->
+    <div v-if="isJudge" class="options judge">
+      <button
+        class="option"
+        :class="{
+          selected: judgeValue === true,
+          correct: judgeValue !== null && judgeCorrect === true,
+          wrong: judgeValue === true && judgeCorrect !== true,
+        }"
+        :disabled="judgeValue !== null"
+        @click="pickJudge(true)"
+      >
+        <span class="option__label">✓</span><span>对</span>
+      </button>
+      <button
+        class="option"
+        :class="{
+          selected: judgeValue === false,
+          correct: judgeValue !== null && judgeCorrect === false,
+          wrong: judgeValue === false && judgeCorrect !== false,
+        }"
+        :disabled="judgeValue !== null"
+        @click="pickJudge(false)"
+      >
+        <span class="option__label">✗</span><span>错</span>
+      </button>
+    </div>
+
+    <!-- 填空 -->
+    <div v-if="isBlank" class="blank">
+      <div class="blank__row">
+        <input
+          v-model="blankInput"
+          class="blank__input"
+          placeholder="请输入答案"
+          :disabled="revealed"
+          @keyup.enter="submitBlank"
+        />
+        <button class="btn" :disabled="revealed" @click="submitBlank">核对</button>
+      </div>
+    </div>
+
+    <!-- 判分反馈 -->
+    <div v-if="hasAnswered" class="feedback" :data-correct="isCorrect">
+      <span v-if="isCorrect" class="feedback__icon">✓ 回答正确</span>
+      <span v-else class="feedback__icon">
+        ✗ 回答错误，正确答案{{ isBlank ? '' : indexLabel }}
+      </span>
+      <span v-if="!isCorrect" class="feedback__answer">：{{ correctAnswer }}</span>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+.card__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: #fff;
+}
+.badge[data-type='single'] {
+  background: #3b82f6;
+}
+.badge[data-type='blank'] {
+  background: #8b5cf6;
+}
+.badge[data-type='judge'] {
+  background: #f59e0b;
+}
+.chapter {
+  font-size: 12px;
+  color: #94a3b8;
+}
+.question {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #1f2937;
+  margin-bottom: 16px;
+  white-space: pre-wrap;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  font-size: 15px;
+  color: #334155;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+.option:hover:not(:disabled) {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+.option__label {
+  font-weight: 600;
+  color: #64748b;
+  min-width: 18px;
+}
+.option.selected {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+.option.correct {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+.option.correct .option__label {
+  color: #16a34a;
+}
+.option.wrong {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+.option.wrong .option__label {
+  color: #dc2626;
+}
+.judge {
+  flex-direction: row;
+}
+.judge .option {
+  flex: 1;
+  justify-content: center;
+}
+.blank__row {
+  display: flex;
+  gap: 10px;
+}
+.blank__input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.blank__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+.btn {
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+.feedback {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+.feedback[data-correct='true'] {
+  background: #f0fdf4;
+  color: #15803d;
+}
+.feedback[data-correct='false'] {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+.feedback__answer {
+  font-weight: 600;
+}
+</style>

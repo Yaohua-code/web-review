@@ -1,0 +1,83 @@
+import type { AnswerInput, Question, QuestionBank, QuestionType } from '../types'
+import raw from '../data/questions.json'
+
+const bank = raw as unknown as QuestionBank
+
+/** 返回全部题目 */
+export function allQuestions(): Question[] {
+  return bank.questions
+}
+
+/** 题型中文标签 */
+export function typeLabel(type: QuestionType): string {
+  switch (type) {
+    case 'single':
+      return '单选'
+    case 'blank':
+      return '填空'
+    case 'judge':
+      return '判断'
+  }
+}
+
+/** 题目带类型的显示前缀，如“单选” */
+export function typeBadge(type: QuestionType): string {
+  return typeLabel(type)
+}
+
+/** 归一化文本对比（去首尾空白、压缩连续空白、忽略大小写） */
+export function normalizeText(value: string): string {
+  return value.trim().replace(/\s+/g, ' ').toLowerCase()
+}
+
+/** 题目正确性判断 */
+export function checkAnswer(question: Question, input: AnswerInput): boolean {
+  switch (question.type) {
+    case 'single':
+      return question.answer === (input as number)
+    case 'judge':
+      return question.answer === (input as boolean)
+    case 'blank':
+      return normalizeText(question.answer) === normalizeText(String(input))
+  }
+}
+
+/** 返回正确答案的展示文本 */
+export function correctText(question: Question): string {
+  switch (question.type) {
+    case 'single':
+      return question.options[question.answer] ?? ''
+    case 'judge':
+      return question.answer ? '对' : '错'
+    case 'blank':
+      return question.answer
+  }
+}
+
+/** 单选正确答案对应的标签，如 A/B/C/D */
+export function correctIndexLabel(question: Question): string | null {
+  if (question.type !== 'single') return null
+  return String.fromCharCode(65 + question.answer)
+}
+
+/** 按题型与章节筛选题目（空数组表示不限） */
+export function filterQuestions(
+  questions: Question[],
+  types: QuestionType[],
+  chapters: string[],
+): Question[] {
+  return questions.filter((q) => {
+    if (types.length > 0 && !types.includes(q.type)) return false
+    if (chapters.length > 0 && !chapters.includes(q.chapter)) return false
+    return true
+  })
+}
+
+/** 获取题库中的所有章节（按出现顺序） */
+export function chapterList(questions: Question[]): string[] {
+  const seen: string[] = []
+  for (const q of questions) {
+    if (!seen.includes(q.chapter)) seen.push(q.chapter)
+  }
+  return seen
+}
