@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import type { Question, QuestionType } from './types'
-import { allQuestions, chapterList, filterQuestions, typeLabel } from './lib/questions'
+import {
+  allQuestions,
+  chapterList,
+  filterQuestions,
+  firstUnansweredIndex,
+  nextUnansweredIndex,
+  typeLabel,
+} from './lib/questions'
 import {
   answeredCount,
   correctCount,
@@ -14,6 +21,9 @@ import {
 import QuestionCard from './components/QuestionCard.vue'
 
 const bank = allQuestions()
+
+/** 答对后自动跳到下一未答题的延迟（ms），用于短暂展示判分反馈 */
+const ADVANCE_DELAY = 700
 
 // ---------- 筛选 ----------
 const typeOptions: Array<QuestionType | 'all'> = ['all', 'single', 'blank', 'judge']
@@ -35,18 +45,36 @@ const basePool = computed<Question[]>(() => {
 
 // ---------- 进度 ----------
 const progress = ref<ProgressRecord>(loadProgress())
+// 已答题 id 集合，用于定位未答题
+const answeredIds = computed(() => new Set(Object.keys(progress.value).map(Number)))
+
 function onSubmit(payload: { questionId: number; correct: boolean }): void {
   progress.value = saveAnswer(payload.questionId, payload.correct)
+  // 答对自动下一题（仅正常刷题模式）
+  if (payload.correct && !wrongMode.value) scheduleAdvance()
 }
 function onReset(): void {
   resetProgress()
   progress.value = {}
 }
+let advanceTimer: number | undefined
+function scheduleAdvance(): void {
+  if (advanceTimer !== undefined) window.clearTimeout(advanceTimer)
+  advanceTimer = window.setTimeout(() => {
+    advanceTimer = undefined
+    const idx = nextUnansweredIndex(basePool.value, answeredIds.value, currentIndex.value)
+    if (idx > -1) currentIndex.value = idx
+  }, ADVANCE_DELAY)
+}
+onBeforeUnmount(() => {
+  if (advanceTimer !== undefined) window.clearTimeout(advanceTimer)
+})
 
 // ---------- 当前题目导航 ----------
-const currentIndex = ref(0)
+// 初始/刷新/切换筛选时，定位到第一个未答题
+const currentIndex = ref(firstUnansweredIndex(basePool.value, answeredIds.value))
 watch(basePool, () => {
-  currentIndex.value = 0
+  currentIndex.value = firstUnansweredIndex(basePool.value, answeredIds.value)
 })
 const currentQuestion = computed<Question | null>(() => basePool.value[currentIndex.value] ?? null)
 const currentProgress = computed(() =>

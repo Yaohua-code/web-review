@@ -81,3 +81,24 @@ export function chapterList(questions: Question[]): string[] {
   }
   return seen
 }
+
+/** 在 fromIndex 之后找第一个未答题的下标；找不到返回 -1 */
+export function nextUnansweredIndex(
+  questions: Question[],
+  answeredIds: ReadonlySet<number>,
+  fromIndex: number,
+): number {
+  for (let i = fromIndex + 1; i < questions.length; i++) {
+    if (!answeredIds.has(questions[i].id)) return i
+  }
+  return -1
+}
+
+/** 第一个未答题的下标；全部已答时返回 0 */
+export function firstUnansweredIndex(
+  questions: Question[],
+  answeredIds: ReadonlySet<number>,
+): number {
+  const i = questions.findIndex((q) => !answeredIds.has(q.id))
+  return i === -1 ? 0 : i
+}

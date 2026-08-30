@@ -5,6 +5,8 @@ import {
   chapterList,
   checkAnswer,
   filterQuestions,
+  firstUnansweredIndex,
+  nextUnansweredIndex,
   normalizeText,
 } from './questions'
 
@@ -97,5 +99,25 @@ describe('filterQuestions 筛选', () => {
 
   it('取出章节列表（去重、保序）', () => {
     expect(chapterList([q1, q2, q3])).toEqual(['SpringBoot', 'Vue3 基础'])
+  })
+})
+
+describe('未答题定位（答对自动下一题 / 刷新跳未刷）', () => {
+  const q1: Question = { id: 1, type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 0 }
+  const q2: Question = { id: 2, type: 'judge', chapter: 'SpringBoot', question: 'q', answer: true }
+  const q3: Question = { id: 3, type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 1 }
+  const pool = [q1, q2, q3]
+
+  it('firstUnansweredIndex 返回第一个未答题下标', () => {
+    expect(firstUnansweredIndex(pool, new Set())).toBe(0)
+    expect(firstUnansweredIndex(pool, new Set([1]))).toBe(1)
+    expect(firstUnansweredIndex(pool, new Set([1, 2, 3]))).toBe(0) // 全部已答回退 0
+  })
+
+  it('nextUnansweredIndex 返回 fromIndex 之后第一个未答题', () => {
+    expect(nextUnansweredIndex(pool, new Set([1]), 0)).toBe(1)
+    expect(nextUnansweredIndex(pool, new Set([1, 2]), 0)).toBe(2)
+    expect(nextUnansweredIndex(pool, new Set([1, 2]), 2)).toBe(-1) // 之后无未答题返回 -1
+    expect(nextUnansweredIndex(pool, new Set([1, 2, 3]), 0)).toBe(-1) // 全部已答返回 -1
   })
 })
