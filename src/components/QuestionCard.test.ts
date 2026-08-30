@@ -66,3 +66,51 @@ describe('QuestionCard 即时判分', () => {
     expect(toPayload(wrapper)).toMatchObject({ correct: true, input: true })
   })
 })
+
+describe('QuestionCard 看题模式（viewOnly）', () => {
+  const singleQuestion: Question = {
+    id: 10,
+    type: 'single',
+    chapter: 'Vue3 基础',
+    question: '题干',
+    options: ['A1', 'B2', 'C3', 'D4'],
+    answer: 2, // C
+  }
+  const blankQuestion: Question = {
+    id: 11,
+    type: 'blank',
+    chapter: 'Vue3 基础',
+    question: '题干',
+    answer: 'v-bind',
+  }
+  const judgeQuestion: Question = {
+    id: 12,
+    type: 'judge',
+    chapter: 'Vue3 基础',
+    question: '题干',
+    answer: true,
+  }
+
+  it('看题模式直接展示正确答案，点击选项不判分不 emit', async () => {
+    const wrapper = mount(QuestionCard, { props: { question: singleQuestion, viewOnly: true } })
+    // 正确答案 C 高亮为 correct
+    expect(wrapper.findAll('.option')[2].classes()).toContain('correct')
+    // 点击任意选项不 emit
+    await wrapper.findAll('.option')[0].trigger('click')
+    expect(wrapper.emitted('submit')).toBeUndefined()
+    // 反馈区直接展示正确答案 C3
+    expect(wrapper.find('.feedback').text()).toContain('C3')
+  })
+
+  it('看题模式：填空直接展示答案，无输入框', async () => {
+    const wrapper = mount(QuestionCard, { props: { question: blankQuestion, viewOnly: true } })
+    expect(wrapper.find('input').exists()).toBe(false)
+    expect(wrapper.find('.blank__answer').text()).toContain('v-bind')
+  })
+
+  it('看题模式：判断直接展示正确答案', async () => {
+    const wrapper = mount(QuestionCard, { props: { question: judgeQuestion, viewOnly: true } })
+    expect(wrapper.find('.options.judge .option').attributes('disabled')).toBeDefined()
+    expect(wrapper.find('.feedback').text()).toContain('对')
+  })
+})

@@ -30,6 +30,16 @@ const typeOptions: Array<QuestionType | 'all'> = ['all', 'single', 'blank', 'jud
 const selectedType = ref<QuestionType | 'all'>('all')
 const selectedChapter = ref<string>('all')
 const wrongMode = ref(false)
+const viewMode = ref(false)
+
+function toggleView(): void {
+  viewMode.value = !viewMode.value
+  if (viewMode.value) wrongMode.value = false
+}
+function toggleWrong(): void {
+  wrongMode.value = !wrongMode.value
+  if (wrongMode.value) viewMode.value = false
+}
 
 const chapters = computed(() => chapterList(bank))
 
@@ -73,8 +83,11 @@ onBeforeUnmount(() => {
 // ---------- 当前题目导航 ----------
 // 初始/刷新/切换筛选时，定位到第一个未答题
 const currentIndex = ref(firstUnansweredIndex(basePool.value, answeredIds.value))
-watch(basePool, () => {
-  currentIndex.value = firstUnansweredIndex(basePool.value, answeredIds.value)
+// 进入看题模式从第 1 题开始；其余情形定位到第一个未答题
+watch([basePool, viewMode], () => {
+  currentIndex.value = viewMode.value
+    ? 0
+    : firstUnansweredIndex(basePool.value, answeredIds.value)
 })
 const currentQuestion = computed<Question | null>(() => basePool.value[currentIndex.value] ?? null)
 const currentProgress = computed(() =>
@@ -162,9 +175,17 @@ const statRate = computed(() =>
       <div class="filter-row filter-row--actions">
         <button
           class="chip"
+          :class="{ active: viewMode }"
+          data-kind="primary"
+          @click="toggleView"
+        >
+          👁 看题（{{ basePool.length }}）
+        </button>
+        <button
+          class="chip"
           :class="{ active: wrongMode }"
           data-kind="danger"
-          @click="wrongMode = !wrongMode"
+          @click="toggleWrong"
         >
           ★ 错题本（{{ statWrong }}）
         </button>
@@ -180,11 +201,16 @@ const statRate = computed(() =>
       <template v-else>
         <div class="progress-line">
           <span>第 {{ currentIndex + 1 }} / {{ basePool.length }} 题</span>
-          <span v-if="currentProgress !== null" class="progress-line__hint">
+          <span v-if="!viewMode && currentProgress !== null" class="progress-line__hint">
             {{ currentProgress ? '已答对' : '已答错' }}
           </span>
         </div>
-        <QuestionCard :key="currentQuestion.id" :question="currentQuestion" @submit="onSubmit" />
+        <QuestionCard
+          :key="currentQuestion.id"
+          :question="currentQuestion"
+          :view-only="viewMode"
+          @submit="onSubmit"
+        />
         <div class="nav">
           <button class="nav__btn" :disabled="currentIndex === 0" @click="prev">上一题</button>
           <button
@@ -293,6 +319,10 @@ const statRate = computed(() =>
 .chip:disabled {
   opacity: 0.55;
   cursor: not-allowed;
+}
+.chip[data-kind='primary'].active {
+  background: #10b981;
+  border-color: #10b981;
 }
 .chip[data-kind='danger'].active {
   background: #ef4444;

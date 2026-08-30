@@ -3,10 +3,13 @@ import { computed, ref, watch } from 'vue'
 import type { AnswerInput, Question } from '../types'
 import { checkAnswer, correctIndexLabel, correctText, typeLabel } from '../lib/questions'
 
-const props = defineProps<{ question: Question }>()
+const props = defineProps<{ question: Question; viewOnly?: boolean }>()
 const emit = defineEmits<{
   (e: 'submit', payload: { questionId: number; input: AnswerInput; correct: boolean }): void
 }>()
+
+/** 看题模式：只读展示题干与正确答案，不参与判分 */
+const viewOnly = computed(() => props.viewOnly === true)
 
 /** 单选：当前选中下标；判断：true/false；填空：输入文本 */
 const selected = ref<number | null>(null)
@@ -105,11 +108,11 @@ function submitBlank(): void {
         :key="i"
         class="option"
         :class="{
-          selected: selected === i,
-          correct: selected !== null && i === correctOptionIndex,
-          wrong: selected === i && i !== correctOptionIndex,
+          selected: !viewOnly && selected === i,
+          correct: viewOnly ? i === correctOptionIndex : selected !== null && i === correctOptionIndex,
+          wrong: !viewOnly && selected === i && i !== correctOptionIndex,
         }"
-        :disabled="selected !== null"
+        :disabled="viewOnly || selected !== null"
         @click="pickSingle(i)"
       >
         <span class="option__label">{{ String.fromCharCode(65 + i) }}</span>
@@ -122,11 +125,11 @@ function submitBlank(): void {
       <button
         class="option"
         :class="{
-          selected: judgeValue === true,
-          correct: judgeValue !== null && judgeCorrect === true,
-          wrong: judgeValue === true && judgeCorrect !== true,
+          selected: !viewOnly && judgeValue === true,
+          correct: viewOnly ? judgeCorrect === true : judgeValue !== null && judgeCorrect === true,
+          wrong: !viewOnly && judgeValue === true && judgeCorrect !== true,
         }"
-        :disabled="judgeValue !== null"
+        :disabled="viewOnly || judgeValue !== null"
         @click="pickJudge(true)"
       >
         <span class="option__label">✓</span><span>对</span>
@@ -134,11 +137,11 @@ function submitBlank(): void {
       <button
         class="option"
         :class="{
-          selected: judgeValue === false,
-          correct: judgeValue !== null && judgeCorrect === false,
-          wrong: judgeValue === false && judgeCorrect !== false,
+          selected: !viewOnly && judgeValue === false,
+          correct: viewOnly ? judgeCorrect === false : judgeValue !== null && judgeCorrect === false,
+          wrong: !viewOnly && judgeValue === false && judgeCorrect !== false,
         }"
-        :disabled="judgeValue !== null"
+        :disabled="viewOnly || judgeValue !== null"
         @click="pickJudge(false)"
       >
         <span class="option__label">✗</span><span>错</span>
@@ -147,7 +150,11 @@ function submitBlank(): void {
 
     <!-- 填空 -->
     <div v-if="isBlank" class="blank">
-      <div class="blank__row">
+      <div v-if="viewOnly" class="blank__answer">
+        <span class="blank__answer-label">答案：</span
+        ><span class="blank__answer-text">{{ correctAnswer }}</span>
+      </div>
+      <div v-else class="blank__row">
         <input
           v-model="blankInput"
           class="blank__input"
@@ -159,13 +166,19 @@ function submitBlank(): void {
       </div>
     </div>
 
-    <!-- 判分反馈 -->
-    <div v-if="hasAnswered" class="feedback" :data-correct="isCorrect">
-      <span v-if="isCorrect" class="feedback__icon">✓ 回答正确</span>
-      <span v-else class="feedback__icon">
-        ✗ 回答错误，正确答案{{ isBlank ? '' : indexLabel }}
-      </span>
-      <span v-if="!isCorrect" class="feedback__answer">：{{ correctAnswer }}</span>
+    <!-- 判分 / 答案反馈 -->
+    <div v-if="hasAnswered || viewOnly" class="feedback" :data-correct="viewOnly ? true : isCorrect">
+      <template v-if="viewOnly">
+        <span>正确答案<template v-if="indexLabel">（{{ indexLabel }}）</template>：</span>
+        <span class="feedback__answer">{{ correctAnswer }}</span>
+      </template>
+      <template v-else>
+        <span v-if="isCorrect" class="feedback__icon">✓ 回答正确</span>
+        <span v-else class="feedback__icon">
+          ✗ 回答错误，正确答案<template v-if="indexLabel">（{{ indexLabel }}）</template>：
+        </span>
+        <span v-if="!isCorrect" class="feedback__answer">{{ correctAnswer }}</span>
+      </template>
     </div>
   </div>
 </template>
@@ -265,6 +278,20 @@ function submitBlank(): void {
 .blank__row {
   display: flex;
   gap: 10px;
+}
+.blank__answer {
+  padding: 12px 14px;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  background: #f0fdf4;
+  font-size: 15px;
+  color: #15803d;
+}
+.blank__answer-label {
+  color: #64748b;
+}
+.blank__answer-text {
+  font-weight: 600;
 }
 .blank__input {
   flex: 1;
