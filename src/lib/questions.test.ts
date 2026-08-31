@@ -49,13 +49,14 @@ describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 376�
     expect(availableTypes(pyBank)).toEqual(['single', 'blank', 'short'])
   })
 
-  it('互联网前沿新技术题库 376 题（单选 154 / 判断 100 / 填空 100 / 简答+综合 22）', () => {
+  it('互联网前沿新技术题库 376 题（单选 154 / 判断 100 / 填空 100 / 简答 20 / 综合 2）', () => {
     expect(nwBank.count).toBe(376)
     expect(nwBank.counts.single).toBe(154)
     expect(nwBank.counts.judge).toBe(100)
     expect(nwBank.counts.blank).toBe(100)
-    expect(nwBank.counts.short).toBe(22)
-    expect(availableTypes(nwBank)).toEqual(['single', 'blank', 'judge', 'short'])
+    expect(nwBank.counts.short).toBe(20)
+    expect(nwBank.counts.comprehensive).toBe(2)
+    expect(availableTypes(nwBank)).toEqual(['single', 'blank', 'judge', 'short', 'comprehensive'])
   })
 
   it('全部题目的 id 带 bank 前缀且唯一', () => {
@@ -84,6 +85,8 @@ describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 376�
         } else if (q.type === 'judge') {
           expect(typeof q.answer).toBe('boolean')
         } else if (q.type === 'short') {
+          expect(q.answer.trim().length).toBeGreaterThan(0)
+        } else if (q.type === 'comprehensive') {
           expect(q.answer.trim().length).toBeGreaterThan(0)
         }
       }
@@ -172,11 +175,12 @@ describe('filterQuestions 筛选', () => {
 })
 
 describe('typeLabel 题型标签', () => {
-  it('四种题型均返回中文标签', () => {
+  it('五种题型均返回中文标签', () => {
     expect(typeLabel('single')).toBe('单选')
     expect(typeLabel('blank')).toBe('填空')
     expect(typeLabel('judge')).toBe('判断')
     expect(typeLabel('short')).toBe('简答')
+    expect(typeLabel('comprehensive')).toBe('综合')
   })
 })
 

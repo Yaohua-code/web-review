@@ -20,7 +20,7 @@ export function allQuestions(bankId?: string): Question[] {
 
 /** 返回某题库实际出现的题型集合（按 single/blank/judge/short 固定顺序） */
 export function availableTypes(bank: QuestionBank): QuestionType[] {
-  const order: QuestionType[] = ['single', 'blank', 'judge', 'short']
+  const order: QuestionType[] = ['single', 'blank', 'judge', 'short', 'comprehensive']
   return order.filter((t) => (bank.counts[t] ?? 0) > 0)
 }
 
@@ -40,6 +40,8 @@ export function typeLabel(type: QuestionType): string {
       return '判断'
     case 'short':
       return '简答'
+    case 'comprehensive':
+      return '综合'
   }
 }
 
@@ -60,6 +62,9 @@ export function checkAnswer(question: Question, input: AnswerInput): boolean {
     case 'short':
       // 简答无自动判分基础，始终不判对错
       return false
+    case 'comprehensive':
+      // 综合题无自动判分基础，始终不判对错
+      return false
   }
 }
 
@@ -73,6 +78,8 @@ export function correctText(question: Question): string {
     case 'blank':
       return question.answer
     case 'short':
+      return question.answer
+    case 'comprehensive':
       return question.answer
   }
 }

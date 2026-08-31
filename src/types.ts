@@ -1,5 +1,5 @@
 /** 题型枚举 */
-export type QuestionType = 'single' | 'blank' | 'judge' | 'short'
+export type QuestionType = 'single' | 'blank' | 'judge' | 'short' | 'comprehensive'
 
 export interface BaseQuestion {
   /** 唯一标识（带 bank 前缀，如 "web:1" "py:300"） */
@@ -35,7 +35,18 @@ export interface ShortQuestion extends BaseQuestion {
   answer: string
 }
 
-export type Question = SingleQuestion | BlankQuestion | JudgeQuestion | ShortQuestion
+/** 综合题（含代码/多步骤）：参考答案，不做自动判分 */
+export interface ComprehensiveQuestion extends BaseQuestion {
+  type: 'comprehensive'
+  answer: string
+}
+
+export type Question =
+  | SingleQuestion
+  | BlankQuestion
+  | JudgeQuestion
+  | ShortQuestion
+  | ComprehensiveQuestion
 
 /** 用户的作答输入 */
 export type AnswerInput = number | boolean | string

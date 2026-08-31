@@ -3,7 +3,7 @@
  *   题库 1：Web前端开发实战复习题库.docx（解析 docx，题型：单选/填空/判断，排除简答）
  *   题库 2：Python复习题.xlsx（解析 xlsx，题型：单选/填空/简答）
  *   题库 3：互联网前沿新技术（来源为 questionBank/复习资料/*.doc，经 Word COM 转制为
- *           src/data/raw/newtech.json 供本脚本直接读取，题型：单选/判断/填空/简答）
+ *           src/data/raw/newtech.json 供本脚本直接读取，题型：单选/判断/填空/简答/综合）
  *
  * 产物结构：
  *   { version, generatedAt, banks: [{ id, name, count, counts, questions: [] }] }

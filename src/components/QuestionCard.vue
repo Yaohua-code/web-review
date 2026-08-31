@@ -41,6 +41,9 @@ const isSingle = computed(() => props.question.type === 'single')
 const isJudge = computed(() => props.question.type === 'judge')
 const isBlank = computed(() => props.question.type === 'blank')
 const isShort = computed(() => props.question.type === 'short')
+const isComprehensive = computed(() => props.question.type === 'comprehensive')
+// 简答/综合共用一套“作答文本框 + 查看参考答案”交互
+const isFreeText = computed(() => isShort.value || isComprehensive.value)
 
 // 类型安全的属性访问，供模板使用
 const singleOptions = computed(() =>
@@ -64,10 +67,10 @@ const immediateCorrect = computed(() => {
 })
 
 const hasAnswered = computed(() =>
-  isBlank.value ? revealed.value : isShort.value ? shortRevealed.value : immediateCorrect.value !== null,
+  isBlank.value ? revealed.value : isFreeText.value ? shortRevealed.value : immediateCorrect.value !== null,
 )
 const isCorrect = computed(() =>
-  isBlank.value ? blankResult.value : isShort.value ? null : immediateCorrect.value,
+  isBlank.value ? blankResult.value : isFreeText.value ? null : immediateCorrect.value,
 )
 const correctAnswer = computed(() => correctText(props.question))
 const indexLabel = computed(() => correctIndexLabel(props.question))
@@ -175,8 +178,8 @@ function submitBlank(): void {
       </div>
     </div>
 
-    <!-- 简答 -->
-    <div v-if="isShort" class="short">
+    <!-- 简答 / 综合 -->
+    <div v-if="isFreeText" class="short">
       <div v-if="viewOnly" class="blank__answer">
         <span class="blank__answer-label">参考答案：</span
         ><span class="blank__answer-text">{{ correctAnswer }}</span>
@@ -194,15 +197,15 @@ function submitBlank(): void {
       </div>
     </div>
 
-    <!-- 简答：参考答案反馈（中性，不判对错）；看题模式由上方答案框展示 -->
-    <div v-if="isShort && !viewOnly && shortRevealed" class="feedback feedback--short">
+    <!-- 简答/综合：参考答案反馈（中性，不判对错）；看题模式由上方答案框展示 -->
+    <div v-if="isFreeText && !viewOnly && shortRevealed" class="feedback feedback--short">
       <span class="feedback__icon">参考答案：</span>
       <div class="feedback__answer short__answer-text">{{ correctAnswer }}</div>
     </div>
 
-    <!-- 判分 / 答案反馈；看题模式下填空/简答已由专用答案框展示，不再重复 -->
+    <!-- 判分 / 答案反馈；看题模式下填空/简答/综合已由专用答案框展示，不再重复 -->
     <div
-      v-if="!isShort && !(viewOnly && isBlank) && (hasAnswered || viewOnly)"
+      v-if="!isShort && !isComprehensive && !(viewOnly && isBlank) && (hasAnswered || viewOnly)"
       class="feedback"
       :data-correct="viewOnly ? true : isCorrect"
     >
@@ -251,6 +254,9 @@ function submitBlank(): void {
 }
 .badge[data-type='short'] {
   background: #0d9488;
+}
+.badge[data-type='comprehensive'] {
+  background: #8b5cf6;
 }
 .chapter {
   font-size: 12px;
