@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "generatedAt": "2026-08-31T08:43:57.120Z",
+  "generatedAt": "2026-08-31T09:02:36.448Z",
   "banks": [
     {
       "id": "web",
@@ -6736,12 +6736,12 @@
     {
       "id": "nw",
       "name": "互联网前沿新技术",
-      "count": 374,
+      "count": 376,
       "counts": {
         "single": 154,
         "judge": 100,
         "blank": 100,
-        "short": 20
+        "short": 22
       },
       "questions": [
         {
@@ -10285,6 +10285,20 @@
           "question": "OpenHarmony 系统如何使用 I2C 接口功能？",
           "answer": "1. 通过 PinctrlSet 将对应 GPIO 引脚复用为 I2C 的 SDA、SCL；2. 调用底层 I2C 初始化函数，配置总线速率；3. 写操作：发送从机地址+存储地址+待写入数据，支持 K24C02 字节/页写；4. 读操作：先发送设备地址与读取偏移，再读取返回数值；5. 通信完成后释放 I2C 硬件资源，适用于 EEPROM、NFC 等 I2C 外设。",
           "id": "nw:374"
+        },
+        {
+          "type": "short",
+          "chapter": "互联网前沿综合",
+          "question": "1、使用GPIO0_PA5引脚，控制led灯循环亮2秒，暗2秒，部分代码如下：\r\n/***************************************************************\r\n* 函数名称: led_init\r\n* 说    明: 初始化led\r\n* 参    数: 无\r\n* 返 回 值: 无\r\n***************************************************************/\r\nvoid led_init()\r\n{\r\n    /* 配置GPIO0_PA5的复用功能寄存器为为GPIO */\r\n    PinctrlSet(GPIO0_PA5, MUX_FUNC0, PULL_KEEP, DRIVE_LEVEL0);\r\n    /* 初始化GPIO0_PA5 */\r\n    \r\n    /* 设置GPIO0_PA5为输出模式 */\r\n    \r\n    while (1)\r\n    {\r\n        /* 控制GPIO0_PA5输出高电平 */\r\n        \r\n        /* 睡眠2秒 */\r\n        \r\n        /* 设置GPIO0_PA5输出低电平 */\r\n        \r\n        /* 睡眠2秒 */\r\n        \r\n    }\r\n}",
+          "answer": "1.请画出电路原理图;\r\n   \r\n　　　或参考课本P104： \r\n2.请补全空白处的代码;\r\n　　LzGpioSetVal(GPIO0_PA5, LZGPIO_LEVEL_HIGH);\r\n　　LOS_Msleep(2000);\r\n　　LzGpioSetVal(GPIO0_PA5, LZGPIO_LEVEL_LOW);\r\n　　LOS_Msleep(2000);",
+          "id": "nw:375"
+        },
+        {
+          "type": "short",
+          "chapter": "互联网前沿综合",
+          "question": "2、通过pwm3调整发光二极管亮度，达到呼吸灯的效果，部分代码如下：\r\n/***************************************************************\r\n * 函数名称: pwm_thread\r\n * 说    明: 控制PWM线程函数\r\n * 参    数: 无\r\n * 返 回 值: 无\r\n ***************************************************************/\r\nvoid pwm_thread()\r\n{\r\n    unsigned int ret;\r\n    unsigned int port = 0;\r\n    // 呼吸灯周期固定为1000us（1ms），通过改变占空比实现亮度变化\r\n    unsigned int period = 99;\r\n    // 亮度变化步长和延迟时间，控制呼吸速度\r\n    int step = 2;\r\n    int delay_ms = 50;\r\n    IoTPwmInit(port);\r\n    IoTPwmStart(port, 1, 1000);\r\n    while (1) \r\n    {    \r\n        // 亮度逐渐增加（从暗到亮）\r\n\r\n\r\n\r\n\r\n        // 亮度逐渐减少（从亮到暗）\r\n\r\n\r\n\r\n\r\n    }\r\n}",
+          "answer": "1.pwm3对应小凌派- RK2206开发板上的引脚是哪个;\r\n　　GPIO0_PC0\r\n2.请画出电路原理图;\r\n \r\n3.请补全空白处的代码;\r\n　　　　　　// 亮度逐渐增加（从暗到亮）\r\n　　        for (int duty = 1; duty <= period; duty += step) {\r\n　　            IoTPwmStart(port, duty, 1000);\r\n　　            LOS_Msleep(delay_ms);\r\n　　        }\r\n\r\n\r\n　　　　　　// 亮度逐渐减少（从亮到暗）     \r\n　　        for (int duty = period; duty >= 1; duty -= step) {\r\n　　            IoTPwmStart(port, duty, 1000);\r\n　　            LOS_Msleep(delay_ms);\r\n　　        }",
+          "id": "nw:376"
         }
       ]
     }

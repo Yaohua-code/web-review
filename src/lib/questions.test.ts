@@ -16,7 +16,7 @@ import {
   typeLabel,
 } from './questions'
 
-describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 374）', () => {
+describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 376）', () => {
   const banks = allBanks()
   const webBank = bankById('web')
   const pyBank = bankById('py')
@@ -49,12 +49,12 @@ describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 374�
     expect(availableTypes(pyBank)).toEqual(['single', 'blank', 'short'])
   })
 
-  it('互联网前沿新技术题库 374 题（单选 154 / 判断 100 / 填空 100 / 简答 20）', () => {
-    expect(nwBank.count).toBe(374)
+  it('互联网前沿新技术题库 376 题（单选 154 / 判断 100 / 填空 100 / 简答+综合 22）', () => {
+    expect(nwBank.count).toBe(376)
     expect(nwBank.counts.single).toBe(154)
     expect(nwBank.counts.judge).toBe(100)
     expect(nwBank.counts.blank).toBe(100)
-    expect(nwBank.counts.short).toBe(20)
+    expect(nwBank.counts.short).toBe(22)
     expect(availableTypes(nwBank)).toEqual(['single', 'blank', 'judge', 'short'])
   })
 
@@ -90,10 +90,10 @@ describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 374�
     }
   })
 
-  it('Web 题库有多个章节，Python 题库章节数为 3（单选/填空/简答各一个），互联网前沿章节为 1', () => {
+  it('Web 题库有多个章节，Python 题库章节数为 3，互联网前沿章节为 2（基础+综合）', () => {
     expect(availableChapters(webBank).length).toBeGreaterThan(1)
     expect(availableChapters(pyBank)).toEqual(['Python 单选', 'Python 填空', 'Python 简答'])
-    expect(availableChapters(nwBank)).toEqual(['互联网前沿基础'])
+    expect(availableChapters(nwBank)).toEqual(['互联网前沿基础', '互联网前沿综合'])
   })
 })
 
