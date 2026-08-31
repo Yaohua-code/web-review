@@ -2,6 +2,8 @@
  * 多题库构建脚本（MVP 输出：src/data/questions.json）
  *   题库 1：Web前端开发实战复习题库.docx（解析 docx，题型：单选/填空/判断，排除简答）
  *   题库 2：Python复习题.xlsx（解析 xlsx，题型：单选/填空/简答）
+ *   题库 3：互联网前沿新技术（来源为 questionBank/复习资料/*.doc，经 Word COM 转制为
+ *           src/data/raw/newtech.json 供本脚本直接读取，题型：单选/判断/填空/简答）
  *
  * 产物结构：
  *   { version, generatedAt, banks: [{ id, name, count, counts, questions: [] }] }
@@ -20,6 +22,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const OUT = path.join(ROOT, 'src', 'data', 'questions.json')
+const RAW_NEWTECH = path.join(ROOT, 'src', 'data', 'raw', 'newtech.json')
 
 /* ---------- 共用：HTML 实体解码 ---------- */
 function decodeEntities(str) {
@@ -250,13 +253,18 @@ async function main() {
   if (!pyXlsx) throw new Error('找不到 Python复习题.xlsx')
   const pyRaw = parseXlsxQuestions(pyXlsx)
   const py = assignIds(pyRaw, 'py')
+  // --- 互联网前沿新技术（raw JSON，来源于 *.doc 转制） ---
+  if (!fs.existsSync(RAW_NEWTECH)) throw new Error(`找不到 ${RAW_NEWTECH}`)
+  const newRaw = JSON.parse(fs.readFileSync(RAW_NEWTECH, 'utf-8'))
+  const nw = assignIds(newRaw, 'nw')
 
   const banks = [
     buildBankMeta({ id: 'web', name: 'Web前端题库', questions: web }),
     buildBankMeta({ id: 'py', name: 'Python题库', questions: py }),
+    buildBankMeta({ id: 'nw', name: '互联网前沿新技术', questions: nw }),
   ]
   const payload = {
-    version: 2,
+    version: 3,
     generatedAt: new Date().toISOString(),
     banks,
   }

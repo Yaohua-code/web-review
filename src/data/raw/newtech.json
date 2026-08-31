@@ -1,0 +1,3170 @@
+[
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 由哪个非营利开源基金会运营维护？",
+    "options": [
+      "开放原子开源基金会",
+      "Linux 基金会",
+      "Apache 基金会",
+      "开源中国基金会"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "华为捐赠鸿蒙基础代码给基金会后衍生的开源系统名称是？",
+    "options": [
+      "HarmonyOS",
+      "OpenHarmony",
+      "Android",
+      "IOS"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派开发板的主控芯片型号是？",
+    "options": [
+      "RK2206",
+      "RK3568",
+      "STM32",
+      "ESP32"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 芯片主 CPU 内核为？",
+    "options": [
+      "Cortex-A53",
+      "Cortex-M4",
+      "Cortex-A76",
+      "RISC-V"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 设备开发主要使用的编程语言是？",
+    "options": [
+      "C/C++",
+      "Java",
+      "Python",
+      "Go"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 北向应用开发主流语言是？",
+    "options": [
+      "C 语言",
+      "汇编",
+      "ArkTS/JS",
+      "C++"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "用于 OpenHarmony 设备开发的 IDE 工具是？",
+    "options": [
+      "Keil",
+      "DevEco Device Tool",
+      "VSCode",
+      "Proteus"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 应用开发使用的 IDE 是？",
+    "options": [
+      "DevEco Studio",
+      "IAR",
+      "MDK",
+      "STM32CubeIDE"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 的核心设计理念不包含？",
+    "options": [
+      "统一 OS，弹性部署",
+      "一次开发，多端部署",
+      "硬件互助，资源共享",
+      "单设备独立运行，禁止互联"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "以下属于物联网碎片化问题的是？",
+    "options": [
+      "不同智能设备需安装不同 APP 控制",
+      "设备联网速度快",
+      "设备功耗低",
+      "设备统一通信协议"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 屏幕相比 LCD 最大优势是？",
+    "options": [
+      "成本更低",
+      "无需背光，自发光、轻薄",
+      "亮度更低",
+      "驱动电路更复杂"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 器件发光依靠哪种物理效应？",
+    "options": [
+      "压电效应",
+      "光电效应",
+      "有机电致发光",
+      "电磁感应"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 中创建任务使用的内核函数是？",
+    "options": [
+      "LOS_TaskCreate",
+      "LOS_Msleep",
+      "printf",
+      "oled_init"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 内核延时函数 LOS_Msleep 单位是？",
+    "options": [
+      "秒",
+      "毫秒",
+      "微秒",
+      "纳秒"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "APP_FEATURE_INIT 宏的作用是？",
+    "options": [
+      "注册系统初始化入口函数",
+      "打印日志",
+      "创建延时",
+      "销毁任务"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "BUILD.gn 文件的核心作用是？",
+    "options": [
+      "硬件电路设计",
+      "串口打印",
+      "组件编译配置",
+      "任务创建"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "Makefile 文件在 RK2206 工程中作用是？",
+    "options": [
+      "编写应用逻辑",
+      "链接静态库打包固件 bin",
+      "OLED 显示控制",
+      "创建内核任务"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "静态库文件后缀为？",
+    "options": [
+      ".a",
+      ".c",
+      ".bin",
+      ".gn"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "C 语言源文件后缀是？",
+    "options": [
+      ".a",
+      ".c",
+      ".bin",
+      ".gn"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "头文件后缀一般为？",
+    "options": [
+      ".c",
+      ".bin",
+      ".h",
+      ".txt"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "printf 函数的作用是？",
+    "options": [
+      "串口打印输出日志",
+      "创建任务",
+      "屏幕显示图片",
+      "硬件初始化"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 清空屏幕接口函数是？",
+    "options": [
+      "oled_init",
+      "oled_clear",
+      "oled_display_on",
+      "oled_show_string"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 初始化函数名称是？",
+    "options": [
+      "oled_init",
+      "oled_deinit",
+      "oled_clear",
+      "oled_show_char"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 关闭显示函数是？",
+    "options": [
+      "oled_display_on",
+      "oled_clear",
+      "oled_display_off",
+      "oled_show_num"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 显示字符串接口为？",
+    "options": [
+      "oled_show_char",
+      "oled_show_num",
+      "oled_draw_bmp",
+      "oled_show_string"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 显示单个字符函数是？",
+    "options": [
+      "oled_show_char",
+      "oled_show_string",
+      "oled_show_num",
+      "oled_clear"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 显示数字接口是？",
+    "options": [
+      "oled_show_char",
+      "oled_show_num",
+      "oled_draw_bmp",
+      "oled_deinit"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 绘制图片函数是？",
+    "options": [
+      "oled_show_string",
+      "oled_show_num",
+      "oled_draw_bmp",
+      "oled_display_on"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派开发板配套扩展接口名称是？",
+    "options": [
+      "E53",
+      "GPIO",
+      "I2C",
+      "SPI"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "E53 接口主要作用是？",
+    "options": [
+      "仅供电",
+      "外接各类传感器、外设模块",
+      "烧录程序",
+      "串口调试"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 开发板支持的无线通信是？",
+    "options": [
+      "5G",
+      "蓝牙 5.3",
+      "WiFi/AP",
+      "4G"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派板载 NFC 功能支持哪种协议？",
+    "options": [
+      "NFC Forum Type 2 Tag",
+      "TCP/IP",
+      "Modbus",
+      "CAN"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "晶振在电路中的核心作用是？",
+    "options": [
+      "限流分压",
+      "提供稳定时钟信号",
+      "储能滤波",
+      "单向导电"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "电阻元件文字标识是？",
+    "options": [
+      "R",
+      "C",
+      "D",
+      "Q"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "电容元件文字符号为？",
+    "options": [
+      "R",
+      "C",
+      "L",
+      "U"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "二极管文字标识是？",
+    "options": [
+      "R",
+      "C",
+      "D",
+      "IC"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LED 属于哪一类器件？",
+    "options": [
+      "发光二极管",
+      "电容",
+      "电阻",
+      "晶振"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "贴片电阻标识 104 代表阻值为？",
+    "options": [
+      "104Ω",
+      "100KΩ",
+      "10KΩ",
+      "1KΩ"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "电容单位 1μF 等于多少 nF？",
+    "options": [
+      "1000",
+      "100",
+      "10",
+      "0.001"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "电解电容区分正负极是因为？",
+    "options": [
+      "外观区分",
+      "容量不同",
+      "有极性，反接会损坏",
+      "耐压不同"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "二极管核心电气特性是？",
+    "options": [
+      "单向导电性",
+      "储能",
+      "限流",
+      "产生时钟"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "IC 芯片中文名称是？",
+    "options": [
+      "电阻",
+      "集成电路",
+      "电容",
+      "二极管"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "CD4017 芯片属于？",
+    "options": [
+      "电源芯片",
+      "存储芯片",
+      "十进制计数分频 IC",
+      "运放芯片"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "电路图的四要素不包含？",
+    "options": [
+      "元件符号",
+      "连接线",
+      "结点",
+      "开发板外壳"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "原理图的主要用途是？",
+    "options": [
+      "表达电路电气连接逻辑",
+      "展示硬件实物外观",
+      "编写操作系统代码",
+      "编译固件程序"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO 接口中文名称是？",
+    "options": [
+      "串行总线",
+      "通用输入输出引脚",
+      "时钟总线",
+      "电源总线"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "I2C 总线特点描述正确的是？",
+    "options": [
+      "需要数十根信号线",
+      "仅支持单个外设",
+      "两根线即可挂载多个外设",
+      "传输距离极短仅厘米级"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "SPI 总线相比 I2C 优势是？",
+    "options": [
+      "传输速率更快",
+      "信号线更少",
+      "无需时钟线",
+      "不区分主从设备"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "UART 串口主要用于？",
+    "options": [
+      "驱动 LED 点阵",
+      "调试打印、设备通信",
+      "电源转换",
+      "产生时钟"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "DC-DC 电路功能是？",
+    "options": [
+      "单向导电",
+      "存储电荷",
+      "直流电压升降压转换",
+      "计数分频"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LDO 电路属于哪种电源转换？",
+    "options": [
+      "线性降压电源",
+      "升压电源",
+      "交流转直流",
+      "直流转交流"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "WS2812B 器件是？",
+    "options": [
+      "存储芯片",
+      "稳压芯片",
+      "计数 IC",
+      "串行驱动 RGB 灯珠"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "USB 接口在开发板上不能实现的功能是？",
+    "options": [
+      "程序烧录",
+      "串口调试",
+      "产生系统时钟",
+      "供电"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 分层架构最底层是？",
+    "options": [
+      "内核层",
+      "系统服务层",
+      "框架层",
+      "应用层"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 分层架构最顶层是？",
+    "options": [
+      "内核层",
+      "系统服务层",
+      "框架层",
+      "应用层"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 属于 OpenHarmony 哪一层组件？",
+    "options": [
+      "应用层",
+      "内核层",
+      "框架层",
+      "系统服务层"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "HDF 硬件驱动框架归属层级是？",
+    "options": [
+      "内核层",
+      "应用层",
+      "框架层",
+      "业务层"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "ArkUI 属于哪一层开发框架？",
+    "options": [
+      "内核层",
+      "系统服务层",
+      "框架层",
+      "内核抽象层"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "物联网 “超级终端” 概念来自？",
+    "options": [
+      "Android",
+      "OpenHarmony",
+      "Windows",
+      "FreeRTOS"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "超级终端的核心能力是？",
+    "options": [
+      "多设备硬件互助、资源共享",
+      "单设备独立运行",
+      "仅提升设备算力",
+      "单独加密设备数据"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "以下属于 OpenHarmony 商用发行版的是？",
+    "options": [
+      "Linux Ubuntu",
+      "FreeRTOS",
+      "美的智能家居系统",
+      "iOS"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "2020 年 6 月成立的开源基金会是？",
+    "options": [
+      "开放原子开源基金会",
+      "Linux 基金会",
+      "Apache 软件基金会",
+      "云原生基金会"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "不属于传统嵌入式实时 OS 的是？",
+    "options": [
+      "FreeRTOS",
+      "RT-Thread",
+      "uC/OS-II",
+      "OpenHarmony"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "传统 PC 桌面操作系统是？",
+    "options": [
+      "RT-Thread",
+      "Windows",
+      "FreeRTOS",
+      "uC/OS-II"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "手机移动端两大传统操作系统是？",
+    "options": [
+      "Android、iOS",
+      "Windows、Ubuntu",
+      "FreeRTOS、RT-Thread",
+      "HarmonyOS、OpenHarmony"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony “一次开发多端部署” 含义是？",
+    "options": [
+      "每个设备单独写代码",
+      "代码仅适配单一硬件",
+      "一套代码适配多种物联网设备",
+      "代码只能在手机运行"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "“统一 OS 弹性部署” 优势是？",
+    "options": [
+      "系统固定不可裁剪",
+      "根据硬件资源裁剪系统组件",
+      "仅支持高算力设备",
+      "仅支持 8G 以上内存设备"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置 DSP 主要用于？",
+    "options": [
+      "AI 语音、音频信号处理",
+      "存储程序",
+      "串口打印",
+      "OLED 驱动"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "32.768K 晶振典型用途是？",
+    "options": [
+      "驱动 LED",
+      "电源稳压",
+      "计数分频",
+      "RTC 实时时钟计时"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "色环电阻金色误差代表？",
+    "options": [
+      "±20%",
+      "±10%",
+      "±5%",
+      "±1%"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "无标识色环电阻误差为？",
+    "options": [
+      "±20%",
+      "±5%",
+      "±1%",
+      "±0.5%"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "贴片电容标识 104 容量为？",
+    "options": [
+      "104pF",
+      "0.1μF",
+      "1μF",
+      "10μF"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "铝电解电容主要特征是？",
+    "options": [
+      "无极性、体积小",
+      "高频特性好",
+      "有极性、大容量低压",
+      "仅用于高频电路"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "CBB 电容优势是？",
+    "options": [
+      "无极性、高频特性优秀",
+      "容量极大",
+      "成本最低",
+      "体积最大"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "发光二极管长引脚是？",
+    "options": [
+      "负极",
+      "正极",
+      "空脚",
+      "接地脚"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "贴片二极管丝印横杠一端是？",
+    "options": [
+      "阴极（负极）",
+      "阳极（正极）",
+      "供电脚",
+      "信号脚"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "while (1) 循环作用是？",
+    "options": [
+      "只运行一次",
+      "运行 10 次",
+      "无限循环执行内部代码",
+      "延时等待"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "TSK_INIT_PARAM_S 结构体作用是？",
+    "options": [
+      "OLED 参数配置",
+      "串口配置",
+      "电源参数",
+      "LiteOS 任务参数配置"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "task.uwStackSize 参数代表？",
+    "options": [
+      "任务栈大小",
+      "任务优先级",
+      "任务名称",
+      "任务入口函数"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "task.usTaskPrio 参数含义？",
+    "options": [
+      "栈大小",
+      "任务优先级",
+      "任务名称",
+      "返回值"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "task.pcName 作用是？",
+    "options": [
+      "栈空间",
+      "优先级",
+      "任务字符串名称",
+      "延时时间"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "task.pfnTaskEntry 代表？",
+    "options": [
+      "任务栈",
+      "优先级",
+      "任务名",
+      "任务执行入口函数指针"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LOS_OK 代表？",
+    "options": [
+      "函数执行成功返回值",
+      "任务创建失败",
+      "延时时间常量",
+      "OLED 清屏标志"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "sources 字段在 BUILD.gn 作用？",
+    "options": [
+      "头文件路径",
+      "编译包含的源文件列表",
+      "依赖库",
+      "任务优先级"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "include_dirs 字段功能？",
+    "options": [
+      "源文件",
+      "依赖库",
+      "头文件搜索路径",
+      "固件输出路径"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "deps 字段含义？",
+    "options": [
+      "源码文件",
+      "头文件目录",
+      "栈大小",
+      "编译依赖的其他组件库"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "static_library 关键字作用？",
+    "options": [
+      "编译生成静态库",
+      "生成可执行程序",
+      "配置串口参数",
+      "初始化 OLED"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "lite_component 用于？",
+    "options": [
+      "硬件电路定义",
+      "注册 OpenHarmony 应用组件",
+      "创建内核任务",
+      "屏幕显示配置"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "Makefile 中 hardware_LIBS 作用？",
+    "options": [
+      "定义源文件",
+      "配置头文件",
+      "链接阶段引入静态库",
+      "设置任务延时"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "-lxxx 在 Makefile 代表？",
+    "options": [
+      "源文件名称",
+      "头文件目录",
+      "栈大小",
+      "链接名为 libxxx.a 的静态库"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "hb build 命令功能？",
+    "options": [
+      "编译 OpenHarmony 完整固件",
+      "清空屏幕",
+      "创建任务",
+      "串口打印日志"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "hb set 命令作用？",
+    "options": [
+      "烧录固件",
+      "配置编译根目录与开发板",
+      "OLED 初始化",
+      "内核延时"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "0.96 寸 OLED 常见分辨率是？",
+    "options": [
+      "3216",
+      "6432",
+      "12864",
+      "256128"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 字符显示支持的字体尺寸不包含？",
+    "options": [
+      "12 号字体",
+      "16 号字体",
+      "8 号字体",
+      "100 号字体"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "snprintf 函数用途？",
+    "options": [
+      "格式化字符串存入缓存",
+      "直接屏幕打印",
+      "创建内核任务",
+      "硬件初始化"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "uint8_t 数据类型宽度是？",
+    "options": [
+      "16 位",
+      "8 位无符号",
+      "32 位",
+      "64 位"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "uint32_t 是多少位无符号整数？",
+    "options": [
+      "8 位",
+      "16 位",
+      "32 位",
+      "64 位"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "unsigned int 对应宽度一般为？",
+    "options": [
+      "8 位",
+      "32 位",
+      "64 位",
+      "128 位"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "void 修饰函数代表？",
+    "options": [
+      "无返回值",
+      "无参数",
+      "无限循环",
+      "仅硬件初始化"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "函数参数列表 void 代表？",
+    "options": [
+      "无返回值",
+      "返回空指针",
+      "函数不接收任何参数",
+      "延时函数"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "数组 bmp [] 在 OLED 绘图中存储？",
+    "options": [
+      "任务参数",
+      "串口缓存",
+      "硬件寄存器值",
+      "图片点阵像素数据"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置 PSRAM 容量为？",
+    "options": [
+      "8M",
+      "16M",
+      "32M",
+      "64M"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 片内 FLASH 大小是？",
+    "options": [
+      "4M",
+      "8M",
+      "16M",
+      "32M"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置 RAM 总容量为？",
+    "options": [
+      "128KB",
+      "200KB",
+      "256KB",
+      "512KB"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派开发板 USB 接口不支持？",
+    "options": [
+      "OTG 功能",
+      "串口调试",
+      "供电",
+      "HDMI 视频输出"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "凌蒙派 RK3568 定位是？",
+    "options": [
+      "标准级 OpenHarmony 设备",
+      "轻量级 MCU 开发板",
+      "51 单片机开发板",
+      "FPGA 开发板"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK3568 处理器核心架构是？",
+    "options": [
+      "Cortex-M4",
+      "ARMv8.2A 四核 64 位",
+      "RISC-V",
+      "Cortex-M0"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "NPU 算力用于？",
+    "options": [
+      "串口通信",
+      "电源转换",
+      "AI 人工智能运算",
+      "LED 驱动"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "三屏异显功能归属哪类开发板？",
+    "options": [
+      "RK2206 小凌派",
+      "51 单片机板",
+      "STM32 开发板",
+      "RK3568 凌蒙派"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 内核抽象层 KAL 的作用是？",
+    "options": [
+      "屏蔽不同内核差异，统一内核调用接口",
+      "驱动 OLED 屏幕",
+      "处理 WiFi 通信",
+      "管理应用界面"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 任务优先级数值大小规则是？",
+    "options": [
+      "数值越大优先级越低",
+      "数值越小优先级越高",
+      "优先级与数值无关",
+      "所有任务优先级固定 24"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "静态库 libtask_say_hello.a 命名规则推导正确的是？",
+    "options": [
+      "BUILD.gn 名称直接等于库全名",
+      "static_library (\"xxx\") 生成 xxx.a",
+      "static_library (\"xxx\") 生成 libxxx.a",
+      "库名可任意无固定规则"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 组件依赖 deps 的路径书写规则是？",
+    "options": [
+      "仅写文件夹名",
+      "仅写库名称",
+      "绝对磁盘路径",
+      "// 根目录路径：组件名"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "APP_FEATURE_INIT 注册函数执行时机是？",
+    "options": [
+      "系统内核初始化阶段",
+      "应用运行时动态注册",
+      "OLED 显示完成后",
+      "WiFi 连接后"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED_draw_bmp 中坐标 x0、x1 取值范围是？",
+    "options": [
+      "0~63",
+      "0~127",
+      "0~255",
+      "1~100"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置 Cortex-M0 内核主要职责？",
+    "options": [
+      "主应用运算",
+      "AI 语音处理",
+      "WiFi AP/STA 协议处理",
+      "屏幕渲染"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "色环电阻 4 环读法规则描述正确的是？",
+    "options": [
+      "4 位全部为有效数字",
+      "前 2 位乘数，后 2 位误差",
+      "前 1 位有效，后 3 位乘数",
+      "前 3 位有效数字，第 4 位乘数"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "104 陶瓷电容容量换算正确的是？",
+    "options": [
+      "10*10^4 pF = 0.1μF",
+      "104μF",
+      "104 pF",
+      "104nF"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "WS2812B 单线通信电平时序依靠？",
+    "options": [
+      "I2C 时钟同步",
+      "高低电平持续时间区分 0/1 码",
+      "SPI 同步时钟",
+      "UART 波特率同步"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "HDF 硬件驱动框架分层不包含？",
+    "options": [
+      "驱动适配层",
+      "设备管理层",
+      "应用 ArkUI 层",
+      "内核抽象层"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 3.2 版本核心优化不包含？",
+    "options": [
+      "ArkUI 最小更新",
+      "并行极速启动",
+      "RenderService 统一渲染",
+      "新增 5G 基带内核"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "超级终端设备发现依靠底层哪种通信？",
+    "options": [
+      "WiFi/蓝牙分布式软总线",
+      "UART 串口",
+      "SPI 总线",
+      "I2C 总线"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "分布式软总线核心目标是？",
+    "options": [
+      "提升单设备算力",
+      "跨设备互联互通、资源虚拟化",
+      "驱动 OLED 屏幕",
+      "管理本地文件"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "Makefile 中 boot_LIBS 库作用是？",
+    "options": [
+      "外设驱动库",
+      "应用任务库",
+      "系统启动引导相关库",
+      "WiFi 协议库"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LDSCRIPT=board.ld 文件功能是？",
+    "options": [
+      "硬件原理图",
+      "应用代码",
+      "编译配置",
+      "链接脚本，定义内存分配"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "task 创建失败返回 ret 非 0x0 代表？",
+    "options": [
+      "内核资源不足/参数非法",
+      "任务正常运行",
+      "延时函数报错",
+      "OLED 初始化失败"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED_show_num 参数 len 代表？",
+    "options": [
+      "字体大小",
+      "数字显示固定位数",
+      "显示 X 坐标",
+      "显示 Y 坐标"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "unsigned char code table 数组存储位置？",
+    "options": [
+      "片内 RAM",
+      "片外 PSRAM",
+      "程序 Flash 只读区",
+      "堆栈内存"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "CBB 电容标识 684 容量计算正确的是？",
+    "options": [
+      "684pF",
+      "684nF",
+      "6.8μF",
+      "0.68μF"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "32.768K 晶振分频得到 1 秒原理是？",
+    "options": [
+      "32768 次二分频后输出 1Hz",
+      "直接输出 1Hz 时钟",
+      "外部芯片强制分频",
+      "软件计数实现计时"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "I2C 总线 SDA、SDA 上拉电阻必要性是？",
+    "options": [
+      "限流防止短路",
+      "I2C 开漏输出，拉高总线电平",
+      "降低传输速率",
+      "提升耐压值"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "SPI 四线模式四根信号线不包含？",
+    "options": [
+      "SCLK 时钟",
+      "MOSI 主机发",
+      "SDA 双向数据",
+      "CS 片选"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 任务栈溢出后果是？",
+    "options": [
+      "仅打印报错日志",
+      "OLED 黑屏",
+      "WiFi 断开",
+      "内存踩踏、系统死机崩溃"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 发行版与开源版区别是？",
+    "options": [
+      "发行版增加商业适配、私有驱动",
+      "开源版无法商用",
+      "发行版不基于 OpenHarmony 源码",
+      "两者代码完全隔离"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "E53 接口集成外设资源不包含？",
+    "options": [
+      "GPIO、PWM",
+      "HDMI 视频",
+      "I2C、SPI",
+      "ADC 模拟采集"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 主频 200MHz 指哪颗内核？",
+    "options": [
+      "M0 WiFi 内核",
+      "HiFi3 DSP",
+      "Cortex-M4 主内核",
+      "RTC 时钟内核"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RGB 灯 WS2812B 三色驱动顺序是？",
+    "options": [
+      "RGB",
+      "BRG",
+      "RBG",
+      "GRB"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "静态库链接相比动态库优势是？",
+    "options": [
+      "固件独立运行，无需外部库文件",
+      "固件体积更小",
+      "组件可动态更新",
+      "内存占用更低"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "snprintf 缓冲区溢出规避依靠哪个参数？",
+    "options": [
+      "格式化字符串",
+      "缓冲区最大长度 sizeof (buffer)",
+      "输出目标 OLED 坐标",
+      "循环延时数值"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS TSK_INIT_PARAM_S 中未配置 pcName 会出现？",
+    "options": [
+      "内核任务日志无名称，调试困难，不影响运行",
+      "任务直接创建失败",
+      "系统直接崩溃",
+      "OLED 无法显示"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 轻量设备编译时 Makefile 库链接顺序规则是？",
+    "options": [
+      "顺序无任何影响",
+      "依赖库必须放在被依赖库后方",
+      "硬件库必须放在启动库前",
+      "应用库必须放在底层驱动库前"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "0.96 寸 I2C OLED 通信地址冲突解决方案是？",
+    "options": [
+      "更换 SPI 屏幕",
+      "拉高 SDA 电平",
+      "硬件地址引脚切换 I2C 从机地址",
+      "降低通信速率"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 LDS 链接脚本作用细分正确的是？",
+    "options": [
+      "仅定义 Flash 起始地址",
+      "仅分配 RAM 堆栈",
+      "仅管理外设寄存器地址",
+      "划分 Flash/RAM 分区、段映射、内存边界保护"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "分布式软总线跨设备任务调度底层依赖内核什么机制？",
+    "options": [
+      "跨设备消息队列 + 远程过程调用 RPC",
+      "本地单一任务调度",
+      "硬件 GPIO 中断",
+      "OLED 帧缓冲同步"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "色环电阻五环第五环棕色误差值为？",
+    "options": [
+      "±5%",
+      "±1%",
+      "±0.5%",
+      "±10%"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "Cortex-M4 内核 DSP 扩展指令集核心用途？",
+    "options": [
+      "图形渲染",
+      "网络协议解析",
+      "FFT 音频、AI 信号浮点加速",
+      "文件系统读写"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "BUILD.gn 中 lite_component 的 features 数组加载顺序影响？",
+    "options": [
+      "仅编译速度",
+      "OLED 显示顺序",
+      "WiFi 连接先后",
+      "组件初始化执行先后顺序"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "WS2812B 级联长线信号失真最优硬件解决方案？",
+    "options": [
+      "74HC245 电平缓冲驱动",
+      "增大上拉电阻阻值",
+      "降低 MCU 输出电平",
+      "延长数据高电平时间"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony KAL 层适配多内核不包含哪项封装？",
+    "options": [
+      "任务创建/延时 API 统一封装",
+      "应用 ArkUI 渲染接口封装",
+      "信号量、互斥锁统一接口",
+      "内存分配抽象接口"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "task.uwStackSize 设置过小会触发内核哪种异常？",
+    "options": [
+      "硬件总线异常",
+      "I2C 地址冲突",
+      "栈溢出内存越界访问 HardFault",
+      "WiFi AP 断开"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "32.768K 晶振负载电容匹配错误现象是？",
+    "options": [
+      "晶振电压升高",
+      "供电短路",
+      "GPIO 损坏",
+      "RTC 计时走时偏快/偏慢甚至停振"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "静态库循环依赖编译报错解决方案是？",
+    "options": [
+      "调整 Makefile 库链接顺序，拆分循环依赖模块",
+      "删除其中一个库",
+      "增大任务栈大小",
+      "修改 OLED 驱动代码"
+    ],
+    "answer": 0
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "OLED_draw_bmp 点阵数据 code 段存储的性能收益是？",
+    "options": [
+      "提升屏幕刷新帧率",
+      "节约片内 RAM，仅占用 Flash 只读空间",
+      "降低 I2C 通信速率",
+      "支持更大分辨率图片"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 RK2206 WiFi AP 模式下内核 M0 与 M4 通信机制是？",
+    "options": [
+      "SPI 硬件总线直传",
+      "I2C 消息队列",
+      "片内共享内存 + 内核中断通知",
+      "UART 串口转发数据包"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO 英文全称是通用输入输出引脚。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 开发板一共有 40 路双向 GPIO。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO 可配置为输入模式读取按键电平。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO 输出模式只能输出 5V 电平。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LzGpioInit 函数用于初始化指定 GPIO 管脚。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LzGpioDeinit 函数只能关闭 GPIO 中断。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "S855 三极管属于 PNP 型开关管。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO0_D3 输出高电平时绿色 LED 点亮。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "ADC 可以将模拟电压转换成数字数值。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 ADC 采样精度为 12 位。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "无按键按下时 ADC 采集电压为 3.3V。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "Key3 按下时 ADC 输出电压为 1.65V。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LCD 液晶依靠液晶分子扭曲实现透光控制。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 屏幕需要外接背光光源才能显示。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "SPI_CS 片选引脚低电平有效。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "D/C 引脚高电平传输指令数据。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "lcd_show_char 用于显示单个 ASCII 字符。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "lcd_show_chinese 仅支持 12 号一种字号。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 是 I2C 接口的 EEPROM 存储芯片。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "EEPROM 断电后内部数据会全部丢失。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "EEPROM 支持字节写和页写两种写入方式。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 单次页写最多可写入 16 字节。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "NFC 中文名称为近场通信技术。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "NFC 标准工作载波频率为 2.4GHz。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "NFC 最大有效通信距离为 10 厘米。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "nfc_store_text 函数用于向 NFC 写入网址链接。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "PWM 是脉冲宽度调制技术的英文缩写。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "PWM 占空比取值范围为 0~100。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "IoTPwmStart 函数用于启动 PWM 波形输出。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置 2 组 PWM 控制器。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "看门狗超时未喂狗会自动复位 CPU。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "喂狗操作会清空程序内所有变量。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LzWatchdogKeepAlive 是喂狗接口函数。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "看门狗基础计时单位为 1 秒。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 是 OpenHarmony 配套轻量级内核。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LOS_Msleep 延时函数单位是微秒。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LOS_TaskCreate 用于创建 LiteOS 任务。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LOS_TaskDelete 可以删除正在运行的当前任务。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "信号量可用于多任务同步互斥。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LOS_SemPost 函数用于申请信号量资源。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "互斥锁可以解决优先级翻转问题。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 事件机制可以传输业务数据。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "电阻基础物理单位是欧姆，符号 Ω。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "贴片电阻标识 104 代表 104Ω 阻值。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "电容单位法拉简写符号为 F。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "1μF 等于 100pF。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LED 发光二极管具备单向导电特性。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "二极管反向施加电压可以正常导通。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "晶振元件作用是输出稳定时钟信号。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 主内核为 Cortex-M0。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 由开放原子开源基金会托管。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "HarmonyOS 属于开源 OpenHarmony 项目。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 支持一次开发、多端部署。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "hb build 命令只能编译单个示例程序。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "BUILD.gn 文件用于配置模块编译规则。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "Makefile 文件用于界面 UI 代码编写。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 清空屏幕函数是 oled_clear。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "oled_display_off 用于点亮 OLED 屏幕。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "oled_draw_bmp 函数用于在 OLED 显示图片。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "PWM 呼吸灯占空比只能固定为 50 不变。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "PinctrlSet 用于配置 GPIO 复用功能。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LzGpioGetDir 用于设置 GPIO 输入输出方向。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LzGpioEnableIsr 开启 GPIO 外部中断。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO 中断触发只能是上升沿信号。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "NDEF 数据包由多条 Record 记录组成。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "NDEF 头部仅包含标识符一项内容。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "NDEF 的 Payload 区域存储业务数据内容。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 设备 I2C 地址是 0x48。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 ADC 最大采样数值为 1024。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "3.3V 除以 1024 等于 0.0035V 每刻度。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 GPIO 分为 PA、PB、PC、PD 四组，每组 8 个引脚。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 共有 16 路独立 PWM 输出通道。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "PWM6 对应硬件引脚 GPIO_C3，PWM3 对应 GPIO_C0。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "档位 2 看门狗超时时间等于 1.3981013 秒。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LCD D/C 引脚低电平发送指令、高电平发送图像数据。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "lcd_draw_rectangle 函数 x1/y1 代表矩形右下角坐标。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "电阻色环金色误差 5%，银色误差 10%。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "贴片电阻 R10 代表阻值 10 欧姆。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 四层架构从上至下为应用层、框架层、系统服务层、内核层。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "DevEco Device Tool 用于手机鸿蒙应用开发。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 E53 扩展接口包含 5 路 GPIO 与 3 路 PWM。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "hb set -root 命令用于清空编译缓存。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "呼吸灯程序占空比区间为 1~99，每次延时 50 毫秒切换亮度。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LzGpioDisableIsr 用于配置 GPIO 输入方向。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 任务包含就绪、运行、阻塞、退出四种基础状态。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 任务优先级总共有 16 个等级。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 总容量 2048bit，等效 256 字节存储空间。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "Key2 按下时 ADC 采集电压为 1.00V。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 字符显示支持 12、16 两种标准字号。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "nfc_store_uri_http 仅能写入百度网址。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 单 ADC 刻度电压精确值约等于 0.003223V。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "看门狗档位 20 实际超时时间为 22.36 秒。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 I2C 从机十六进制地址为 0x51，单次页写上限 8 字节。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 事件变量全部 32 位均可作为有效事件位。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 全部 PWM 通道编号范围 0~11，PWM11 对应 GPIO_D6。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "S8550 驱动电路 R1 阻值 2kΩ，R2 阻值 22Ω。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "ADC 按键 K3 串联 4.7k 电阻，分压输出标准 1.00V 电压。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置 DTCM 存储空间 256KB。",
+    "answer": false
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "NDEF 头部由标识符、长度、类型三段信息组成。",
+    "answer": true
+  },
+  {
+    "type": "judge",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 外接 PSRAM 存储容量为 16MB。",
+    "answer": false
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 - RK2206 开发板搭载的操作系统是________。",
+    "answer": "轻量级 OpenHarmony 3.0LTS"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 任务默认优先级总共有________个。",
+    "answer": "32"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "创建 LiteOS 任务的接口函数为________。",
+    "answer": "LOS_TaskCreate"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "ADC 器件的功能是将模拟信号转换为________信号。",
+    "answer": "数字"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派开发板主控芯片型号为________。",
+    "answer": "RK2206"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 内核队列主要用于________间的数据通信。",
+    "answer": "任务"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "释放信号量的 LiteOS 接口函数是________。",
+    "answer": "LOS_SemPost"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LCD 屏幕成像依靠________分子通电扭曲实现透光控制。",
+    "answer": "液晶"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 型号 EEPROM 采用________总线通信。",
+    "answer": "I2C"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "初始化 GPIO 管脚的接口函数名称是________。",
+    "answer": "LzGpioInit"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "释放 GPIO 资源的接口函数为________。",
+    "answer": "LzGpioDeinit"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "EEPROM 存储器断电后数据________丢失。（填 \"会/不会\"）",
+    "answer": "不会"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "PWM 参数 duty 代表输出波形的________。",
+    "answer": "占空比"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "看门狗定时器超时后会自动________单片机系统。",
+    "answer": "复位"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "定期重置看门狗计数器的操作称为________。",
+    "answer": "喂狗"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 屏幕相比 LCD 不需要配套________背光系统。",
+    "answer": "独立"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 初始化函数接口名称是________。",
+    "answer": "oled_init"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "近场通信技术英文缩写为________。",
+    "answer": "NFC"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "NFCIP-1 标准规定 NFC 最大通信距离为________厘米。",
+    "answer": "10"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "NFC 标准通信载波频率为________MHz。",
+    "answer": "13.56"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "向 NFC 写入文本信息的函数是________。",
+    "answer": "nfc_store_text"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "向 NFC 写入网址信息的函数是________。",
+    "answer": "nfc_store_uri_http"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 芯片内置________组 PWM 控制器。",
+    "answer": "3"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "每组 PWM 控制器包含________个独立输出通道。",
+    "answer": "4"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "启动 PWM 信号输出的接口函数是________。",
+    "answer": "IoTPwmStart"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "停止 PWM 信号输出的接口函数是________。",
+    "answer": "IoTPwmStop"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 ADC 采样精度为________位。",
+    "answer": "10"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 ADC 满量程对应电压为________V。",
+    "answer": "3.3"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "读取 ADC 通道数值的函数是________。",
+    "answer": "LzSaradcReadValue"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "初始化 ADC 硬件的函数为________。",
+    "answer": "LzSaradcInit"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LCD 显示单个英文字符的函数是 lcd_show_char，显示汉字串的函数为________。",
+    "answer": "lcd_show_chinese"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "SPI 通信 LCD 的片选引脚缩写为________。",
+    "answer": "SPI_CS"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "SPI_CS 引脚有效电平为________电平。",
+    "answer": "低"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "EEPROM 写入分为字节写和________写两种模式。",
+    "answer": "页"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "互斥锁本质是特殊二值类型的________。",
+    "answer": "信号量"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 事件机制最多支持________种独立事件类型。",
+    "answer": "31"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "事件机制仅用于任务间同步，________传输业务数据（填 \"能/不能\"）。",
+    "answer": "不能"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "能够解决信号量优先级翻转问题的同步组件是________。",
+    "answer": "互斥锁"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "电阻基础标识单位是________，符号 Ω。",
+    "answer": "欧姆"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "电容通用单位法拉的英文符号为________。",
+    "answer": "F"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "发光二极管英文简写为________。",
+    "answer": "LED"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "二极管核心电气特性为________导电。",
+    "answer": "单向"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "晶振元件主要作用是提供标准________信号。",
+    "answer": "时钟"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "通用输入输出引脚英文缩写为________。",
+    "answer": "GPIO"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO 配置为________模式时用于读取外部按键电平。",
+    "answer": "输入"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO 配置为________模式时可输出电平控制 LED 亮灭。",
+    "answer": "输出"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "设置 GPIO 引脚工作方向的函数是________。",
+    "answer": "LzGpioSetDir"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "读取 GPIO 当前电平值的函数是________。",
+    "answer": "LzGpioGetVal"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "修改 GPIO 输出电平的函数是________。",
+    "answer": "LzGpioSetVal"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "配置 GPIO 引脚复用功能的函数为________。",
+    "answer": "PinctrlSet"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "S8550 三极管属于________型三极管，低电平导通。",
+    "answer": "PNP"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO0_D3 输出低电平时，开发板绿色 LED 状态为________。",
+    "answer": "点亮"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "GPIO0_D3 输出高电平时，绿色 LED 状态为________。",
+    "answer": "熄灭"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 延时函数 LOS_Msleep 单位为________。",
+    "answer": "毫秒"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "创建 LiteOS 任务使用 LOS_TaskCreate，删除任务接口为________。",
+    "answer": "LOS_TaskDelete"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "挂起 LiteOS 任务的函数是________。",
+    "answer": "LOS_TaskSuspend"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "恢复被挂起任务运行的接口为________。",
+    "answer": "LOS_TaskResume"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "创建信号量的 LiteOS 函数是________。",
+    "answer": "LOS_SemCreate"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "申请占用信号量资源的函数为________。",
+    "answer": "LOS_SemPend"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "销毁信号量的接口函数是________。",
+    "answer": "LOS_SemDelete"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 捐赠主体华为对应的商业发行版名称为________。",
+    "answer": "HarmonyOS"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "负责运营 OpenHarmony 开源项目的机构是________。",
+    "answer": "开放原子开源基金会"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 核心理念 \"一套系统弹性部署\" 简称为________。",
+    "answer": "统一 OS，弹性部署"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony \"一次开发适配多设备\" 特性简称为________。",
+    "answer": "一次开发，多端部署"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "多设备硬件资源互通共享的特性称为________。",
+    "answer": "硬件互助，资源共享"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 主处理器内核型号为 Cortex-________。",
+    "answer": "M4"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置辅助 WiFi 内核为 Cortex-________。",
+    "answer": "M0"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 清空屏幕的接口函数名称是________。",
+    "answer": "oled_clear"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 开启屏幕显示的函数是 oled_display_on，关闭显示函数为________。",
+    "answer": "oled_display_off"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 显示图片的接口函数是________。",
+    "answer": "oled_draw_bmp"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LiteOS 任务标准四种状态：________、________、阻塞态、退出态。",
+    "answer": "就绪态"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 芯片共有________个双向 GPIO，每个端口包含________路 GPIO。",
+    "answer": "32"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 总存储容量为________bit，折合________Byte。",
+    "answer": "2048"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "按下 K1 时 ADC 电压为________V，按下 K4 时 ADC 电压为________V。",
+    "answer": "0.01"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 ADC 单刻度电压等于________除以________。",
+    "answer": "3.3"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LCD 引脚 D/C 用于区分________和________两种传输内容。",
+    "answer": "指令"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "看门狗基础计时基准为________秒，档位 3 超时总时长为________秒。",
+    "answer": "1.3981013"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "PWM 端口 3 对应引脚________，PWM 端口 6 对应引脚________。",
+    "answer": "GPIO_C0"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "NDEF 数据包由多条________组成，单条记录分为头部和________。",
+    "answer": "记录"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OLED 字符显示函数支持________和________两种字号。",
+    "answer": "12"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "电阻色环金色误差________%，银色误差________%。",
+    "answer": "5"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "贴片电阻标识 104 阻值为________Ω，标识 R10 阻值为________Ω。",
+    "answer": "100000"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "1 微法等于________纳法，1 纳法等于________皮法。",
+    "answer": "1000"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 四层架构从下到上：内核层、________、框架层、________。",
+    "answer": "系统服务层"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "硬件开发工具为 DevEco________，应用开发工具为 DevEco________。",
+    "answer": "Device Tool"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 E53 接口包含________路 GPIO，内置________路 PWM 通道。",
+    "answer": "5"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "设置工程根目录命令为________，全量编译固件命令为________。",
+    "answer": "hb set -root ."
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "模块编译配置文件后缀为________，系统库配置文件名称为________。",
+    "answer": "gn"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "呼吸灯占空比上限为________，每次亮度延时________毫秒。",
+    "answer": "99"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "关闭 GPIO 中断函数是________，GPIO 引脚复用________功能可响应外部信号。",
+    "answer": "LzGpioDisableIsr"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "ADC 最大值 0x400 十进制是________，单 LSB 电压精度约________V。",
+    "answer": "1024"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "看门狗档位 20 超时时间为________秒，公式指数为________。",
+    "answer": "721.9078664"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "K24C02 单次页写最大字节________，I2C 设备地址十六进制________。",
+    "answer": "8"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "NDEF 头部包含标识符、________、________，Payload 存储________。",
+    "answer": "长度"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 PWM 通道编号范围 0~________，PWM11 对应 GPIO________。",
+    "answer": "11"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "lcd_draw_rectangle 中 x1y1 是矩形________，x2y2 是矩形________。",
+    "answer": "左上角起点坐标"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "屏蔽 LiteOS 事件第 25 位掩码________，最大有效事件位序号________。",
+    "answer": "0xFFFFFFDF"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "LED 驱动上拉电阻 R1 阻值________kΩ，基极限流 R2 阻值________Ω。",
+    "answer": "2"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "ADC 按键 K3 串联电阻________kΩ，对应输出电压________V。",
+    "answer": "4.7"
+  },
+  {
+    "type": "blank",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 内置 DTCM 为________KB，外部 PSRAM 容量________MB。",
+    "answer": "192"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 - RK2206 开发板的主要特性是什么？",
+    "answer": "1. 主控采用 RK2206 芯片，搭载 Cortex-M4 主内核、Cortex-M0 WiFi 辅内核；2. 预装轻量级 OpenHarmony 3.0LTS 系统；3. 引出 32 路双向 GPIO，支持 GPIO、I2C、SPI、ADC、PWM 等外设；4. 集成 NFC 射频模块，支持 13.56MHz 近场通信；5. 自带硬件 LED、按键、LCD 扩展接口，配套完整 LiteOS 开发接口；6. 支持 3.3V 标准电平，低功耗物联网设计。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 是什么？有什么特点？",
+    "answer": "OpenHarmony 是开放原子开源基金会托管的开源分布式操作系统。核心特点：1. 统一 OS，弹性部署，可裁剪适配各类物联网设备；2. 一次开发、多端部署，一套代码适配不同硬件；3. 硬件互助、资源共享，多设备互联协同；4. 内核轻量化，适配 RK2206 等小型 MCU；5. 全开源免费，配套 DevEco 开发工具链。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "RK2206 芯片主要应用于哪些领域？至少列举三种，并说明。",
+    "answer": "1. 智慧家居：灯光、门窗、家电控制，利用 GPIO/PWM 控制外设；2. 物联网终端：NFC 标签、数据采集节点，通过 ADC 采集环境电压；3. 工业小型控制器：简易设备采集、开关量控制；4. 教育开发板：高校 OpenHarmony 实训教学；5. 可穿戴低功耗设备。任选其三说明即可。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统提供了哪些外设的接口？",
+    "answer": "包含 GPIO 通用输入输出、ADC 模数转换、PWM 脉冲调制、I2C 串行总线、SPI 串行总线、LCD 液晶、OLED 屏幕、EEPROM 存储、NFC 近场通信、看门狗定时器等全套外设操作接口，配套标准化硬件函数。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统如何使用 GPIO 接口功能？",
+    "answer": "1. 调用 PinctrlSet 配置引脚复用为 GPIO 功能；2.LzGpioInit 初始化指定引脚；3.LzGpioSetDir 设置输入/输出方向；4. 输出模式用 LzGpioSetVal 控制高低电平；5. 输入模式用 LzGpioGetVal 读取电平；6. 使用完毕调用 LzGpioDeinit 释放引脚资源。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 可以在哪些应用场景中使用？",
+    "answer": "小型物联网设备、智慧家居、工业微型控制设备、教育开发实训、NFC 识别终端、车载小型外设、农业环境采集节点、可穿戴低功耗设备、智能显示屏幕等轻量化硬件场景。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 - RK2206 开发板由哪些主要硬件组成？",
+    "answer": "1.RK2206 主控芯片；2.NFC 射频标签模块；3. 四路分压 ADC 独立按键；4. 绿色 PNP 驱动 LED；5.LCD/OLED 扩展插座；6.I2C 外接 EEPROM 接口；7.PWM 硬件通道；8.USB OTG 调试接口；9.3.3V 电源电路；10. 复位、晶振最小系统电路。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 - RK2206 开发板上的 GPIO 引脚有哪些主要用途？至少列举三种，并说明。",
+    "answer": "1. 输出控制：配置为输出模式，驱动 LED、继电器，输出高低电平控制设备通断；2. 输入采集：配置输入模式读取按键、外部传感器电平信号，检测设备触发状态；3. 外设复用：通过 PinctrlSet 复用为 I2C、SPI、UART、PWM 等通信引脚，实现外设数据交互；4. 外部中断：开启中断功能，电平 / 边沿变化时触发程序响应外部事件。任选三种说明即可。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统软件定时器和中断有什么区别？两者分别应用于什么场景？",
+    "answer": "区别：1. 软件定时器基于任务调度，定时精度受系统任务阻塞影响，定时周期较长；2. 中断由硬件触发，响应速度极快，不受任务运行干扰。应用场景：软件定时器适合 LED 呼吸、周期性日志打印、慢速设备定时；硬件中断适合按键瞬时触发、ADC 快速采集、外设紧急信号处理。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统如何使用 SPI 接口功能？",
+    "answer": "1. 使用 PinctrlSet 将对应 GPIO 复用为 SPI_CLK、SPI_MOSI、SPI_MISO、SPI_CS 引脚；2. 初始化 SPI 总线，配置通信速率、数据位宽与传输模式；3. 拉低 SPI_CS 片选引脚选中外设；4. 调用 SPI 读写函数发送 / 接收图像、字节数据；5. 通信结束拉高片选，释放 SPI 硬件资源；主要用于驱动 ST7789 液晶显示屏。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "智慧车载模块测量前方障碍物距离的原理是什么？如何计算与障碍物的距离？",
+    "answer": "测量原理：采用超声波测距模块，发射超声波脉冲，声波接触障碍物后反射，模块接收回波；计算方式：记录声波发射与接收的时间差，结合声波在空气中传播速度 340m/s，公式：距离 = 声速 × 时间差 ÷2，乘以2 是声波往返路程。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "结合相关知识，阐述你理想中的智慧家居包含的功能，使用的传感器以及使用方法。",
+    "answer": "核心功能：灯光自动调节、门窗安防、温湿度自动调控、家电远程控制、人体感应；配套传感器：人体红外传感器、温湿度传感器、门窗磁传感器、光照传感器；使用方法：传感器实时采集环境数据，通过 RK2206/OpenHarmony 终端上传，根据预设阈值自动开关灯光、空调、门窗报警，支持 NFC 手机一键控制家居设备。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "结合相关知识，阐述你理想中的智慧城市包含的功能，使用的传感器以及使用方法。",
+    "answer": "核心功能：智能路灯调控、环境空气监测、车流人流统计、垃圾分类智能提示、安防监控；配套传感器：空气质量传感器、光照传感器、红外客流传感器、噪音传感器；使用方法：城市物联网终端搭载 OpenHarmony 采集数据，云端汇总分析，自动调节路灯亮度、预警污染区域、疏导拥堵路段，实现城市精细化智能管理。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "结合相关知识，阐述你理想中的智慧农业包含的功能，使用的传感器以及使用方法。",
+    "answer": "核心功能：土壤水肥监测、大棚温湿度自动调控、虫害预警、智能灌溉；配套传感器：土壤湿度 / PH 传感器、温湿度传感器、光照传感器、虫害红外探测器；使用方法：RK2206 开发板采集农田环境数据，OpenHarmony 系统判断环境参数，自动控制水泵、遮阳设备、通风装置，远程查看农田状态，实现无人种植管理。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 的技术架构是什么？",
+    "answer": "由下至上四层分层架构：1. 内核层：LiteOS 轻量级内核，提供任务、信号量、队列、中断调度；2. 系统服务层：硬件驱动、外设抽象、通信服务；3. 框架层：标准化 API、硬件适配接口；4. 应用层：用户业务程序、任务逻辑代码，分层解耦，适配不同硬件资源。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统任务之间的数据同步方式有几种？分别是什么？",
+    "answer": "共有 4 种核心同步通信方式：1. 消息队列：用于任务间传递批量数据；2. 信号量：控制共享资源访问、任务同步；3. 互斥锁：解决优先级翻转，独占资源；4. 事件：多任务状态同步，仅标记状态、不传输数据。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统信号量和事件有什么区别？两者分别应用于什么场景？",
+    "answer": "区别：1. 信号量带有资源计数值，可传递资源占用关系，支持互斥、同步；2. 事件仅 31 位状态标记，无数据存储，无法传输业务数据。场景：信号量用于外设资源争抢、多任务访问同一硬件；事件用于多任务等待同一触发条件（如按键、定时触发）。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统如何使用 PWM 接口功能？",
+    "answer": "1. 调用 IoTPwmInit 初始化指定 PWM 端口；2. 调用 IoTPwmStart，传入端口、占空比 (1~99)、频率启动波形输出；3. 循环修改占空比可实现呼吸灯等调光效果；4. 无需输出时调用 IoTPwmStop 关闭；5. 最后 IoTPwmDeinit 释放硬件资源。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "小凌派 - RK2206 开发板支持哪些接口与外设进行通信？至少列举三种，并说明",
+    "answer": "1.I2C 总线：两线通信，适配 K24C02 EEPROM、NFC 模块，读写存储数据；2.SPI 高速串行：驱动 ST7789 LCD 液晶屏，传输图像像素；3.ADC 模拟采集：分压按键、环境电压采集，10 位精度转换；4.PWM 脉冲输出：LED 调光、电机驱动；5.UART 串口：打印调试日志、串口透传。任选三种完整说明通信对象与用途。"
+  },
+  {
+    "type": "short",
+    "chapter": "互联网前沿基础",
+    "question": "OpenHarmony 系统如何使用 I2C 接口功能？",
+    "answer": "1. 通过 PinctrlSet 将对应 GPIO 引脚复用为 I2C 的 SDA、SCL；2. 调用底层 I2C 初始化函数，配置总线速率；3. 写操作：发送从机地址+存储地址+待写入数据，支持 K24C02 字节/页写；4. 读操作：先发送设备地址与读取偏移，再读取返回数值；5. 通信完成后释放 I2C 硬件资源，适用于 EEPROM、NFC 等 I2C 外设。"
+  }
+]
