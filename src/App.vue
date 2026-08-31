@@ -108,6 +108,9 @@ function onSubmit(payload: { questionId: string; input: string | number | boolea
 function onResetProgress(): void {
   resetProgress()
   progress.value = {}
+  // 清空进度后错题本里没有题目，退出错题本模式并回到第一题
+  wrongMode.value = false
+  currentIndex.value = 0
 }
 
 let advanceTimer: number | undefined
