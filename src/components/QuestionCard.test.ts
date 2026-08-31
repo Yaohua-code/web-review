@@ -124,14 +124,22 @@ describe('QuestionCard 简答题', () => {
     answer: 'Python 采用基于值的内存管理方式。',
   }
 
-  it('练习模式：显示文本框，点“查看参考答案”后展示参考答案且不 emit submit', async () => {
+  it('练习模式：显示文本框，点“查看参考答案”展示答案，再点可隐藏且不 emit submit', async () => {
     const wrapper = mount(QuestionCard, { props: { question: shortQuestion } })
     // 初始只有输入框与按钮，无反馈
     expect(wrapper.find('textarea').exists()).toBe(true)
     expect(wrapper.find('.feedback').exists()).toBe(false)
 
+    // 点“查看参考答案”→ 展示参考答案
     await wrapper.find('.btn').trigger('click')
     expect(wrapper.find('.feedback--short').text()).toContain('Python 采用基于值的内存管理方式。')
+    expect(wrapper.find('.btn').text()).toContain('隐藏参考答案')
+
+    // 再点一次 → 隐藏参考答案
+    await wrapper.find('.btn').trigger('click')
+    expect(wrapper.find('.feedback--short').exists()).toBe(false)
+    expect(wrapper.find('.btn').text()).toContain('查看参考答案')
+
     // 简答不参与判分，不应触发 submit
     expect(wrapper.emitted('submit')).toBeUndefined()
   })

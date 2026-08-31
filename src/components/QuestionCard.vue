@@ -187,10 +187,9 @@ function submitBlank(): void {
           class="short__input"
           placeholder="先在脑中/纸上作答，完成后点击下方查看参考答案"
           rows="4"
-          :disabled="shortRevealed"
         ></textarea>
-        <button class="btn" :disabled="shortRevealed" @click="shortRevealed = true">
-          查看参考答案
+        <button class="btn" @click="shortRevealed = !shortRevealed">
+          {{ shortRevealed ? '隐藏参考答案' : '查看参考答案' }}
         </button>
       </div>
     </div>
