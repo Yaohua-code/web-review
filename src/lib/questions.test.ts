@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import type { Question } from '../types'
 import {
+  allBanks,
   allQuestions,
+  availableChapters,
+  availableTypes,
+  bankById,
   chapterList,
   checkAnswer,
   filterQuestions,
@@ -10,52 +14,84 @@ import {
   normalizeText,
 } from './questions'
 
-describe('题库数据完整性', () => {
-  const bank = allQuestions()
-  const singles = bank.filter((q) => q.type === 'single')
-  const blanks = bank.filter((q) => q.type === 'blank')
-  const judges = bank.filter((q) => q.type === 'judge')
+describe('多题库数据完整性（Web 358 + Python 300）', () => {
+  const banks = allBanks()
+  const webBank = bankById('web')
+  const pyBank = bankById('py')
 
-  it('包含三种题型且数量为 358', () => {
-    expect(singles.length).toBeGreaterThan(0)
-    expect(blanks.length).toBeGreaterThan(0)
-    expect(judges.length).toBeGreaterThan(0)
-    expect(bank.length).toBe(358)
-  })
-
-  it('每个单选题都有答案且答案下标在选项范围内', () => {
-    for (const q of singles) {
-      expect(q.id).toBeTypeOf('number')
-      expect(q.options.length).toBeGreaterThanOrEqual(2)
-      expect(q.answer).toBeGreaterThanOrEqual(0)
-      expect(q.answer).toBeLessThan(q.options.length)
+  it('包含 2 个题库，含 id/name/count/counts/questions', () => {
+    expect(banks).toHaveLength(2)
+    for (const b of banks) {
+      expect(typeof b.id).toBe('string')
+      expect(b.name.length).toBeGreaterThan(0)
+      expect(b.count).toBe(b.questions.length)
+      expect(Object.keys(b.counts).length).toBeGreaterThan(0)
     }
   })
 
-  it('每个填空题与判断题都有合法答案', () => {
-    for (const q of blanks) expect(q.answer.trim().length).toBeGreaterThan(0)
-    for (const q of judges) expect(typeof q.answer).toBe('boolean')
+  it('Web 题库 358 题（单选/填空/判断齐全）', () => {
+    expect(webBank.count).toBe(358)
+    expect(webBank.counts.single).toBe(119)
+    expect(webBank.counts.blank).toBe(119)
+    expect(webBank.counts.judge).toBe(120)
+    expect(availableTypes(webBank)).toEqual(['single', 'blank', 'judge'])
   })
 
-  it('每题都有章节与题干', () => {
-    for (const q of bank) {
-      expect(q.chapter.trim().length).toBeGreaterThan(0)
-      expect(q.question.trim().length).toBeGreaterThan(0)
+  it('Python 题库 300 题（单选 200 / 填空 100，无判断）', () => {
+    expect(pyBank.count).toBe(300)
+    expect(pyBank.counts.single).toBe(200)
+    expect(pyBank.counts.blank).toBe(100)
+    expect(pyBank.counts.judge).toBeUndefined()
+    expect(availableTypes(pyBank)).toEqual(['single', 'blank'])
+  })
+
+  it('全部题目的 id 带 bank 前缀且唯一', () => {
+    const seen = new Set<string>()
+    for (const b of banks) {
+      for (const q of b.questions) {
+        expect(typeof q.id).toBe('string')
+        expect(q.id.startsWith(b.id + ':')).toBe(true)
+        expect(seen.has(q.id)).toBe(false)
+        seen.add(q.id)
+      }
     }
+  })
+
+  it('每个题目字段合法（答案/章节/题干）', () => {
+    for (const b of banks) {
+      for (const q of b.questions) {
+        expect(q.chapter.trim().length).toBeGreaterThan(0)
+        expect(q.question.trim().length).toBeGreaterThan(0)
+        if (q.type === 'single') {
+          expect(q.options.length).toBeGreaterThanOrEqual(2)
+          expect(q.answer).toBeGreaterThanOrEqual(0)
+          expect(q.answer).toBeLessThan(q.options.length)
+        } else if (q.type === 'blank') {
+          expect(q.answer.trim().length).toBeGreaterThan(0)
+        } else if (q.type === 'judge') {
+          expect(typeof q.answer).toBe('boolean')
+        }
+      }
+    }
+  })
+
+  it('Web 题库有多个章节，Python 题库章节数为 2（单选/填空各一个）', () => {
+    expect(availableChapters(webBank).length).toBeGreaterThan(1)
+    expect(availableChapters(pyBank)).toEqual(['Python 单选', 'Python 填空'])
   })
 })
 
 describe('checkAnswer 判分', () => {
   const single: Question = {
-    id: 1,
+    id: 'x:1',
     type: 'single',
     chapter: 'SpringBoot',
     question: '核心注解',
     options: ['A', 'B', 'C', 'D'],
     answer: 2, // C
   }
-  const judge: Question = { id: 2, type: 'judge', chapter: 'SpringBoot', question: 'Q', answer: false }
-  const blank: Question = { id: 3, type: 'blank', chapter: 'SpringBoot', question: 'Q', answer: 'tomcat' }
+  const judge: Question = { id: 'x:2', type: 'judge', chapter: 'SpringBoot', question: 'Q', answer: false }
+  const blank: Question = { id: 'x:3', type: 'blank', chapter: 'SpringBoot', question: 'Q', answer: 'tomcat' }
 
   it('单选：答对/答错判定', () => {
     expect(checkAnswer(single, 2)).toBe(true)
@@ -81,9 +117,9 @@ describe('normalizeText', () => {
 })
 
 describe('filterQuestions 筛选', () => {
-  const q1: Question = { id: 1, type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 0 }
-  const q2: Question = { id: 2, type: 'judge', chapter: 'SpringBoot', question: 'q', answer: true }
-  const q3: Question = { id: 3, type: 'single', chapter: 'Vue3 基础', question: 'q', options: ['a', 'b'], answer: 1 }
+  const q1: Question = { id: 'x:1', type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 0 }
+  const q2: Question = { id: 'x:2', type: 'judge', chapter: 'SpringBoot', question: 'q', answer: true }
+  const q3: Question = { id: 'x:3', type: 'single', chapter: 'Vue3 基础', question: 'q', options: ['a', 'b'], answer: 1 }
 
   it('按题型筛选', () => {
     expect(filterQuestions([q1, q2, q3], ['single'], [])).toEqual([q1, q3])
@@ -103,21 +139,33 @@ describe('filterQuestions 筛选', () => {
 })
 
 describe('未答题定位（答对自动下一题 / 刷新跳未刷）', () => {
-  const q1: Question = { id: 1, type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 0 }
-  const q2: Question = { id: 2, type: 'judge', chapter: 'SpringBoot', question: 'q', answer: true }
-  const q3: Question = { id: 3, type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 1 }
+  const q1: Question = { id: 'p:1', type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 0 }
+  const q2: Question = { id: 'p:2', type: 'judge', chapter: 'SpringBoot', question: 'q', answer: true }
+  const q3: Question = { id: 'p:3', type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 1 }
   const pool = [q1, q2, q3]
 
   it('firstUnansweredIndex 返回第一个未答题下标', () => {
     expect(firstUnansweredIndex(pool, new Set())).toBe(0)
-    expect(firstUnansweredIndex(pool, new Set([1]))).toBe(1)
-    expect(firstUnansweredIndex(pool, new Set([1, 2, 3]))).toBe(0) // 全部已答回退 0
+    expect(firstUnansweredIndex(pool, new Set(['p:1']))).toBe(1)
+    expect(firstUnansweredIndex(pool, new Set(['p:1', 'p:2', 'p:3']))).toBe(0)
   })
 
   it('nextUnansweredIndex 返回 fromIndex 之后第一个未答题', () => {
-    expect(nextUnansweredIndex(pool, new Set([1]), 0)).toBe(1)
-    expect(nextUnansweredIndex(pool, new Set([1, 2]), 0)).toBe(2)
-    expect(nextUnansweredIndex(pool, new Set([1, 2]), 2)).toBe(-1) // 之后无未答题返回 -1
-    expect(nextUnansweredIndex(pool, new Set([1, 2, 3]), 0)).toBe(-1) // 全部已答返回 -1
+    expect(nextUnansweredIndex(pool, new Set(['p:1']), 0)).toBe(1)
+    expect(nextUnansweredIndex(pool, new Set(['p:1', 'p:2']), 0)).toBe(2)
+    expect(nextUnansweredIndex(pool, new Set(['p:1', 'p:2']), 2)).toBe(-1)
+    expect(nextUnansweredIndex(pool, new Set(['p:1', 'p:2', 'p:3']), 0)).toBe(-1)
+  })
+})
+
+describe('allQuestions / bankById 兼容兜底', () => {
+  it('allQuestions() 默认取第一个题库（web）', () => {
+    expect(allQuestions().length).toBe(358)
+  })
+  it('bankById 找不到时回退到第一个', () => {
+    expect(bankById('not-exist').id).toBe('web')
+  })
+  it('bankById("py") 取出 Python 题库', () => {
+    expect(bankById('py').count).toBe(300)
   })
 })

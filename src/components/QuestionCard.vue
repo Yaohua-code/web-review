@@ -5,7 +5,7 @@ import { checkAnswer, correctIndexLabel, correctText, typeLabel } from '../lib/q
 
 const props = defineProps<{ question: Question; viewOnly?: boolean }>()
 const emit = defineEmits<{
-  (e: 'submit', payload: { questionId: number; input: AnswerInput; correct: boolean }): void
+  (e: 'submit', payload: { questionId: string; input: AnswerInput; correct: boolean }): void
 }>()
 
 /** 看题模式：只读展示题干与正确答案，不参与判分 */
@@ -185,10 +185,10 @@ function submitBlank(): void {
 
 <style scoped>
 .card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-card);
 }
 .card__head {
   display: flex;
@@ -213,12 +213,12 @@ function submitBlank(): void {
 }
 .chapter {
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--text-soft);
 }
 .question {
   font-size: 17px;
   line-height: 1.7;
-  color: #1f2937;
+  color: var(--text);
   margin-bottom: 16px;
   white-space: pre-wrap;
 }
@@ -232,41 +232,44 @@ function submitBlank(): void {
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--option-border);
   border-radius: 10px;
-  background: #f8fafc;
+  background: var(--option-bg);
   font-size: 15px;
-  color: #334155;
+  color: var(--option-text);
   cursor: pointer;
   text-align: left;
   transition: all 0.15s;
 }
 .option:hover:not(:disabled) {
-  border-color: #3b82f6;
-  background: #eff6ff;
+  border-color: var(--option-selected-border);
 }
 .option__label {
   font-weight: 600;
-  color: #64748b;
+  color: var(--text-soft);
   min-width: 18px;
 }
 .option.selected {
-  border-color: #3b82f6;
-  background: #eff6ff;
+  border-color: var(--option-selected-border);
+  background: var(--option-selected-bg);
+  color: var(--option-selected-text);
 }
 .option.correct {
-  border-color: #22c55e;
-  background: #f0fdf4;
+  border-color: var(--option-correct-border);
+  background: var(--option-correct-bg);
+  color: var(--option-correct-text);
 }
 .option.correct .option__label {
-  color: #16a34a;
+  color: inherit;
+  filter: brightness(0.95);
 }
 .option.wrong {
-  border-color: #ef4444;
-  background: #fef2f2;
+  border-color: var(--option-wrong-border);
+  background: var(--option-wrong-bg);
+  color: var(--option-wrong-text);
 }
 .option.wrong .option__label {
-  color: #dc2626;
+  color: inherit;
 }
 .judge {
   flex-direction: row;
@@ -281,14 +284,14 @@ function submitBlank(): void {
 }
 .blank__answer {
   padding: 12px 14px;
-  border: 1px solid #bbf7d0;
+  border: 1px solid var(--blank-answer-border);
   border-radius: 10px;
-  background: #f0fdf4;
+  background: var(--blank-answer-bg);
   font-size: 15px;
-  color: #15803d;
+  color: var(--blank-answer-text);
 }
 .blank__answer-label {
-  color: #64748b;
+  color: var(--text-soft);
 }
 .blank__answer-text {
   font-weight: 600;
@@ -296,9 +299,11 @@ function submitBlank(): void {
 .blank__input {
   flex: 1;
   padding: 12px 14px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--input-border);
   border-radius: 10px;
   font-size: 15px;
+  background: var(--input-bg);
+  color: var(--input-text);
 }
 .blank__input:focus {
   outline: none;
@@ -314,22 +319,25 @@ function submitBlank(): void {
   cursor: pointer;
 }
 .btn:disabled {
-  background: #cbd5e1;
+  background: #64748b;
   cursor: not-allowed;
 }
 .feedback {
   margin-top: 14px;
   padding: 12px 14px;
   border-radius: 10px;
+  border: 1px solid transparent;
   font-size: 15px;
 }
 .feedback[data-correct='true'] {
-  background: #f0fdf4;
-  color: #15803d;
+  background: var(--feedback-correct-bg);
+  border-color: var(--feedback-correct-border);
+  color: var(--feedback-correct-text);
 }
 .feedback[data-correct='false'] {
-  background: #fef2f2;
-  color: #b91c1c;
+  background: var(--feedback-wrong-bg);
+  border-color: var(--feedback-wrong-border);
+  color: var(--feedback-wrong-text);
 }
 .feedback__answer {
   font-weight: 600;

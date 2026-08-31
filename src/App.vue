@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref, watch } from 'vue'
-import type { Question, QuestionType } from './types'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import type { Question, QuestionBank, QuestionType } from './types'
 import {
-  allQuestions,
+  allBanks,
+  availableChapters,
+  availableTypes,
+  bankById,
   chapterList,
   filterQuestions,
   firstUnansweredIndex,
@@ -10,23 +13,50 @@ import {
   typeLabel,
 } from './lib/questions'
 import {
-  answeredCount,
-  correctCount,
+  loadBankId,
   loadProgress,
+  loadTheme,
   resetProgress,
   saveAnswer,
+  saveBankId,
+  saveTheme,
   wrongIds,
   type ProgressRecord,
+  type ThemeName,
 } from './lib/progress'
 import QuestionCard from './components/QuestionCard.vue'
-
-const bank = allQuestions()
 
 /** 答对后自动跳到下一未答题的延迟（ms），用于短暂展示判分反馈 */
 const ADVANCE_DELAY = 700
 
+// ---------- 题库选择 ----------
+const banks = allBanks()
+const bankIdRef = ref(loadBankId(banks.map((b) => b.id)))
+const currentBank = computed<QuestionBank>(() => bankById(bankIdRef.value))
+const bankQuestions = computed<Question[]>(() => currentBank.value.questions)
+
+function switchBank(id: string): void {
+  bankIdRef.value = id
+  saveBankId(id)
+}
+
+// ---------- 主题（暗色模式） ----------
+const theme = ref<ThemeName>(loadTheme())
+watch(
+  theme,
+  (t) => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', t)
+    }
+    saveTheme(t)
+  },
+  { immediate: true },
+)
+function toggleTheme(): void {
+  theme.value = theme.value === 'dark' ? 'light' : 'dark'
+}
+
 // ---------- 筛选 ----------
-const typeOptions: Array<QuestionType | 'all'> = ['all', 'single', 'blank', 'judge']
 const selectedType = ref<QuestionType | 'all'>('all')
 const selectedChapter = ref<string>('all')
 const wrongMode = ref(false)
@@ -41,32 +71,45 @@ function toggleWrong(): void {
   if (wrongMode.value) viewMode.value = false
 }
 
-const chapters = computed(() => chapterList(bank))
+/** 当前题库实际有的题型（保留 all + 真实存在的） */
+const typeOptions = computed<Array<QuestionType | 'all'>>(() => {
+  return ['all', ...availableTypes(currentBank.value)]
+})
+/** 切换题库或题型时，若当前选择无效则回退全部 */
+watch([currentBank, typeOptions], () => {
+  const valid = typeOptions.value.includes(selectedType.value)
+  if (!valid) selectedType.value = 'all'
+  const chs = chapterList(currentBank.value.questions)
+  if (!chs.includes(selectedChapter.value)) selectedChapter.value = 'all'
+})
+/** 是否展示章节筛选（只有 1 个章节不展示） */
+const showChapterRow = computed(() => availableChapters(currentBank.value).length > 1)
+
+const chapters = computed(() => chapterList(bankQuestions.value))
 
 const basePool = computed<Question[]>(() => {
   if (wrongMode.value) {
     const wrong = new Set(wrongIds(progress.value))
-    return bank.filter((q) => wrong.has(q.id))
+    return bankQuestions.value.filter((q) => wrong.has(q.id))
   }
   const types = selectedType.value === 'all' ? [] : [selectedType.value]
   const chs = selectedChapter.value === 'all' ? [] : [selectedChapter.value]
-  return filterQuestions(bank, types, chs)
+  return filterQuestions(bankQuestions.value, types, chs)
 })
 
 // ---------- 进度 ----------
 const progress = ref<ProgressRecord>(loadProgress())
-// 已答题 id 集合，用于定位未答题
-const answeredIds = computed(() => new Set(Object.keys(progress.value).map(Number)))
+const answeredIds = computed(() => new Set(Object.keys(progress.value)))
 
-function onSubmit(payload: { questionId: number; correct: boolean }): void {
+function onSubmit(payload: { questionId: string; input: string | number | boolean; correct: boolean }): void {
   progress.value = saveAnswer(payload.questionId, payload.correct)
-  // 答对自动下一题（仅正常刷题模式）
-  if (payload.correct && !wrongMode.value) scheduleAdvance()
+  if (payload.correct && !wrongMode.value && !viewMode.value) scheduleAdvance()
 }
-function onReset(): void {
+function onResetProgress(): void {
   resetProgress()
   progress.value = {}
 }
+
 let advanceTimer: number | undefined
 function scheduleAdvance(): void {
   if (advanceTimer !== undefined) window.clearTimeout(advanceTimer)
@@ -81,14 +124,15 @@ onBeforeUnmount(() => {
 })
 
 // ---------- 当前题目导航 ----------
-// 初始/刷新/切换筛选时，定位到第一个未答题
-const currentIndex = ref(firstUnansweredIndex(basePool.value, answeredIds.value))
-// 进入看题模式从第 1 题开始；其余情形定位到第一个未答题
-watch([basePool, viewMode], () => {
+const currentIndex = ref(
+  viewMode.value ? 0 : firstUnansweredIndex(basePool.value, answeredIds.value),
+)
+watch([basePool, viewMode, bankIdRef], () => {
   currentIndex.value = viewMode.value
     ? 0
     : firstUnansweredIndex(basePool.value, answeredIds.value)
 })
+
 const currentQuestion = computed<Question | null>(() => basePool.value[currentIndex.value] ?? null)
 const currentProgress = computed(() =>
   currentQuestion.value ? progress.value[currentQuestion.value.id] ?? null : null,
@@ -100,21 +144,60 @@ function prev(): void {
 function next(): void {
   if (currentIndex.value < basePool.value.length - 1) currentIndex.value++
 }
+/** 重置到当前筛选的第一题 */
+function resetToFirst(): void {
+  currentIndex.value = 0
+}
 
-const statAnswered = computed(() => answeredCount(progress.value))
-const statCorrect = computed(() => correctCount(progress.value))
+// ---------- 统计 ----------
+/** 当前题库内的统计（不跨题库） */
+const statAnswered = computed(() =>
+  bankQuestions.value.filter((q) => answeredIds.value.has(q.id)).length,
+)
+const statCorrect = computed(() =>
+  bankQuestions.value.filter((q) => progress.value[q.id] === true).length,
+)
 const statWrong = computed(() => statAnswered.value - statCorrect.value)
 const statRate = computed(() =>
   statAnswered.value === 0 ? 0 : Math.round((statCorrect.value / statAnswered.value) * 100),
 )
+const statCounts = computed(() => currentBank.value.counts)
+const headerSubtitle = computed(() => {
+  const names = availableTypes(currentBank.value).map((t) => typeLabel(t)).join(' / ')
+  return `共 ${currentBank.value.count} 题 · ${names}`
+})
+
+// 保证 mounted 时文档根已设置 data-theme（覆盖 SSR/未命中的场合）
+onMounted(() => {
+  document.documentElement.setAttribute('data-theme', theme.value)
+})
 </script>
 
 <template>
   <div class="app">
     <header class="app__header">
-      <h1 class="app__title">Web前端复习 · 刷题库</h1>
-      <p class="app__subtitle">共 {{ bank.length }} 题 · 单选 / 填空 / 判断</p>
+      <div class="app__title-row">
+        <h1 class="app__title">{{ currentBank.name }} · 刷题库</h1>
+        <button class="theme-toggle" :title="theme === 'dark' ? '切换到亮色' : '切换到暗色'" @click="toggleTheme">
+          {{ theme === 'dark' ? '☀ 亮色' : '🌙 暗色' }}
+        </button>
+      </div>
+      <p class="app__subtitle">{{ headerSubtitle }}</p>
     </header>
+
+    <!-- 题库切换 -->
+    <section class="banks">
+      <button
+        v-for="b in banks"
+        :key="b.id"
+        class="chip bank-chip"
+        :class="{ active: currentBank.id === b.id }"
+        @click="switchBank(b.id)"
+      >
+        <span class="bank-chip__name">{{ b.name }}</span>
+        <span class="bank-chip__count">{{ b.count }}题</span>
+      </button>
+    </section>
 
     <!-- 统计条 -->
     <section class="stats">
@@ -146,10 +229,11 @@ const statRate = computed(() =>
             @click="selectedType = t"
           >
             {{ t === 'all' ? '全部' : typeLabel(t) }}
+            <span v-if="t !== 'all'" class="chip__badge">{{ statCounts[t] ?? 0 }}</span>
           </button>
         </div>
       </div>
-      <div class="filter-row">
+      <div v-if="showChapterRow" class="filter-row">
         <span class="filter-title">章节</span>
         <div class="chips">
           <button
@@ -189,7 +273,8 @@ const statRate = computed(() =>
         >
           ★ 错题本（{{ statWrong }}）
         </button>
-        <button class="chip" data-kind="ghost" @click="onReset">重置进度</button>
+        <button class="chip" data-kind="ghost" @click="resetToFirst">↺ 回到第1题</button>
+        <button class="chip" data-kind="ghost" @click="onResetProgress">重置进度</button>
       </div>
     </section>
 
@@ -213,6 +298,7 @@ const statRate = computed(() =>
         />
         <div class="nav">
           <button class="nav__btn" :disabled="currentIndex === 0" @click="prev">上一题</button>
+          <button class="nav__btn primary" @click="resetToFirst">回到第1题</button>
           <button
             class="nav__btn primary"
             :disabled="currentIndex === basePool.length - 1"
@@ -228,24 +314,60 @@ const statRate = computed(() =>
 
 <style scoped>
 .app {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 24px 16px 48px;
 }
 .app__header {
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+}
+.app__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 .app__title {
-  font-size: 24px;
-  color: #0f172a;
-  margin: 0 0 4px;
+  font-size: 22px;
+  color: var(--text);
+  margin: 0;
+}
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  cursor: pointer;
 }
 .app__subtitle {
   font-size: 13px;
-  color: #94a3b8;
-  margin: 0;
+  color: var(--text-soft);
+  margin: 4px 0 0;
 }
+
+/* 题库切换 */
+.banks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.bank-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px !important;
+  font-size: 14px !important;
+}
+.bank-chip__count {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
 .stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -253,17 +375,17 @@ const statRate = computed(() =>
   margin-bottom: 16px;
 }
 .stat {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 12px 8px;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-card);
 }
 .stat__num {
   display: block;
   font-size: 20px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text);
 }
 .stat__num.ok {
   color: #16a34a;
@@ -273,14 +395,14 @@ const statRate = computed(() =>
 }
 .stat__label {
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--text-soft);
 }
 .filters {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 14px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-card);
 }
 .filter-row {
   display: flex;
@@ -293,7 +415,7 @@ const statRate = computed(() =>
 }
 .filter-title {
   font-size: 13px;
-  color: #64748b;
+  color: var(--text-soft);
   padding-top: 6px;
   white-space: nowrap;
 }
@@ -303,36 +425,42 @@ const statRate = computed(() =>
   gap: 8px;
 }
 .chip {
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  color: #475569;
+  border: 1px solid var(--border);
+  background: var(--bg-chip);
+  color: var(--text-muted);
   border-radius: 999px;
   padding: 5px 12px;
   font-size: 13px;
   cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.chip__badge {
+  margin-left: 4px;
+  font-size: 11px;
+  opacity: 0.7;
 }
 .chip.active {
-  background: #3b82f6;
-  border-color: #3b82f6;
-  color: #fff;
+  background: var(--bg-chip-active);
+  border-color: var(--bg-chip-active);
+  color: var(--text-chip-active);
 }
 .chip:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 .chip[data-kind='primary'].active {
-  background: #10b981;
-  border-color: #10b981;
+  background: var(--bg-primary-active);
+  border-color: var(--bg-primary-active);
 }
 .chip[data-kind='danger'].active {
-  background: #ef4444;
-  border-color: #ef4444;
+  background: var(--bg-danger-active);
+  border-color: var(--bg-danger-active);
 }
 .chip[data-kind='ghost'] {
   background: transparent;
 }
 .filter-row--actions {
-  border-top: 1px dashed #e2e8f0;
+  border-top: 1px dashed var(--border-dashed);
   padding-top: 10px;
 }
 .main {
@@ -340,7 +468,7 @@ const statRate = computed(() =>
 }
 .empty {
   text-align: center;
-  color: #94a3b8;
+  color: var(--text-soft);
   padding: 60px 0;
   font-size: 15px;
 }
@@ -348,7 +476,7 @@ const statRate = computed(() =>
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  color: #64748b;
+  color: var(--text-soft);
   margin-bottom: 10px;
 }
 .progress-line__hint.ok {
@@ -365,20 +493,43 @@ const statRate = computed(() =>
 .nav__btn {
   flex: 1;
   padding: 12px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--nav-btn-border);
   border-radius: 10px;
-  background: #fff;
+  background: var(--nav-btn-bg);
   font-size: 15px;
   cursor: pointer;
-  color: #475569;
+  color: var(--nav-btn-text);
 }
 .nav__btn.primary {
-  background: #3b82f6;
-  border-color: #3b82f6;
-  color: #fff;
+  background: var(--nav-btn-primary-bg);
+  border-color: var(--nav-btn-primary-bg);
+  color: var(--nav-btn-primary-text);
 }
 .nav__btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+  .app__title {
+    font-size: 18px;
+  }
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .stat {
+    padding: 10px 4px;
+  }
+  .stat__num {
+    font-size: 17px;
+  }
+  .nav {
+    gap: 6px;
+  }
+  .nav__btn {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
 }
 </style>

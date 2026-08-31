@@ -8,6 +8,109 @@ body {
   padding: 0;
 }
 
+/* 主题变量：亮色（默认） */
+:root {
+  --bg: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-chip: #f8fafc;
+  --bg-chip-active: #3b82f6;
+  --bg-danger-active: #ef4444;
+  --bg-primary-active: #10b981;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --text-soft: #64748b;
+  --text-chip-active: #ffffff;
+  --border: #e2e8f0;
+  --border-dashed: #e2e8f0;
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.06);
+
+  --option-bg: #f8fafc;
+  --option-text: #0f172a;
+  --option-border: #e2e8f0;
+  --option-correct-bg: #dcfce7;
+  --option-correct-border: #16a34a;
+  --option-correct-text: #14532d;
+  --option-wrong-bg: #fee2e2;
+  --option-wrong-border: #dc2626;
+  --option-wrong-text: #7f1d1d;
+  --option-selected-bg: #dbeafe;
+  --option-selected-border: #2563eb;
+  --option-selected-text: #1e3a8a;
+
+  --feedback-correct-bg: #ecfdf5;
+  --feedback-correct-border: #86efac;
+  --feedback-correct-text: #15803d;
+  --feedback-wrong-bg: #fef2f2;
+  --feedback-wrong-border: #fecaca;
+  --feedback-wrong-text: #b91c1c;
+
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+  --input-text: #0f172a;
+
+  --nav-btn-bg: #ffffff;
+  --nav-btn-border: #e2e8f0;
+  --nav-btn-text: #0f172a;
+  --nav-btn-primary-bg: #3b82f6;
+  --nav-btn-primary-text: #ffffff;
+  --nav-btn-disabled-opacity: 0.5;
+
+  --blank-answer-bg: #f0fdf4;
+  --blank-answer-border: #bbf7d0;
+  --blank-answer-text: #15803d;
+}
+
+/* 暗色主题 */
+html[data-theme='dark'] {
+  --bg: #0b1020;
+  --bg-card: #141a2e;
+  --bg-chip: #1d2540;
+  --bg-chip-active: #2563eb;
+  --bg-danger-active: #dc2626;
+  --bg-primary-active: #059669;
+  --text: #e6edf7;
+  --text-muted: #cbd5e1;
+  --text-soft: #94a3b8;
+  --text-chip-active: #ffffff;
+  --border: #2a3352;
+  --border-dashed: #3b4670;
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.35);
+
+  --option-bg: #1c2440;
+  --option-text: #e6edf7;
+  --option-border: #2d3657;
+  --option-correct-bg: #052e16;
+  --option-correct-border: #14532d;
+  --option-correct-text: #86efac;
+  --option-wrong-bg: #3f1010;
+  --option-wrong-border: #7f1d1d;
+  --option-wrong-text: #fecaca;
+  --option-selected-bg: #1e3a8a;
+  --option-selected-border: #1d4ed8;
+  --option-selected-text: #dbeafe;
+
+  --feedback-correct-bg: #052e16;
+  --feedback-correct-border: #14532d;
+  --feedback-correct-text: #86efac;
+  --feedback-wrong-bg: #3f1010;
+  --feedback-wrong-border: #7f1d1d;
+  --feedback-wrong-text: #fecaca;
+
+  --input-bg: #0f1628;
+  --input-border: #2a3352;
+  --input-text: #e6edf7;
+
+  --nav-btn-bg: #141a2e;
+  --nav-btn-border: #2a3352;
+  --nav-btn-text: #e6edf7;
+  --nav-btn-primary-bg: #2563eb;
+  --nav-btn-primary-text: #ffffff;
+
+  --blank-answer-bg: #052e16;
+  --blank-answer-border: #14532d;
+  --blank-answer-text: #86efac;
+}
+
 body {
   font-family:
     'PingFang SC',
@@ -15,8 +118,9 @@ body {
     system-ui,
     -apple-system,
     sans-serif;
-  background: #f1f5f9;
-  color: #0f172a;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 button {

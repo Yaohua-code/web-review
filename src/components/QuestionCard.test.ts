@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import type { Question } from '../types'
 import QuestionCard from './QuestionCard.vue'
 
-type Payload = { questionId: number; input: number | boolean | string; correct: boolean }
+type Payload = { questionId: string; input: number | boolean | string; correct: boolean }
 
 function toPayload(wrapper: ReturnType<typeof mount>): Payload {
   const emitted = wrapper.emitted('submit')!
@@ -12,7 +12,7 @@ function toPayload(wrapper: ReturnType<typeof mount>): Payload {
 
 describe('QuestionCard 即时判分', () => {
   const singleQuestion: Question = {
-    id: 1,
+    id: 't:1',
     type: 'single',
     chapter: 'SpringBoot',
     question: '题干',
@@ -20,14 +20,14 @@ describe('QuestionCard 即时判分', () => {
     answer: 2, // C
   }
   const blankQuestion: Question = {
-    id: 2,
+    id: 't:2',
     type: 'blank',
     chapter: 'SpringBoot',
     question: '题干',
     answer: 'tomcat',
   }
   const judgeQuestion: Question = {
-    id: 3,
+    id: 't:3',
     type: 'judge',
     chapter: 'SpringBoot',
     question: '题干',
@@ -37,7 +37,7 @@ describe('QuestionCard 即时判分', () => {
   it('单选点击选项即判分并 emit submit', async () => {
     const wrapper = mount(QuestionCard, { props: { question: singleQuestion } })
     await wrapper.findAll('.option')[2].trigger('click') // 选 C(index 2)，正确答案
-    expect(toPayload(wrapper)).toMatchObject({ questionId: 1, input: 2, correct: true })
+    expect(toPayload(wrapper)).toMatchObject({ questionId: 't:1', input: 2, correct: true })
     // 只允许作答一次
     await wrapper.findAll('.option')[0].trigger('click')
     expect(wrapper.emitted('submit')).toHaveLength(1)
@@ -69,7 +69,7 @@ describe('QuestionCard 即时判分', () => {
 
 describe('QuestionCard 看题模式（viewOnly）', () => {
   const singleQuestion: Question = {
-    id: 10,
+    id: 't:10',
     type: 'single',
     chapter: 'Vue3 基础',
     question: '题干',
@@ -77,14 +77,14 @@ describe('QuestionCard 看题模式（viewOnly）', () => {
     answer: 2, // C
   }
   const blankQuestion: Question = {
-    id: 11,
+    id: 't:11',
     type: 'blank',
     chapter: 'Vue3 基础',
     question: '题干',
     answer: 'v-bind',
   }
   const judgeQuestion: Question = {
-    id: 12,
+    id: 't:12',
     type: 'judge',
     chapter: 'Vue3 基础',
     question: '题干',

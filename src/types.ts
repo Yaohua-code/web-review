@@ -2,15 +2,15 @@
 export type QuestionType = 'single' | 'blank' | 'judge'
 
 export interface BaseQuestion {
-  /** 唯一标识 */
-  id: number
+  /** 唯一标识（带 bank 前缀，如 "web:1" "py:300"） */
+  id: string
   type: QuestionType
   /** 归一化章节名 */
   chapter: string
   question: string
 }
 
-/** 单选题：A-D 选项 + 正确答案下标 */
+/** 单选题：选项数组 + 正确答案下标 */
 export interface SingleQuestion extends BaseQuestion {
   type: 'single'
   options: string[]
@@ -34,10 +34,18 @@ export type Question = SingleQuestion | BlankQuestion | JudgeQuestion
 /** 用户的作答输入 */
 export type AnswerInput = number | boolean | string
 
+/** 单个题库的元信息 */
 export interface QuestionBank {
-  version: number
-  generatedAt: string
+  id: string
+  name: string
   count: number
   counts: Partial<Record<QuestionType, number>>
   questions: Question[]
+}
+
+/** 顶层题库容器 */
+export interface QuestionBundle {
+  version: number
+  generatedAt: string
+  banks: QuestionBank[]
 }
