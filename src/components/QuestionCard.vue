@@ -11,10 +11,12 @@ const emit = defineEmits<{
 /** 看题模式：只读展示题干与正确答案，不参与判分 */
 const viewOnly = computed(() => props.viewOnly === true)
 
-/** 单选：当前选中下标；判断：true/false；填空：输入文本 */
+/** 单选：当前选中下标；判断：true/false；填空：输入文本；简答：文本框+是否已看参考答案 */
 const selected = ref<number | null>(null)
 const judgeValue = ref<boolean | null>(null)
 const blankInput = ref('')
+const shortInput = ref('')
+const shortRevealed = ref(false)
 // 是否已核对（填空需要点击按钮核对）
 const revealed = ref(false)
 // 填空已提交的一次结果
@@ -27,6 +29,8 @@ watch(
     selected.value = null
     judgeValue.value = null
     blankInput.value = ''
+    shortInput.value = ''
+    shortRevealed.value = false
     revealed.value = false
     blankResult.value = null
   },
@@ -36,6 +40,7 @@ watch(
 const isSingle = computed(() => props.question.type === 'single')
 const isJudge = computed(() => props.question.type === 'judge')
 const isBlank = computed(() => props.question.type === 'blank')
+const isShort = computed(() => props.question.type === 'short')
 
 // 类型安全的属性访问，供模板使用
 const singleOptions = computed(() =>
@@ -58,8 +63,12 @@ const immediateCorrect = computed(() => {
   return null
 })
 
-const hasAnswered = computed(() => (isBlank.value ? revealed.value : immediateCorrect.value !== null))
-const isCorrect = computed(() => (isBlank.value ? blankResult.value : immediateCorrect.value))
+const hasAnswered = computed(() =>
+  isBlank.value ? revealed.value : isShort.value ? shortRevealed.value : immediateCorrect.value !== null,
+)
+const isCorrect = computed(() =>
+  isBlank.value ? blankResult.value : isShort.value ? null : immediateCorrect.value,
+)
 const correctAnswer = computed(() => correctText(props.question))
 const indexLabel = computed(() => correctIndexLabel(props.question))
 
@@ -166,8 +175,38 @@ function submitBlank(): void {
       </div>
     </div>
 
+    <!-- 简答 -->
+    <div v-if="isShort" class="short">
+      <div v-if="viewOnly" class="blank__answer">
+        <span class="blank__answer-label">参考答案：</span
+        ><span class="blank__answer-text">{{ correctAnswer }}</span>
+      </div>
+      <div v-else class="short__row">
+        <textarea
+          v-model="shortInput"
+          class="short__input"
+          placeholder="先在脑中/纸上作答，完成后点击下方查看参考答案"
+          rows="4"
+          :disabled="shortRevealed"
+        ></textarea>
+        <button class="btn" :disabled="shortRevealed" @click="shortRevealed = true">
+          查看参考答案
+        </button>
+      </div>
+    </div>
+
+    <!-- 简答：参考答案反馈（中性，不判对错） -->
+    <div v-if="isShort && (shortRevealed || viewOnly)" class="feedback feedback--short">
+      <span class="feedback__icon">参考答案：</span>
+      <div class="feedback__answer short__answer-text">{{ correctAnswer }}</div>
+    </div>
+
     <!-- 判分 / 答案反馈 -->
-    <div v-if="hasAnswered || viewOnly" class="feedback" :data-correct="viewOnly ? true : isCorrect">
+    <div
+      v-if="!isShort && (hasAnswered || viewOnly)"
+      class="feedback"
+      :data-correct="viewOnly ? true : isCorrect"
+    >
       <template v-if="viewOnly">
         <span>正确答案<template v-if="indexLabel">（{{ indexLabel }}）</template>：</span>
         <span class="feedback__answer">{{ correctAnswer }}</span>
@@ -210,6 +249,9 @@ function submitBlank(): void {
 }
 .badge[data-type='judge'] {
   background: #f59e0b;
+}
+.badge[data-type='short'] {
+  background: #0d9488;
 }
 .chapter {
   font-size: 12px;
@@ -308,6 +350,38 @@ function submitBlank(): void {
 .blank__input:focus {
   outline: none;
   border-color: #3b82f6;
+}
+/* 简答 */
+.short__row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.short__input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--input-bg);
+  color: var(--input-text);
+  resize: vertical;
+  font-family: inherit;
+}
+.short__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+.feedback--short {
+  background: var(--option-selected-bg);
+  border-color: var(--option-selected-border);
+  color: var(--option-selected-text);
+}
+.short__answer-text {
+  margin-top: 4px;
+  white-space: pre-wrap;
+  line-height: 1.7;
 }
 .btn {
   padding: 0 18px;

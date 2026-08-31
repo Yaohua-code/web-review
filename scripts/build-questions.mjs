@@ -1,11 +1,14 @@
 /**
  * 多题库构建脚本（MVP 输出：src/data/questions.json）
  *   题库 1：Web前端开发实战复习题库.docx（解析 docx，题型：单选/填空/判断，排除简答）
- *   题库 2：Python复习题.xlsx（解析 xlsx，题型：单选/填空，排除简答）
+ *   题库 2：Python复习题.xlsx（解析 xlsx，题型：单选/填空/简答）
  *
  * 产物结构：
  *   { version, generatedAt, banks: [{ id, name, count, counts, questions: [] }] }
  * question.id 为字符串，带 bank 前缀保证跨题库唯一（例如 "web:1" "py:300"）
+ *
+ * 说明：简答题（type: 'short'）无自动判分基础，仅提供参考答案供自我对照，
+ *       前端不参与对错统计。answer 字段存放参考答案文本。
  */
 import JSZip from 'jszip'
 import xlsxPkg from 'xlsx'
@@ -206,8 +209,14 @@ function parseXlsxQuestions(xlsxPath) {
         if (!stem || !ans) continue
         questions.push({ type: 'blank', chapter: 'Python 填空', question: stem, answer: ans })
       }
+    } else if (sheetName === '简答') {
+      for (const r of rows) {
+        const stem = cleanStr(r['题干'])
+        const ans = cleanStr(r['参考答案'])
+        if (!stem || !ans) continue
+        questions.push({ type: 'short', chapter: 'Python 简答', question: stem, answer: ans })
+      }
     }
-    // 简答：跳过
   }
   return questions
 }

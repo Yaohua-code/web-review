@@ -8,13 +8,15 @@ import {
   bankById,
   chapterList,
   checkAnswer,
+  correctText,
   filterQuestions,
   firstUnansweredIndex,
   nextUnansweredIndex,
   normalizeText,
+  typeLabel,
 } from './questions'
 
-describe('多题库数据完整性（Web 358 + Python 300）', () => {
+describe('多题库数据完整性（Web 358 + Python 327）', () => {
   const banks = allBanks()
   const webBank = bankById('web')
   const pyBank = bankById('py')
@@ -37,12 +39,13 @@ describe('多题库数据完整性（Web 358 + Python 300）', () => {
     expect(availableTypes(webBank)).toEqual(['single', 'blank', 'judge'])
   })
 
-  it('Python 题库 300 题（单选 200 / 填空 100，无判断）', () => {
-    expect(pyBank.count).toBe(300)
+  it('Python 题库 327 题（单选 200 / 填空 100 / 简答 27，无判断）', () => {
+    expect(pyBank.count).toBe(327)
     expect(pyBank.counts.single).toBe(200)
     expect(pyBank.counts.blank).toBe(100)
+    expect(pyBank.counts.short).toBe(27)
     expect(pyBank.counts.judge).toBeUndefined()
-    expect(availableTypes(pyBank)).toEqual(['single', 'blank'])
+    expect(availableTypes(pyBank)).toEqual(['single', 'blank', 'short'])
   })
 
   it('全部题目的 id 带 bank 前缀且唯一', () => {
@@ -70,14 +73,16 @@ describe('多题库数据完整性（Web 358 + Python 300）', () => {
           expect(q.answer.trim().length).toBeGreaterThan(0)
         } else if (q.type === 'judge') {
           expect(typeof q.answer).toBe('boolean')
+        } else if (q.type === 'short') {
+          expect(q.answer.trim().length).toBeGreaterThan(0)
         }
       }
     }
   })
 
-  it('Web 题库有多个章节，Python 题库章节数为 2（单选/填空各一个）', () => {
+  it('Web 题库有多个章节，Python 题库章节数为 3（单选/填空/简答各一个）', () => {
     expect(availableChapters(webBank).length).toBeGreaterThan(1)
-    expect(availableChapters(pyBank)).toEqual(['Python 单选', 'Python 填空'])
+    expect(availableChapters(pyBank)).toEqual(['Python 单选', 'Python 填空', 'Python 简答'])
   })
 })
 
@@ -92,6 +97,13 @@ describe('checkAnswer 判分', () => {
   }
   const judge: Question = { id: 'x:2', type: 'judge', chapter: 'SpringBoot', question: 'Q', answer: false }
   const blank: Question = { id: 'x:3', type: 'blank', chapter: 'SpringBoot', question: 'Q', answer: 'tomcat' }
+  const short: Question = {
+    id: 'x:4',
+    type: 'short',
+    chapter: 'SpringBoot',
+    question: 'Q',
+    answer: 'Python 基于值的内存管理',
+  }
 
   it('单选：答对/答错判定', () => {
     expect(checkAnswer(single, 2)).toBe(true)
@@ -108,6 +120,11 @@ describe('checkAnswer 判分', () => {
     expect(checkAnswer(blank, '  tomcat ')).toBe(true)
     expect(checkAnswer(blank, 'mysql')).toBe(false)
   })
+
+  it('简答：不做自动判分（始终 false），参考答案可读', () => {
+    expect(checkAnswer(short, '随便写什么')).toBe(false)
+    expect(correctText(short)).toBe('Python 基于值的内存管理')
+  })
 })
 
 describe('normalizeText', () => {
@@ -120,9 +137,14 @@ describe('filterQuestions 筛选', () => {
   const q1: Question = { id: 'x:1', type: 'single', chapter: 'SpringBoot', question: 'q', options: ['a', 'b'], answer: 0 }
   const q2: Question = { id: 'x:2', type: 'judge', chapter: 'SpringBoot', question: 'q', answer: true }
   const q3: Question = { id: 'x:3', type: 'single', chapter: 'Vue3 基础', question: 'q', options: ['a', 'b'], answer: 1 }
+  const q4: Question = { id: 'x:4', type: 'short', chapter: 'Python 简答', question: 'q', answer: '参考答案' }
 
   it('按题型筛选', () => {
     expect(filterQuestions([q1, q2, q3], ['single'], [])).toEqual([q1, q3])
+  })
+
+  it('按简答题型筛选', () => {
+    expect(filterQuestions([q1, q2, q4], ['short'], [])).toEqual([q4])
   })
 
   it('按章节筛选', () => {
@@ -134,7 +156,16 @@ describe('filterQuestions 筛选', () => {
   })
 
   it('取出章节列表（去重、保序）', () => {
-    expect(chapterList([q1, q2, q3])).toEqual(['SpringBoot', 'Vue3 基础'])
+    expect(chapterList([q1, q2, q3, q4])).toEqual(['SpringBoot', 'Vue3 基础', 'Python 简答'])
+  })
+})
+
+describe('typeLabel 题型标签', () => {
+  it('四种题型均返回中文标签', () => {
+    expect(typeLabel('single')).toBe('单选')
+    expect(typeLabel('blank')).toBe('填空')
+    expect(typeLabel('judge')).toBe('判断')
+    expect(typeLabel('short')).toBe('简答')
   })
 })
 
@@ -166,6 +197,6 @@ describe('allQuestions / bankById 兼容兜底', () => {
     expect(bankById('not-exist').id).toBe('web')
   })
   it('bankById("py") 取出 Python 题库', () => {
-    expect(bankById('py').count).toBe(300)
+    expect(bankById('py').count).toBe(327)
   })
 })

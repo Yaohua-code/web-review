@@ -114,3 +114,31 @@ describe('QuestionCard 看题模式（viewOnly）', () => {
     expect(wrapper.find('.feedback').text()).toContain('对')
   })
 })
+
+describe('QuestionCard 简答题', () => {
+  const shortQuestion: Question = {
+    id: 't:20',
+    type: 'short',
+    chapter: 'Python 简答',
+    question: '简述 Python 内存管理',
+    answer: 'Python 采用基于值的内存管理方式。',
+  }
+
+  it('练习模式：显示文本框，点“查看参考答案”后展示参考答案且不 emit submit', async () => {
+    const wrapper = mount(QuestionCard, { props: { question: shortQuestion } })
+    // 初始只有输入框与按钮，无反馈
+    expect(wrapper.find('textarea').exists()).toBe(true)
+    expect(wrapper.find('.feedback').exists()).toBe(false)
+
+    await wrapper.find('.btn').trigger('click')
+    expect(wrapper.find('.feedback--short').text()).toContain('Python 采用基于值的内存管理方式。')
+    // 简答不参与判分，不应触发 submit
+    expect(wrapper.emitted('submit')).toBeUndefined()
+  })
+
+  it('看题模式：直接展示参考答案，无输入框', () => {
+    const wrapper = mount(QuestionCard, { props: { question: shortQuestion, viewOnly: true } })
+    expect(wrapper.find('textarea').exists()).toBe(false)
+    expect(wrapper.find('.blank__answer').text()).toContain('Python 采用基于值的内存管理方式。')
+  })
+})

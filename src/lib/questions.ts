@@ -18,9 +18,9 @@ export function allQuestions(bankId?: string): Question[] {
   return bankId ? bankById(bankId).questions : bundle.banks[0].questions
 }
 
-/** 返回某题库实际出现的题型集合（按 single/blank/judge 固定顺序） */
+/** 返回某题库实际出现的题型集合（按 single/blank/judge/short 固定顺序） */
 export function availableTypes(bank: QuestionBank): QuestionType[] {
-  const order: QuestionType[] = ['single', 'blank', 'judge']
+  const order: QuestionType[] = ['single', 'blank', 'judge', 'short']
   return order.filter((t) => (bank.counts[t] ?? 0) > 0)
 }
 
@@ -38,6 +38,8 @@ export function typeLabel(type: QuestionType): string {
       return '填空'
     case 'judge':
       return '判断'
+    case 'short':
+      return '简答'
   }
 }
 
@@ -55,6 +57,9 @@ export function checkAnswer(question: Question, input: AnswerInput): boolean {
       return question.answer === (input as boolean)
     case 'blank':
       return normalizeText(question.answer) === normalizeText(String(input))
+    case 'short':
+      // 简答无自动判分基础，始终不判对错
+      return false
   }
 }
 
@@ -66,6 +71,8 @@ export function correctText(question: Question): string {
     case 'judge':
       return question.answer ? '对' : '错'
     case 'blank':
+      return question.answer
+    case 'short':
       return question.answer
   }
 }
