@@ -102,10 +102,12 @@ describe('QuestionCard 看题模式（viewOnly）', () => {
     expect(wrapper.find('.feedback').text()).toContain('C3')
   })
 
-  it('看题模式：填空直接展示答案，无输入框', async () => {
+  it('看题模式：填空直接展示答案，无输入框，且不重复展示', async () => {
     const wrapper = mount(QuestionCard, { props: { question: blankQuestion, viewOnly: true } })
     expect(wrapper.find('input').exists()).toBe(false)
     expect(wrapper.find('.blank__answer').text()).toContain('v-bind')
+    // 看题模式下答案只展示一份（不叠加通用反馈框）
+    expect(wrapper.find('.feedback').exists()).toBe(false)
   })
 
   it('看题模式：判断直接展示正确答案', async () => {
@@ -144,9 +146,12 @@ describe('QuestionCard 简答题', () => {
     expect(wrapper.emitted('submit')).toBeUndefined()
   })
 
-  it('看题模式：直接展示参考答案，无输入框', () => {
+  it('看题模式：直接展示参考答案，无输入框，且不重复展示', () => {
     const wrapper = mount(QuestionCard, { props: { question: shortQuestion, viewOnly: true } })
     expect(wrapper.find('textarea').exists()).toBe(false)
     expect(wrapper.find('.blank__answer').text()).toContain('Python 采用基于值的内存管理方式。')
+    // 看题模式下参考答案只展示一份（不叠加 feedback--short）
+    expect(wrapper.find('.feedback--short').exists()).toBe(false)
+    expect(wrapper.find('.feedback').exists()).toBe(false)
   })
 })

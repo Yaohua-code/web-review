@@ -194,15 +194,15 @@ function submitBlank(): void {
       </div>
     </div>
 
-    <!-- 简答：参考答案反馈（中性，不判对错） -->
-    <div v-if="isShort && (shortRevealed || viewOnly)" class="feedback feedback--short">
+    <!-- 简答：参考答案反馈（中性，不判对错）；看题模式由上方答案框展示 -->
+    <div v-if="isShort && !viewOnly && shortRevealed" class="feedback feedback--short">
       <span class="feedback__icon">参考答案：</span>
       <div class="feedback__answer short__answer-text">{{ correctAnswer }}</div>
     </div>
 
-    <!-- 判分 / 答案反馈 -->
+    <!-- 判分 / 答案反馈；看题模式下填空/简答已由专用答案框展示，不再重复 -->
     <div
-      v-if="!isShort && (hasAnswered || viewOnly)"
+      v-if="!isShort && !(viewOnly && isBlank) && (hasAnswered || viewOnly)"
       class="feedback"
       :data-correct="viewOnly ? true : isCorrect"
     >
