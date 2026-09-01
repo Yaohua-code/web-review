@@ -86,3 +86,36 @@ describe('App 按题号跳转', () => {
     expect(progressLine(wrapper)).toContain('第 1 / 358 题')
   })
 })
+
+describe('App 选题面板', () => {
+  it('点击选题按钮弹出面板，选择题号跳转并关闭面板', async () => {
+    const wrapper = mount(App)
+    expect(progressLine(wrapper)).toContain('第 1 / 358 题')
+
+    // 打开选题面板
+    await btnByText(wrapper, '.nav__btn', '📖 选题').trigger('click')
+    const grid = wrapper.find('.picker__grid')
+    expect(grid.exists()).toBe(true)
+    // 面板渲染了全部题号按钮
+    expect(grid.findAll('.picker__item').length).toBe(358)
+
+    // 点击第 8 题
+    await grid.findAll('.picker__item')[7].trigger('click')
+    expect(progressLine(wrapper)).toContain('第 8 / 358 题')
+    // 跳转后面板关闭
+    expect(wrapper.find('.picker').exists()).toBe(false)
+  })
+
+  it('当前题号在选题面板中高亮', async () => {
+    const wrapper = mount(App)
+    // 先跳到第 3 题
+    const next = () => btnByText(wrapper, '.nav__btn', '下一题')
+    await next().trigger('click')
+    await next().trigger('click')
+    expect(progressLine(wrapper)).toContain('第 3 / 358 题')
+
+    await btnByText(wrapper, '.nav__btn', '📖 选题').trigger('click')
+    const items = wrapper.findAll('.picker__item')
+    expect(items[2].classes()).toContain('current')
+  })
+})

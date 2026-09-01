@@ -147,9 +147,13 @@ function prev(): void {
 function next(): void {
   if (currentIndex.value < basePool.value.length - 1) currentIndex.value++
 }
-/** 重置到当前筛选的第一题 */
-function resetToFirst(): void {
-  currentIndex.value = 0
+// ---------- 选题 ----------
+const pickerOpen = ref(false)
+/** 跳转到当前筛选结果中的指定题号并关闭选题面板 */
+function pickQuestion(n: number): void {
+  if (n < 1 || n > basePool.value.length) return
+  currentIndex.value = n - 1
+  pickerOpen.value = false
 }
 
 // ---------- 按题号跳转 ----------
@@ -288,7 +292,6 @@ onMounted(() => {
         >
           ★ 错题本（{{ statWrong }}）
         </button>
-        <button class="chip" data-kind="ghost" @click="resetToFirst">↺ 回到第1题</button>
         <button class="chip" data-kind="ghost" @click="onResetProgress">重置进度</button>
       </div>
     </section>
@@ -327,7 +330,7 @@ onMounted(() => {
         />
         <div class="nav">
           <button class="nav__btn" :disabled="currentIndex === 0" @click="prev">上一题</button>
-          <button class="nav__btn primary" @click="resetToFirst">回到第1题</button>
+          <button class="nav__btn primary" @click="pickerOpen = !pickerOpen">📖 选题</button>
           <button
             class="nav__btn primary"
             :disabled="currentIndex === basePool.length - 1"
@@ -335,6 +338,24 @@ onMounted(() => {
           >
             下一题
           </button>
+        </div>
+        <!-- 选题面板 -->
+        <div v-if="pickerOpen" class="picker">
+          <div class="picker__head">
+            <span>选择题目（1 ~ {{ basePool.length }}）</span>
+            <button class="picker__close" @click="pickerOpen = false">✕</button>
+          </div>
+          <div class="picker__grid">
+            <button
+              v-for="n in basePool.length"
+              :key="n"
+              class="picker__item"
+              :class="{ current: n === currentIndex + 1 }"
+              @click="pickQuestion(n)"
+            >
+              {{ n }}
+            </button>
+          </div>
         </div>
       </template>
     </main>
@@ -566,6 +587,57 @@ onMounted(() => {
 .nav__btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+/* 选题面板 */
+.picker {
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow-card);
+}
+.picker__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+.picker__close {
+  border: 1px solid var(--border);
+  background: var(--bg-chip);
+  color: var(--text-muted);
+  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+.picker__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+  gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.picker__item {
+  border: 1px solid var(--border);
+  background: var(--bg-chip);
+  color: var(--text-muted);
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.picker__item.current {
+  background: var(--bg-chip-active);
+  border-color: var(--bg-chip-active);
+  color: var(--text-chip-active);
+  font-weight: 600;
 }
 
 @media (max-width: 520px) {
