@@ -80,4 +80,25 @@ describe('App 选题面板', () => {
     const items = wrapper.findAll('.picker__item')
     expect(items[2].classes()).toContain('current')
   })
+
+  it('选题面板根据答题状态标色：答对绿、答错红、未答不改色', async () => {
+    // 预置进度：第 1 题答对、第 2 题答错
+    window.localStorage.setItem(
+      'web-review-progress-v2',
+      JSON.stringify({ 'web:1': true, 'web:2': false }),
+    )
+    const wrapper = mount(App)
+    await btnByText(wrapper, '.nav__btn', '📖 选题').trigger('click')
+    const items = wrapper.findAll('.picker__item')
+
+    // 第 1 题答对 → is-correct
+    expect(items[0].classes()).toContain('is-correct')
+    expect(items[0].classes()).not.toContain('is-wrong')
+    // 第 2 题答错 → is-wrong
+    expect(items[1].classes()).toContain('is-wrong')
+    expect(items[1].classes()).not.toContain('is-correct')
+    // 第 3 题未答 → 无状态类
+    expect(items[2].classes()).not.toContain('is-correct')
+    expect(items[2].classes()).not.toContain('is-wrong')
+  })
 })

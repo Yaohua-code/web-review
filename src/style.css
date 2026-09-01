@@ -58,6 +58,14 @@ body {
   --blank-answer-bg: #f0fdf4;
   --blank-answer-border: #bbf7d0;
   --blank-answer-text: #15803d;
+
+  /* 选题面板状态色 */
+  --picker-correct: #dcfce7;
+  --picker-correct-border: #16a34a;
+  --picker-correct-text: #14532d;
+  --picker-wrong: #fee2e2;
+  --picker-wrong-border: #dc2626;
+  --picker-wrong-text: #7f1d1d;
 }
 
 /* 暗色主题 */
@@ -109,6 +117,13 @@ html[data-theme='dark'] {
   --blank-answer-bg: #052e16;
   --blank-answer-border: #14532d;
   --blank-answer-text: #86efac;
+
+  --picker-correct: #052e16;
+  --picker-correct-border: #14532d;
+  --picker-correct-text: #86efac;
+  --picker-wrong: #3f1010;
+  --picker-wrong-border: #7f1d1d;
+  --picker-wrong-text: #fecaca;
 }
 
 body {

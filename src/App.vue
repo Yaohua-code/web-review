@@ -155,6 +155,14 @@ function pickQuestion(n: number): void {
   currentIndex.value = n - 1
   pickerOpen.value = false
 }
+/** 选题面板中某题号的答题状态：答对 / 答错 / 未答（未记录为 null，不改色） */
+function questionStatus(n: number): 'correct' | 'wrong' | null {
+  const q = basePool.value[n - 1]
+  if (!q) return null
+  const s = progress.value[q.id]
+  if (s === undefined) return null
+  return s ? 'correct' : 'wrong'
+}
 
 // ---------- 统计 ----------
 /** 当前题库内的统计（不跨题库） */
@@ -324,7 +332,11 @@ onMounted(() => {
               v-for="n in basePool.length"
               :key="n"
               class="picker__item"
-              :class="{ current: n === currentIndex + 1 }"
+              :class="[
+                questionStatus(n) === 'correct' ? 'is-correct' : '',
+                questionStatus(n) === 'wrong' ? 'is-wrong' : '',
+                { current: n === currentIndex + 1 },
+              ]"
               @click="pickQuestion(n)"
             >
               {{ n }}
@@ -585,6 +597,26 @@ onMounted(() => {
   border-color: var(--bg-chip-active);
   color: var(--text-chip-active);
   font-weight: 600;
+}
+.picker__item.is-correct {
+  background: var(--picker-correct);
+  border-color: var(--picker-correct-border);
+  color: var(--picker-correct-text);
+}
+.picker__item.is-wrong {
+  background: var(--picker-wrong);
+  border-color: var(--picker-wrong-border);
+  color: var(--picker-wrong-text);
+}
+.picker__item.current.is-correct {
+  background: var(--picker-correct);
+  border-color: var(--picker-correct-border);
+  color: var(--picker-correct-text);
+}
+.picker__item.current.is-wrong {
+  background: var(--picker-wrong);
+  border-color: var(--picker-wrong-border);
+  color: var(--picker-wrong-text);
 }
 
 @media (max-width: 520px) {
