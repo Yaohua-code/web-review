@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "generatedAt": "2026-08-31T09:07:39.723Z",
+  "version": 4,
+  "generatedAt": "2026-09-01T08:03:28.799Z",
   "banks": [
     {
       "id": "web",
@@ -3237,11 +3237,12 @@
     {
       "id": "py",
       "name": "Python题库",
-      "count": 327,
+      "count": 335,
       "counts": {
         "single": 200,
         "blank": 100,
-        "short": 27
+        "short": 27,
+        "comprehensive": 8
       },
       "questions": [
         {
@@ -6730,6 +6731,62 @@
           "question": "阅读下面的程序，判断其是否可以正常运行，如果可以运行则写出执行结果，如果不能运行则写出理由。\nclass Test1:\n    def __init__(self, value):\n        self.__value = value\n\n    @property\n    def value(self):\n        return self.__value\n\n\nt = Test(3)\nt.value = 5\nprint(t.value)",
           "answer": "不能运行。程序中定义的是只读属性，不能修改属性的值。",
           "id": "py:327"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "编写程序，实现输入某商品的单价和数量，计算商品的总价并输出。",
+          "answer": "price = float(input(\"请输入商品单价：\"))\nnum = int(input(\"请输入商品数量：\"))\ntotal = price * num\nprint(f\"商品总价为：{total}\")",
+          "id": "py:328"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "编写程序，实现输入体重和身高，输出身体质量指数（body mass index, BMI），其计算公式如下。\nBMI= 体重 / (身高 * 身高)\n其中，体重的单位是 kg，身高的单位是 m，均为浮点数。",
+          "answer": "weight = float(input(\"请输入体重(kg)：\"))\nheight = float(input(\"请输入身高(m)：\"))\nbmi = weight / (height**2)\nprint(f\"BMI值为：{bmi:.2f}\")",
+          "id": "py:329"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "编写函数，求三个数中的最大值。",
+          "answer": "def max_three(a, b, c):\n    return max(a, b, c)\n\n\n# 测试\nprint(max_three(12, 45, 28))",
+          "id": "py:330"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "定义汽车类 Car，包含品牌、颜色和产地 3 个变量。定义构造方法用于初始化上述 3 个变量的值，然后再定义一个方法，输出汽车的相关信息。",
+          "answer": "class Car:\n    # 构造方法\n    def __init__(self, brand, color, origin):\n        self.brand = brand\n        self.color = color\n        self.origin = origin\n\n    # 输出汽车信息\n    def show_info(self):\n        print(f\"品牌：{self.brand}，颜色：{self.color}，产地：{self.origin}\")\n\n\n# 测试\nif __name__ == \"__main__\":\n    c = Car(\"比亚迪\", \"白色\", \"中国\")\n    c.show_info()",
+          "id": "py:331"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "定义水果类 Fruit，包含水果名、产地和单价 3 个变量，定义 setXxx()方法和 getXxx()方法读写变量的值。然后创建 3 个水果类的对象，设置和输出 3 种不同水果的信息。",
+          "answer": "class Fruit:\n    def __init__(self, name=\"\", origin=\"\", price=0):\n        self.__name = name\n        self.__origin = origin\n        self.__price = price\n\n    # set/get\n    def set_name(self, n):\n        self.__name = n\n\n    def get_name(self):\n        return self.__name\n\n    def set_origin(self, o):\n        self.__origin = o\n\n    def get_origin(self):\n        return self.__origin\n\n    def set_price(self, p):\n        self.__price = p\n\n    def get_price(self):\n        return self.__price\n\n    def show(self):\n        print(f\"{self.get_name()}｜{self.get_origin()}｜{self.get_price()}元\")\n\n\nfruits = [\n    Fruit(\"苹果\", \"山东\", 5.8),\n    Fruit(\"芒果\", \"海南\", 9.5),\n    Fruit(\"葡萄\", \"新疆\", 12),\n]\nfor fruit in fruits:\n    fruit.show()",
+          "id": "py:332"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "使用 for 循环输出一个正立实心等腰三角形。",
+          "answer": "n = 5  # 三角形行数，可以修改\nfor i in range(1, n + 1):\n    # 打印空格\n    for j in range(n - i):\n        print(\" \", end=\"\")\n    # 打印星号\n    for k in range(2 * i - 1):\n        print(\"*\", end=\"\")\n    print()",
+          "id": "py:333"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "使用 while 循环输出 2～100 的所有素数（只能被 1 和自己整除的自然数）。",
+          "answer": "num = 2\nwhile num <= 100:\n    is_prime = True\n    i = 2\n    while i * i <= num:\n        if num % i == 0:\n            is_prime = False\n            break\n        i += 1\n    if is_prime:\n        print(num, end=\" \")\n    num += 1",
+          "id": "py:334"
+        },
+        {
+          "type": "comprehensive",
+          "chapter": "Python 编程",
+          "question": "输入九九乘法表",
+          "answer": "for x in range(1, 10):\n    for y in range(1, x + 1):\n        print(y, \"*\", x, \"=\", x * y, \" \", end=\"\")\n    print(\"\")",
+          "id": "py:335"
         }
       ]
     },

@@ -40,13 +40,14 @@ describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 376�
     expect(availableTypes(webBank)).toEqual(['single', 'blank', 'judge'])
   })
 
-  it('Python 题库 327 题（单选 200 / 填空 100 / 简答 27，无判断）', () => {
-    expect(pyBank.count).toBe(327)
+  it('Python 题库 335 题（单选 200 / 填空 100 / 简答 27 / 综合(代码) 8，无判断）', () => {
+    expect(pyBank.count).toBe(335)
     expect(pyBank.counts.single).toBe(200)
     expect(pyBank.counts.blank).toBe(100)
     expect(pyBank.counts.short).toBe(27)
+    expect(pyBank.counts.comprehensive).toBe(8)
     expect(pyBank.counts.judge).toBeUndefined()
-    expect(availableTypes(pyBank)).toEqual(['single', 'blank', 'short'])
+    expect(availableTypes(pyBank)).toEqual(['single', 'blank', 'short', 'comprehensive'])
   })
 
   it('互联网前沿新技术题库 376 题（单选 154 / 判断 100 / 填空 100 / 简答 20 / 综合 2）', () => {
@@ -93,9 +94,9 @@ describe('多题库数据完整性（Web 358 + Python 327 + 互联网前沿 376�
     }
   })
 
-  it('Web 题库有多个章节，Python 题库章节数为 3，互联网前沿章节为 2（基础+综合）', () => {
+  it('Python 题库章节数为 4，互联网前沿章节为 2（基础+综合）', () => {
     expect(availableChapters(webBank).length).toBeGreaterThan(1)
-    expect(availableChapters(pyBank)).toEqual(['Python 单选', 'Python 填空', 'Python 简答'])
+    expect(availableChapters(pyBank)).toEqual(['Python 单选', 'Python 填空', 'Python 简答', 'Python 编程'])
     expect(availableChapters(nwBank)).toEqual(['互联网前沿基础', '互联网前沿综合'])
   })
 })
@@ -212,6 +213,6 @@ describe('allQuestions / bankById 兼容兜底', () => {
     expect(bankById('not-exist').id).toBe('web')
   })
   it('bankById("py") 取出 Python 题库', () => {
-    expect(bankById('py').count).toBe(327)
+    expect(bankById('py').count).toBe(335)
   })
 })

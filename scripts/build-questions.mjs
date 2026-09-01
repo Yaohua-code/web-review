@@ -228,6 +228,37 @@ function cleanStr(v) {
   return String(v ?? '').replace(/\r/g, '').trim()
 }
 
+/* ---------- Python 代码题（*.py 目录，顶部注释为题目，代码为参考答案） ---------- */
+function parsePythonCodeQuestions(dirPath) {
+  const questions = []
+  if (!fs.existsSync(dirPath)) return questions
+  for (const f of fs.readdirSync(dirPath)) {
+    if (!f.endsWith('.py')) continue
+    const raw = fs.readFileSync(path.join(dirPath, f), 'utf-8').replace(/\r/g, '')
+    const lines = raw.split('\n')
+    // 顶部连续注释行作为题目（题目可多行）
+    const stem = []
+    let i = 0
+    while (i < lines.length && /^\s*#/.test(lines[i])) {
+      stem.push(lines[i].replace(/^\s*#\s?/, ''))
+      i++
+    }
+    if (!stem.length) continue
+    // 其余内容作为参考答案（去掉引导注释后的代码主体）
+    const code = lines.slice(i).join('\n').trim()
+    if (!code) continue
+    questions.push({
+      type: 'comprehensive',
+      chapter: 'Python 编程',
+      question: stem.join('\n'),
+      answer: code,
+    })
+  }
+  // 保证生成顺序稳定
+  questions.sort((a, b) => a.question.localeCompare(b.question))
+  return questions
+}
+
 /* ---------- 主流程：读取 2 个源 → 聚合写入 ---------- */
 /** 在 ROOT 下（含一级子目录）查找匹配文件名的文件（忽略大小写） */
 function findAnywhere(filename) {
@@ -252,7 +283,9 @@ async function main() {
   const pyXlsx = findAnywhere('Python复习题.xlsx')
   if (!pyXlsx) throw new Error('找不到 Python复习题.xlsx')
   const pyRaw = parseXlsxQuestions(pyXlsx)
-  const py = assignIds(pyRaw, 'py')
+  // Python 代码题（*.py 目录）：注释为题目，代码为参考答案
+  const pyCodeRaw = parsePythonCodeQuestions(path.join(ROOT, 'questionBank', 'Python代码题'))
+  const py = assignIds([...pyRaw, ...pyCodeRaw], 'py')
   // --- 互联网前沿新技术（raw JSON，来源于 *.doc 转制） ---
   if (!fs.existsSync(RAW_NEWTECH)) throw new Error(`找不到 ${RAW_NEWTECH}`)
   const newRaw = JSON.parse(fs.readFileSync(RAW_NEWTECH, 'utf-8'))
@@ -264,7 +297,7 @@ async function main() {
     buildBankMeta({ id: 'nw', name: '互联网前沿新技术', questions: nw }),
   ]
   const payload = {
-    version: 3,
+    version: 4,
     generatedAt: new Date().toISOString(),
     banks,
   }
