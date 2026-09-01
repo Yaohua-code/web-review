@@ -164,7 +164,7 @@ function submitBlank(): void {
     <div v-if="isBlank" class="blank">
       <div v-if="viewOnly" class="blank__answer">
         <span class="blank__answer-label">答案：</span
-        ><span class="blank__answer-text">{{ correctAnswer }}</span>
+        ><span class="blank__answer-text" v-text="correctAnswer"></span>
       </div>
       <div v-else class="blank__row">
         <input
@@ -182,7 +182,7 @@ function submitBlank(): void {
     <div v-if="isFreeText" class="short">
       <div v-if="viewOnly" class="blank__answer">
         <span class="blank__answer-label">参考答案：</span
-        ><span class="blank__answer-text">{{ correctAnswer }}</span>
+        ><span class="blank__answer-text" v-text="correctAnswer"></span>
       </div>
       <div v-else class="short__row">
         <textarea
@@ -200,7 +200,7 @@ function submitBlank(): void {
     <!-- 简答/综合：参考答案反馈（中性，不判对错）；看题模式由上方答案框展示 -->
     <div v-if="isFreeText && !viewOnly && shortRevealed" class="feedback feedback--short">
       <span class="feedback__icon">参考答案：</span>
-      <div class="feedback__answer short__answer-text">{{ correctAnswer }}</div>
+      <div class="feedback__answer short__answer-text" v-text="correctAnswer"></div>
     </div>
 
     <!-- 判分 / 答案反馈；看题模式下填空/简答/综合已由专用答案框展示，不再重复 -->
@@ -342,6 +342,8 @@ function submitBlank(): void {
 }
 .blank__answer-text {
   font-weight: 600;
+  white-space: pre-wrap;
+  line-height: 1.7;
 }
 .blank__input {
   flex: 1;
