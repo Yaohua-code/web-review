@@ -156,18 +156,6 @@ function pickQuestion(n: number): void {
   pickerOpen.value = false
 }
 
-// ---------- 按题号跳转 ----------
-const jumpOpen = ref(false)
-const jumpNum = ref('')
-/** 输入 1~N 跳转到当前筛选结果中的对应题号 */
-function jumpTo(): void {
-  const n = Number(jumpNum.value)
-  if (!Number.isInteger(n) || n < 1 || n > basePool.value.length) return
-  currentIndex.value = n - 1
-  jumpOpen.value = false
-  jumpNum.value = ''
-}
-
 // ---------- 统计 ----------
 /** 当前题库内的统计（不跨题库） */
 const statAnswered = computed(() =>
@@ -304,20 +292,6 @@ onMounted(() => {
       <template v-else>
         <div class="progress-line">
           <span>第 {{ currentIndex + 1 }} / {{ basePool.length }} 题</span>
-          <span class="progress-line__jump">
-            <button class="jump-toggle" @click="jumpOpen = !jumpOpen">🔢 跳题</button>
-            <input
-              v-if="jumpOpen"
-              v-model="jumpNum"
-              class="jump-input"
-              type="number"
-              min="1"
-              :max="basePool.length"
-              placeholder="题号 1~N"
-              @keyup.enter="jumpTo"
-              @blur="jumpOpen = false"
-            />
-          </span>
           <span v-if="!viewMode && currentProgress !== null" class="progress-line__hint">
             {{ currentProgress ? '已答对' : '已答错' }}
           </span>
@@ -530,33 +504,6 @@ onMounted(() => {
   font-size: 13px;
   color: var(--text-soft);
   margin-bottom: 10px;
-}
-.progress-line__jump {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.jump-toggle {
-  border: 1px solid var(--border);
-  background: var(--bg-chip);
-  color: var(--text-muted);
-  border-radius: 999px;
-  padding: 2px 10px;
-  font-size: 12px;
-  cursor: pointer;
-}
-.jump-input {
-  width: 84px;
-  border: 1px solid var(--border);
-  background: var(--bg-input);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 4px 8px;
-  font-size: 13px;
-  outline: none;
-}
-.jump-input:focus {
-  border-color: var(--accent);
 }
 .progress-line__hint.ok {
   color: #16a34a;

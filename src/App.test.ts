@@ -49,44 +49,6 @@ describe('App 重置进度', () => {
   })
 })
 
-describe('App 按题号跳转', () => {
-  it('点击跳题，输入有效题号并回车可跳转到对应题', async () => {
-    const wrapper = mount(App)
-    // 初始在第 1 题
-    expect(progressLine(wrapper)).toContain('第 1 / 358 题')
-
-    // 打开跳题输入框
-    await btnByText(wrapper, '.jump-toggle', '🔢 跳题').trigger('click')
-    const input = wrapper.find('.jump-input')
-    expect(input.exists()).toBe(true)
-
-    // 输入 5 并回车
-    await input.setValue('5')
-    await input.trigger('keyup.enter')
-    expect(progressLine(wrapper)).toContain('第 5 / 358 题')
-    // 跳转后输入框关闭
-    expect(wrapper.find('.jump-input').exists()).toBe(false)
-  })
-
-  it('输入超出范围的题号不跳转', async () => {
-    const wrapper = mount(App)
-    await btnByText(wrapper, '.jump-toggle', '🔢 跳题').trigger('click')
-    const input = wrapper.find('.jump-input')
-    await input.setValue('9999')
-    await input.trigger('keyup.enter')
-    expect(progressLine(wrapper)).toContain('第 1 / 358 题')
-  })
-
-  it('输入非法内容不跳转', async () => {
-    const wrapper = mount(App)
-    await btnByText(wrapper, '.jump-toggle', '🔢 跳题').trigger('click')
-    const input = wrapper.find('.jump-input')
-    await input.setValue('abc')
-    await input.trigger('keyup.enter')
-    expect(progressLine(wrapper)).toContain('第 1 / 358 题')
-  })
-})
-
 describe('App 选题面板', () => {
   it('点击选题按钮弹出面板，选择题号跳转并关闭面板', async () => {
     const wrapper = mount(App)
