@@ -1,6 +1,9 @@
 # 文档文件
 *.docx
 
+# Office 临时锁文件
+~$*
+
 # Logs
 logs
 *.log
